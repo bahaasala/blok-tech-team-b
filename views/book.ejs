@@ -1,0 +1,89 @@
+<div class="trip book-trip container">
+  <% if (trip) { %>
+  <div
+    class="trip__image-container book-trip__image-container"
+    style="background-image: url('<%= trip.images[3].url %>')"
+  ></div>
+  <div
+    class="trip__details-container book-trip__details-container slide-in-top"
+  >
+    <div class="title-container slide-in-top">
+      <section>
+        <h1 class="title"><%= trip.destination %></h1>
+        <p class="duration"><%= trip.duration %> day tour</p>
+      </section>
+      <div>
+        <p class="price">,- <%= trip.price %></p>
+        <p class="per-person">per person</p>
+      </div>
+    </div>
+    <div class="inner-container slide-in-top">
+      <form
+        class="booking-form"
+        action="/trips/<%= trip.slug %>/book"
+        method="POST"
+      >
+        <section>
+          <h4>availability</h4>
+          <% for (let available of trip.availability) { %>
+          <div class="select-box">
+            <input
+              type="radio"
+              name="date_range"
+              value="<%= available.start_date %>-<%= available.end_date %>"
+              required
+            />
+            <label>
+              <span>
+                <%= available.start_date %> - <%= available.end_date %>
+              </span>
+            </label>
+          </div>
+          <% } %>
+        </section>
+        <section>
+          <h4>room type</h4>
+          <% for (let room of trip.rooms) { %>
+          <div class="select-box select-box-room">
+            <input
+              type="radio"
+              id="room"
+              name="room"
+              value="<%= room.type %> <%= room.gender %> €<%= room.price %>"
+              required
+            />
+            <label class="" for="room">
+              <span><%= room.type %></span>
+              <span><%= room.gender %></span>
+              <span>€<%= room.price %></span>
+            </label>
+          </div>
+          <% } %>
+        </section>
+        <section class="personal-info">
+          <h4>your personal info</h4>
+          <input
+            name="first_name"
+            type="text"
+            value="<%= user.first_name %>"
+            readonly
+          />
+          <input
+            name="last_name"
+            type="text"
+            value="<%= user.last_name %>"
+            readonly
+          />
+          <input name="email" type="text" value="<%= user.email %>" readonly />
+        </section>
+        <div class="book-btn-container">
+          <div class="spacer"></div>
+          <div>
+            <button class="btn book-btn" type="submit">Book now</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <% } %>
+</div>

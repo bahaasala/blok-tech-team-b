@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+<div class="trips container">
+  <section class="trips__heading-container">
+    <h1 class="slide-in-left">trips</h1>
+  </section>
+  <div class="trips__container">
+    <ul class="trips-list">
+      <% for (let trip of trips) { %>
+      <li class="trip-item">
+        <a href="/trips/<%= trip.slug %>">
+          <div class="trip-image-container">
+            <% for (let image of trip.images) { %>
+            <img
+              class="trip-image"
+              src="<%= image.url %>"
+              alt="<%= image.alt %>"
+            />
+            <% } %>
+          </div>
+          <div class="trip-title-container">
+            <h3 class="title"><%= trip.destination %></h3>
+          </div>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>

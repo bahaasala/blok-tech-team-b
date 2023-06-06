@@ -1,0 +1,64 @@
+// Font family
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+p {
+    color: $color-black;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6{
+    color: $color-blue;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    color: $color-blue;
+}
+h3 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    color: $color-blue;
+}
+
+// Links
+a{
+    color: $color-orange;
+    text-decoration: none;
+}
+.btn{
+    display: block;
+    background-color: $color-orange;
+    border-radius: 45px;
+    padding: 18px 20px;
+    color: $color-white;
+    text-align: center;
+    border: solid 1px $color-orange;
+    transition: 0.25s ease-in-out;
+    font-size: 16px;
+    &:hover{
+        background-color: $color-white;
+        color: $color-orange;
+    }
+    &--secondary{
+        background-color: $color-blue--lighter;
+        border-color: $color-blue--lighter;
+        font-size: 12px;
+    }
+    &--danger{
+        background-color: $color-red;
+        border-color: $color-red;
+        font-size: 12px;
+    }
+}

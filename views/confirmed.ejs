@@ -1,0 +1,39 @@
+<div class="trip confirmed container">
+  <div
+    class="trip__image-container book-trip__image-container"
+    style="background-image: url('<%= trip.images[3].url %>')"
+  ></div>
+  <div class="trip__details-container book-trip__details-container">
+    <div class="title-container">
+      <section>
+        <h1 class="title"><%= booking.destination %></h1>
+        <p class="duration"><%= trip.duration %> day tour</p>
+      </section>
+    </div>
+    <% if (booking) { %>
+    <section>
+      <h2>Congratulations <%= user.first_name %></h2>
+      <p>save the date:</p>
+      <p><%= booking.date_range %></p>
+      <p>We have sent you an email at <%= user.email %></p>
+      <p>Thank you for booking with us!</p>
+      <img />
+    </section>
+    <% } %>
+    <div class="buttons-container">
+      <form
+        action="/trips/<%= trip.slug %>/book/confirmed/<%= booking._id %>/delete"
+        method="POST"
+      >
+        <button
+          class="btn btn--danger"
+          onclick="return confirm('Are you sure you want to delete this booking?');"
+          type="submit"
+        >
+          Delete Booking
+        </button>
+      </form>
+      <a href="/" class="btn btn--secondary">back to Home</a>
+    </div>
+  </div>
+</div>

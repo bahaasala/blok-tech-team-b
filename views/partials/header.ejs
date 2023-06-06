@@ -1,0 +1,12 @@
+<header>
+  <div>
+    <a href="/">
+      <img src="/images/logo.svg" alt="logo" />
+    </a>
+  </div>
+  <% if (user) { %>
+  <a href="/profile/edit">
+    <img class="avatar" src="/images/<%= user.image %>" />
+  </a>
+  <% } %>
+</header>
