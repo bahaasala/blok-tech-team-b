@@ -25,7 +25,7 @@ A travel app that connects users with pre-organized trips created by other trave
 
 ## 🤝 **Code of Conduct**
 
-This project uses a [Contributor Covenant Code of Conduct](https://github.com/bahaasala/blok-tech-team-b/blob/main/CODE_OF_CONDUCT.md) Code of Conduct. For more information or questions mail us.
+This project uses a [Contributor Covenant Code of Conduct](https://github.com/bahaasala/blok-tech-team-b/blob/main/CODE_OF_CONDUCT.md). For more information or questions mail us.
 
 ## 📦 **Installation**
 
@@ -48,5 +48,14 @@ To start the project, use the following command:
 ```js
 npm start
 ```
+
+## How is the browser support? Does the feature work in all browsers?
+So far, we have tested the site on the following browsers. You just need to enable location on your computer, and possibly on a per-browser basis.
+Additionally, we have applied a [CSS prefixer](https://autoprefixer.github.io/) to our CSS/SASS code. This ensures that if certain CSS features are not supported in certain browsers, they will still appear almost the same in a different way.
+* ✅ Chrome, works 
+* ✅ Safari, works 
+* ✅ Firefox, works 
+* ✅ Opera, works
+
 
 **Enjoy Exploring Explora! 🏝**
