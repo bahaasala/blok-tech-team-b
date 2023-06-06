@@ -61,7 +61,4 @@ Additionally, we have applied a [CSS prefixer](https://autoprefixer.github.io/) 
 - ✅ Firefox, works
 - ✅ Opera, works
 
-Test
-Test2
-
 **Enjoy Exploring Explora! 🏝**
