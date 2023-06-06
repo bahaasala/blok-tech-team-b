@@ -4,6 +4,7 @@
   "description": "Project Tech Team B - Travel App",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bahaa Salaymeh",
