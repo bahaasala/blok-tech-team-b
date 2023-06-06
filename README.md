@@ -49,7 +49,7 @@ To start the project, use the following command:
 npm start
 ```
 
-## How is the browser support? Does the feature work in all browsers?
+## Browser support
 So far, we have tested the site on the following browsers. You just need to enable location on your computer, and possibly on a per-browser basis.
 Additionally, we have applied a [CSS prefixer](https://autoprefixer.github.io/) to our CSS/SASS code. This ensures that if certain CSS features are not supported in certain browsers, they will still appear almost the same in a different way.
 * ✅ Chrome, works 
