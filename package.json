@@ -4,6 +4,8 @@
   "description": "Project Tech Team B - Travel App",
   "main": "server.js",
   "scripts": {
+    "build": "npx sass scss/index.scss public/styles/index.css",
+    "watch": "npx sass --watch scss/index.scss:public/styles/index.css",
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
