@@ -32,77 +32,30 @@ app.use(expressLayouts);
 app.set("layout", "./layouts/layout");
 app.set("view engine", "ejs").set("views", "views");
 
+
+
+// Routes controllers logica
+const testRoute = require("./controllers/testRoute");
+app.use("/test", testRoute);
+
+const startPage = require("./controllers/startPage");
+app.use("/", startPage);
+
+const tripsPage = require("./controllers/tripsPage");
+app.use("/trips", tripsPage);
+
+const tripsTripnamePage = require("./controllers/tripsTripnamePage");
+app.use("/trips/:trip", tripsTripnamePage);
+
+const profileEditPage = require("./controllers/profileEditPage");
+app.use ("/profile/edit", profileEditPage);
+
+
+
 // routes GET requests
-app
-  .get("/", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
 
-      const trips = await db.collection("trips").find().toArray();
 
-      const updatedTrips = await Promise.all(
-        trips.map(async (trip) => {
-          const photos = await unsplash.searchPhotos(trip.destination);
-          trip.images = photos.map((photo) => {
-            return {
-              url: photo.url,
-              alt: photo.alt,
-            };
-          });
-          await db
-            .collection("trips")
-            .updateOne({ _id: trip._id }, { $set: trip });
-          return trip;
-        })
-      );
-
-      res.render("index.ejs", {
-        title: "Home",
-        user: user,
-        trips: updatedTrips,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips", async (req, res) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-      const trips = await db.collection("trips").find().toArray();
-      res.render("trips.ejs", {
-        title: "Trips",
-        user: user,
-        trips: trips,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips/:trip", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-      const tripSlug = req.params.trip;
-      const trip = await db.collection("trips").findOne({ slug: tripSlug });
-      if (!trip) {
-        res.status(404).render("not_found.ejs");
-        return;
-      }
-      res.render("trip_details.ejs", {
-        title: trip.destination,
-        user: user,
-        trip: trip,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips/:trip/book", async (req, res, next) => {
+app.get("/trips/:trip/book", async (req, res, next) => {
     try {
       const user = await db
         .collection("users")
@@ -141,7 +94,8 @@ app
       next(err);
     }
   })
-  .post("/trips/:trip/book", async (req, res, next) => {
+
+app.post("/trips/:trip/book", async (req, res, next) => {
     const user = await db.collection("users").findOne({ first_name: "Bahaa" });
     const tripSlug = req.params.trip;
     const trip = await db.collection("trips").findOne({ slug: tripSlug });
@@ -162,7 +116,8 @@ app
     const bookingId = booking.insertedId;
     res.redirect("/trips/" + tripSlug + "/book/confirmed/" + bookingId);
   })
-  .get("/trips/:trip/book/confirmed/:bookingId", async (req, res, next) => {
+
+app.get("/trips/:trip/book/confirmed/:bookingId", async (req, res, next) => {
     const tripSlug = req.params.trip;
     const trip = await db.collection("trips").findOne({ slug: tripSlug });
     const bookingId = req.params.bookingId;
@@ -210,7 +165,8 @@ app
       next(err);
     }
   })
-  .post(
+
+app.post(
     "/trips/:trip/book/confirmed/:bookingId/delete",
     async (req, res, next) => {
       const bookingId = req.params.bookingId;
@@ -237,23 +193,6 @@ app
       }
     }
   )
-  .get("/profile/edit", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-
-      const referer = req.headers.referer;
-
-      res.render("profile.ejs", {
-        title: "Edit Profile",
-        user: user,
-        referer: referer,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
 
   // 404 page
   .use((req, res) => {
