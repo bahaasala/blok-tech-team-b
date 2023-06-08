@@ -1,16 +1,11 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: "eslint:recommended",
-  overrides: [],
+  extends: ["eslint:recommended", "prettier"],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 2023,
+    sourceType: "script"
   },
-  rules: {
-    semi: ["error", "always"],
-    quotes: ["error", "double"],
-  },
-};
+  env: {
+    node: true, // Add this line to specify the code is running in a Node.js environment
+    es6: true
+  }
+}
