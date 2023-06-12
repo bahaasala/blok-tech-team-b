@@ -25,6 +25,77 @@
         <p><%= trip.duration %> days</p>
       </section>
     </div>
+    
+    <div class="review">
+      <form action="">
+        <fieldset>
+          <legend>make a review</legend>
+
+          <section class="rating">
+            <label for="rating"></label>
+            <label>
+              <input type="radio" name="stars" value="1" />
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="2" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="3" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>   
+            </label>
+            <label>
+              <input type="radio" name="stars" value="4" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="5" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+          </section>
+
+          <section>
+            <label for="review-description">description</label>
+            <textarea
+              class=""
+              id="review-description"
+              name="breview-description"
+              placeholder="write about what you liked and what you didn't like"
+              required
+            ></textarea>
+          </section>
+          
+          <section>
+            <label for="place">location</label>
+            <input
+              type="text"
+              id="place"
+              name="place"
+              placeholder="your adress"
+              required
+            />
+            <button class="uit" id="locatieKnopId">
+              use current location
+            </button>
+            <p class="">*the 'Use current location' button is not working. Please
+              restart the website or enter manually</p>
+          </section>
+
+        </fieldset>
+      </form>
+    </div>
+
     <div class="book-btn-container">
       <div class="spacer"></div>
       <div>

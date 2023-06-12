@@ -1,4 +1,5 @@
 @import 'vars/colors.scss';
+@import '/review.scss';
 @import 'layout/typography.scss';
 
 // General
@@ -263,7 +264,7 @@ ul.trips-list{
             }
         }
         .book-btn{
-            
+        
         }
     }
 }
