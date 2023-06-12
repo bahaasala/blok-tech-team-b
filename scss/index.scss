@@ -1,6 +1,6 @@
 @import 'vars/colors.scss';
-@import '/review.scss';
 @import 'layout/typography.scss';
+@import 'review.scss';
 
 // General
 body {
@@ -262,9 +262,6 @@ ul.trips-list{
                 padding: 10px 0px;
                 color: $color-grey;
             }
-        }
-        .book-btn{
-        
         }
     }
 }

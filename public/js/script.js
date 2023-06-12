@@ -52,3 +52,19 @@ window.addEventListener("load", () => {
     main.style.display = "block";
   }, 500);
 });
+
+// Show submit screen when form is filled
+
+const showFormSubmitButton = document.querySelector(".review section:nth-of-type(4) button");
+const hiddenFormSend = document.querySelector(".review section:nth-of-type(5)");
+const hideFormSend = document.querySelector(".review section:nth-of-type(5) button");
+
+showFormSubmitButton.addEventListener("click", () => {
+  hiddenFormSend.classList.remove("hidden");
+  console.log("show submit screen");
+});
+
+hideFormSend.addEventListener("click", () => {
+  hiddenFormSend.classList.add("hidden");
+  console.log("hide submit screen");
+});

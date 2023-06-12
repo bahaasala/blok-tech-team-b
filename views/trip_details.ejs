@@ -27,7 +27,7 @@
     </div>
     
     <div class="review">
-      <form action="">
+      <form action="" method="POST">
         <fieldset>
           <legend>make a review</legend>
 
@@ -72,13 +72,13 @@
               id="review-description"
               name="breview-description"
               placeholder="write about what you liked and what you didn't like"
-              required
             ></textarea>
           </section>
           
           <section>
             <label for="place">location</label>
             <input
+            class=""
               type="text"
               id="place"
               name="place"
@@ -86,12 +86,23 @@
               required
             />
             <button class="uit" id="locatieKnopId">
-              use current location
+              Use current location
             </button>
             <p class="">*the 'Use current location' button is not working. Please
               restart the website or enter manually</p>
           </section>
 
+          <section id="showFormSubmitButton">
+            <button>Send</button>
+          </section>
+          
+          <section class="hidden">
+            <h4>Are you sure you want to publish this review?</h4>
+            <div>
+              <button id="">No, go back</button>
+              <input class="" type="submit" value="Yes, send" />
+            </div>
+          </section>
         </fieldset>
       </form>
     </div>
