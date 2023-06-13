@@ -26,85 +26,88 @@
       </section>
     </div>
     
-    <div class="review">
-      <form action="" method="POST">
-        <fieldset>
-          <legend>make a review</legend>
+    <div class="review slide-in-top">
+      <details>
+        <summary>write a review</summary>
+        <form action="/post" method="POST">
+          <fieldset>
+            <legend>what did you think of your trip?</legend>
+  
+            <section class="rating">
+              <label for="rating"></label>
+              <label>
+                <input type="radio" name="stars" value="1" />
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="2" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="3" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>   
+              </label>
+              <label>
+                <input type="radio" name="stars" value="4" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="5" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+            </section>
+  
+            <section>
+              <label for="review-description">description</label>
+              <textarea
+                class=""
+                id="review-description"
+                name="review-description"
+                placeholder="write about what you liked and what you didn't like"
+                required
+              ></textarea>
+            </section>
+            
+            <section>
+              <label for="place">location</label>
+              <input
+                class=""
+                type="text"
+                id="locationReview"
+                name="review-place"
+                placeholder="your adress"
+                required
+              />
+              <button class="" id="locationReviewButton">
+                Use current location
+              </button>
+              <p class="">*the 'Use current location' button is not working. Please
+                restart the website or enter manually</p>
+            </section>
 
-          <section class="rating">
-            <label for="rating"></label>
-            <label>
-              <input type="radio" name="stars" value="1" />
-              <span class="icon">★</span>
-            </label>
-            <label>
-              <input type="radio" name="stars" value="2" />
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-            </label>
-            <label>
-              <input type="radio" name="stars" value="3" />
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>   
-            </label>
-            <label>
-              <input type="radio" name="stars" value="4" />
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-            </label>
-            <label>
-              <input type="radio" name="stars" value="5" />
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-            </label>
-          </section>
-
-          <section>
-            <label for="review-description">description</label>
-            <textarea
-              class=""
-              id="review-description"
-              name="breview-description"
-              placeholder="write about what you liked and what you didn't like"
-            ></textarea>
-          </section>
-          
-          <section>
-            <label for="place">location</label>
-            <input
-            class=""
-              type="text"
-              id="place"
-              name="place"
-              placeholder="your adress"
-              required
-            />
-            <button class="uit" id="locatieKnopId">
-              Use current location
-            </button>
-            <p class="">*the 'Use current location' button is not working. Please
-              restart the website or enter manually</p>
-          </section>
-
-          <section id="showFormSubmitButton">
-            <button>Send</button>
-          </section>
-          
-          <section class="hidden">
-            <h4>Are you sure you want to publish this review?</h4>
             <div>
-              <button id="">No, go back</button>
-              <input class="" type="submit" value="Yes, send" />
+              <input
+                class=""
+                type="submit"
+                value="Submit"
+                id="showFormSubmitButton"
+                required
+              />
             </div>
-          </section>
-        </fieldset>
-      </form>
+            
+          </fieldset>
+        </form>
+      </details>
     </div>
 
     <div class="book-btn-container">

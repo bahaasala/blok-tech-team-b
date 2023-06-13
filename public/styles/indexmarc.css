@@ -407,76 +407,42 @@ ul.trips-list li.active {
   border: 1px solid #1B2739;
   border-radius: 20px;
   padding: 10px;
+  margin-bottom: 40px;
 }
 
-.review section:nth-of-type(4) {
+.review section:nth-of-type(3) button:hover,
+.review div input:hover {
+  color: #1B2739;
+  background-color: #ffffff;
+  border: 1px solid #1B2739;
+}
+
+.review summary {
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #1B2739;
+}
+
+.review div {
   display: flex;
   flex-direction: column;
 }
 
-.review section:nth-of-type(4) button {
+.review div input {
   color: #ffffff;
   background-color: #1B2739;
-  border: 1px solid #1B2739;
+  border: 1px solid;
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 40px;
 }
 
-
-
-
-
-.review section:nth-of-type(5) {
-  position:fixed;
-  left:0;
-  right:0;
-  top:1;
-  bottom:0;
-  background-color: #1B2739;
-  border-radius: 20px 0px 0px 0px;
-  margin: 20px 20px 0px 20px;
-  transition: opacity 2s ease-in;
-}
-
-.review section:nth-of-type(5) div {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-} 
-
-.review section:nth-of-type(5) h4 {
-  color: #ffffff;
-  margin: 20px;
-  font-size: 30px;
-}
-
-.review section:nth-of-type(5) button {
-  color: #1B2739;
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 20px 0px 40px 0px; 
-}
-
-.review section:nth-of-type(5) input {
-  color: #ffffff;
-  background-color: #E85C05;
-  border: 1px solid #E85C05;
-  border-radius: 20px;
-  padding: 10px;
-  margin-bottom: 270px;
-}
-
-
-
 .hidden {
   display: none;
 }
 
-.clicked {
-  border: solid 1px  #18d512;
+.kleur {
+  border: #E85C05;
 }
   
 /* MARC BAKKER Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
