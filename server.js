@@ -1,6 +1,5 @@
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
-const { connect } = require("./connect")
 const app = express()
 const port = 3000
 
@@ -8,6 +7,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
+const connect = require("./schemas/connect")
 
 // connect to MongoDB
 const connectDB = async () => {
