@@ -65,118 +65,6 @@ a {
   font-size: 12px;
 }
 
-/* MARC BAKKER Review styling */
-.review fieldset {
-  border-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.review legend {
-  font-weight: bold;
-  color: #1B2739;
-  margin-bottom: 20px;
-}
-
-.review label {
-  font-weight: bold;
-}
-
-.review section:nth-of-type(2), .review section:nth-of-type(3) {
-  display: flex;
-  flex-direction: column;
-}
-
-.review section textarea {
-  margin-bottom: 40px;
-}
-
-.review input {
-  margin-bottom: 20px;
-}
-
-.review section:nth-of-type(2) label:first-of-type,
-.review section:nth-of-type(3) label:first-of-type {
-  margin-bottom: 20px;
-  color: #1B2739;
-}
-
-.review section:nth-of-type(3) button {
-  color: #ffffff;
-  background-color: #1B2739;
-  border: 1px solid #1B2739;
-  border-radius: 20px;
-  padding: 10px;
-}
-
-/* MARC BAKKER Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
-.rating {
-  display: inline-block;
-  position: relative;
-  height: 35px;
-  line-height: 35px;
-  font-size: 35px;
-  margin-bottom: 20px;
-}
-
-.rating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  cursor: pointer;
-}
-
-.rating label:last-child {
-  position: static;
-}
-
-.rating label:nth-child(1) {
-  z-index: 5;
-}
-
-.rating label:nth-child(2) {
-  z-index: 4;
-}
-
-.rating label:nth-child(3) {
-  z-index: 3;
-}
-
-.rating label:nth-child(4) {
-  z-index: 2;
-}
-
-.rating label:nth-child(5) {
-  z-index: 1;
-}
-
-.rating label input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.rating label .icon {
-  float: left;
-  color: transparent;
-}
-
-.rating label:last-child .icon {
-  color: #1B2739;
-}
-
-.rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
-  color: #E85C05;
-}
-
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-  color: #1B2739;
-  text-shadow: 0 0 5px #E85C05;
-}
-
 body {
   background-color: #ffffff;
   margin: 0;
@@ -476,8 +364,11 @@ ul.trips-list li.active {
 .review label {
   font-weight: bold;
 }
-.review .review section:nth-of-type(2),
-.review .review section:nth-of-type(3) {
+.review section:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+}
+.review section:nth-of-type(3) {
   display: flex;
   flex-direction: column;
 }
@@ -547,7 +438,7 @@ ul.trips-list li.active {
 }
 
 .clickedReview {
-  background-color: #ffdbc4;
+  background-color: #fbc96d;
 }
 
 /* MARC BAKKER Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
@@ -566,24 +457,6 @@ ul.trips-list li.active {
   height: 100%;
   cursor: pointer;
 }
-.rating label :last-child {
-  position: static;
-}
-.rating label :nth-child(1) {
-  z-index: 5;
-}
-.rating label :nth-child(2) {
-  z-index: 4;
-}
-.rating label :nth-child(3) {
-  z-index: 3;
-}
-.rating label :nth-child(4) {
-  z-index: 2;
-}
-.rating label :nth-child(5) {
-  z-index: 1;
-}
 .rating label input {
   position: absolute;
   top: 0;
@@ -594,16 +467,35 @@ ul.trips-list li.active {
   float: left;
   color: transparent;
 }
-.rating label :last-child .icon {
-  color: #1B2739;
-}
-.rating .rating:not(:hover) label input:checked ~ .icon,
-.rating .rating:hover label:hover input ~ .icon {
-  color: #E85C05;
-}
-.rating .rating label input:focus:not(:checked) ~ .icon:last-child {
+.rating label input:focus:not(:checked) ~ .icon:last-child {
   color: #1B2739;
   text-shadow: 0 0 5px #E85C05;
+}
+.rating label:last-child {
+  position: static;
+}
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+.rating label:last-child .icon {
+  color: #1B2739;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #E85C05;
 }
 
 /*# sourceMappingURL=index.css.map */
