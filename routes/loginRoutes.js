@@ -1,10 +1,8 @@
 const express = require("express")
 const router = express.Router()
-const bcrypt = require("bcrypt")
+const loginController = require("../controllers/loginController.js")
 
-const loginController = require("../controllers/loginController")
-
-router.get("/login", loginController.getLoginPage)
-router.post("/login", loginController.login)
+router.get("/login", loginController)
+router.post("/login", loginController)
 
 module.exports = router

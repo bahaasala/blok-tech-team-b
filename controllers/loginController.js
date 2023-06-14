@@ -11,7 +11,7 @@ const loginController = async (req, res, next) => {
 module.exports = loginController
 
 const bcrypt = require("bcrypt")
-const User = require("./User")
+const User = require("../schemas/User")
 
 // Function for displaying the login page
 exports.getLoginPage = (req, res) => {
@@ -23,8 +23,7 @@ exports.login = async (req, res) => {
   const { username, password } = req.body
 
   try {
-    const collection = client.db("register").collection("users")
-    const user = await collection.findOne({ username })
+    const user = await User.findOne({ username })
 
     if (user) {
       const match = await bcrypt.compare(password, user.password)

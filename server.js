@@ -43,6 +43,7 @@ app
   .use("/trips", tripsRouter)
   .use("/bookings", bookingsRouter)
   .use("/wishlist", wishlistRouter)
+  .use("/login", loginRouter)
 
 // 404 page
 app.use((req, res) => {
