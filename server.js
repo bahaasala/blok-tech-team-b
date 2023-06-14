@@ -8,6 +8,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
+const loginRouter = require("./routes/loginRoutes")
 
 // connect to MongoDB
 const connectDB = async () => {

@@ -1,313 +1,449 @@
-@import 'vars/colors.scss';
-@import 'layout/typography.scss';
+@import "vars/colors.scss";
+@import "layout/typography.scss";
 
 // General
 body {
-    background-color: $color-white;
-    margin: 0;
+  background-color: $color-white;
+  margin: 0;
 }
+
 main {
-    display: none;
+  display: none;
 }
+
 .loading {
-    position: absolute;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    top: 0;
-    height: 100vh;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  top: 0;
+  height: 100vh;
 }
+
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    .avatar{
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  }
 }
+
 // hide horizontal scrollbar
-::-webkit-scrollbar{
-    display:none
+::-webkit-scrollbar {
+  display: none;
 }
 
 // Containers
 .container {
-    max-width: 425px;
-    margin: 0 auto;
+  max-width: 425px;
+  margin: 0 auto;
 }
 
 // Images
 img {
-    width: 100%;
+  width: 100%;
 }
 
 // Startpage - Home
-.home{
-    &__intro-container{
-        margin: 35px 25px 0px 25px;
-        .logo{
-            width: 200px;
-        }
-        .tagline{
-            font-size: 20px;
-            font-weight: 100;
-            color: $color-blue;
-            margin-bottom: 10px;
-            margin-top: 40px;
-        }
-        .title{
-            max-width: 300px;
-        }
-        .btn{
-            margin-top: 35px;
-            margin-left: 120px;
-        }
+.home {
+  &__intro-container {
+    margin: 35px 25px 0px 25px;
+
+    .logo {
+      width: 200px;
     }
-    &__trips-container{
-        position: relative;
-        margin-top: 50px;
+
+    .tagline {
+      font-size: 20px;
+      font-weight: 100;
+      color: $color-blue;
+      margin-bottom: 10px;
+      margin-top: 40px;
     }
+
+    .title {
+      max-width: 300px;
+    }
+
+    .btn {
+      margin-top: 35px;
+      margin-left: 120px;
+    }
+  }
+
+  &__trips-container {
+    position: relative;
+    margin-top: 50px;
+  }
+}
+
+// Log In
+.login {
+  position: absolute;
+  max-width: 425px;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background-image: url("../images/lisbon.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+.login_form_container {
+  form {
+    padding: 30px 25px 30px 25px;
+    margin: 200px 20px 0px 20px;
+    border-radius: 50px 0 0 0;
+
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+  }
+  .input-box {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    position: relative;
+    padding: 10px 5px;
+    border: solid 0.5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  a {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .btn {
+    margin-top: 10px;
+    padding: 10px 50px;
+  }
+}
+
+// Register
+.register {
+  position: absolute;
+  max-width: 425px;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background-image: url("../images/bali.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
+.register_form_container {
+  form {
+    padding: 30px 25px 30px 25px;
+    margin: 150px 20px 0px 20px;
+    border-radius: 50px 0 0 0;
+
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+  }
+  .input-box {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    position: relative;
+    padding: 10px 5px;
+    border: solid 0.5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  a {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .btn {
+    margin-top: 10px;
+    padding: 10px 50px;
+  }
+  p {
+    text-align: center;
+  }
+  i {
+    font-size: 10px;
+  }
 }
 
 // Trips
-.trips{
-    &__heading-container{
-        margin: 35px 25px 0px 25px;
+.trips {
+  &__heading-container {
+    margin: 35px 25px 0px 25px;
+  }
+
+  .trips-list {
+    padding-top: 20px;
+    padding-bottom: 200px;
+
+    li {
+      &:first-child {
+        margin-left: 25px;
+      }
+
+      &:last-child {
+        margin-right: 50px;
+      }
+
+      .trip-image-container {
+        height: 100%;
+      }
+
+      .trip-title-container {
+        position: absolute;
+        bottom: -100px;
+        width: 100%;
+      }
     }
-    .trips-list{
-        padding-top: 20px;
-        padding-bottom: 200px;
-        li{
-            &:first-child{
-                margin-left: 25px;
-            }
-            &:last-child{
-                margin-right: 50px;
-            }
-            .trip-image-container{
-                height: 100%;
-            }
-            .trip-title-container{
-                position: absolute;
-                bottom: -100px;
-                width: 100%;
-            }
-        }
-    }
-    .title{
-        text-align: center;
-        font-weight: 600;
-        margin-top: 30px;
-    }
+  }
+
+  .title {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+  }
 }
 
 // All trips - List
-ul.trips-list{
-    left: 0;
-    width: 100%;
-    display: flex;
-    overflow: auto;
-    flex-grow: 1;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 0;
-    margin: 0;
-    color: $color-white;
-    overflow-y: hidden;
+ul.trips-list {
+  left: 0;
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  flex-grow: 1;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  color: $color-white;
+  overflow-y: hidden;
+  min-height: 400px;
+
+  li {
+    min-width: 250px;
+    flex: 0 0 auto;
+    margin: 0px 20px 0px 0px;
+    list-style-type: none;
+    align-items: stretch;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 200px;
     min-height: 400px;
-    li{
-        min-width: 250px;
-        flex: 0 0 auto;
-        margin: 0px 20px 0px 0px;
-        list-style-type: none;
-        align-items: stretch;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        width: 200px;
-        min-height: 400px;
-        a{
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-        }
-        &:first-child{
-            padding-left: 0px;
-        }
-        img {
-            position: absolute;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            border-top-right-radius: 190px;
-            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-        }
-    }  
-    li.active {
-        transform: scale(1.03) !important;
-    } 
+
+    a {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+    }
+
+    &:first-child {
+      padding-left: 0px;
+    }
+
+    img {
+      position: absolute;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      border-top-right-radius: 190px;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  li.active {
+    transform: scale(1.03) !important;
+  }
 }
 
 // Single trip
-.trip{
-    &__image-container{
-        position: fixed;
-        max-width: 425px;
-        background-size: cover;
-        background-position: top;
-        min-height: 100vh;
-        width: 100%;
-        top: 0;
-        z-index: 1;
+.trip {
+  &__image-container {
+    position: fixed;
+    max-width: 425px;
+    background-size: cover;
+    background-position: top;
+    min-height: 100vh;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__details-container {
+    position: sticky;
+    padding: 30px 25px 30px 25px;
+    border-top-left-radius: 40px;
+    z-index: 2;
+    background: $color-white;
+    margin: 200px 20px 0px 20px;
+
+    .title-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+
+      p {
+        margin: 0;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 35px;
+      }
+
+      .price {
+        font-size: 40px;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .per-person {
+        text-align: right;
+      }
     }
-    &__details-container{
-        position: sticky;
-        padding: 30px 25px 30px 25px;
-        border-top-left-radius: 40px;
-        z-index: 2;
-        background: $color-white;
-        margin: 200px 20px 0px 20px;
-        .title-container{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 50px;
-            p{
-                margin: 0;
-            }
-            .title{
-                margin: 0;
-                font-size: 35px;
-            }
-            .price{
-                font-size: 40px;
-                font-weight: 600;
-                text-align: right;
-            }
-            .per-person{
-                text-align: right;
-            }
-        }
-        .inner-container{
-            section{
-                margin-bottom: 50px;
-            }
-        }
+
+    .inner-container {
+      section {
+        margin-bottom: 50px;
+      }
     }
+  }
 }
 
 // Book trip
-.book-trip{
-    &__image-container{
-        height: 100px;
+.book-trip {
+  &__image-container {
+    height: 100px;
+  }
+
+  &__details-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  form.booking-form {
+    .select-box {
+      display: inline-block;
+      margin: 0 5px 0 0;
+      width: 100%;
+      position: relative;
+      padding: 30px 0px;
+      border: solid 0.5px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+      label,
+      input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      input[type="radio"] {
+        opacity: 0.011;
+        z-index: 100;
+      }
+
+      input[type="radio"]:checked + label {
+        background-color: $color-blue;
+        color: $color-white;
+        border-radius: 4px;
+      }
+
+      label {
+        cursor: pointer;
+        z-index: 90;
+        line-height: 1.8em;
+        padding: 15px 25px;
+      }
     }
-    &__details-container{
-        margin-top: 100px;
-        margin-bottom: 100px;
+
+    .select-box-room {
+      min-height: 30px;
     }
-    form.booking-form{
-        .select-box{
-            display: inline-block;
-            margin: 0 5px 0 0;
-            width: 100%;
-            position: relative;
-            padding: 30px 0px;
-            border: solid 0.5px;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            label, input{
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-            input[type="radio"] {
-                opacity: 0.011;
-                z-index: 100;
-            }
-            input[type="radio"]:checked + label {
-                background-color: $color-blue;
-                color: $color-white;
-                border-radius: 4px;
-            }
-            label {
-                cursor: pointer;
-                z-index: 90;
-                line-height: 1.8em;
-                padding: 15px 25px;
-            }
-        }
-        .select-box-room{
-            min-height: 30px;
-        }
-        .personal-info{
-            input{
-                border: none;
-                font-size: 20px;
-                width: 100%;
-                padding: 10px 0px;
-                color: $color-grey;
-            }
-        }
-        .book-btn{
-            
-        }
+
+    .personal-info {
+      input {
+        border: none;
+        font-size: 20px;
+        width: 100%;
+        padding: 10px 0px;
+        color: $color-grey;
+      }
     }
-}
-.book-btn-container{
-    display: flex;
-    justify-content: space-between;
-    .spacer{
-        width: 100px;
+
+    .book-btn {
     }
-}
-.book-btn{
-    padding: 10px 50px;
+  }
 }
 
-.confirmed{
-    h2{
-        font-size: 30px;
-        margin-bottom: 50px;
-    }
-    .buttons-container{
-        display: flex;
-        justify-content: space-between;
-    }
+.book-btn-container {
+  display: flex;
+  justify-content: space-between;
+
+  .spacer {
+    width: 100px;
+  }
+}
+
+.book-btn {
+  padding: 10px 50px;
+}
+
+.confirmed {
+  h2 {
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 // Intersection observer animations
 .slide-in-left {
-    opacity: 0;
-    transform: translateX(20px); /* Initial position off-screen */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateX(20px);
+  /* Initial position off-screen */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-  
+
 .slide-in-left.in-view {
-    opacity: 1;
-    transform: translateX(0); /* Slide in from the left */
+  opacity: 1;
+  transform: translateX(0);
+  /* Slide in from the left */
 }
 
 .slide-in-top {
-    opacity: 0;
-    transform: translateY(20px); /* Initial position off-screen */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  /* Initial position off-screen */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-  
+
 .slide-in-top.in-view {
-    opacity: 1;
-    transform: translateY(0); /* Slide in from the top */
+  opacity: 1;
+  transform: translateY(0);
+  /* Slide in from the top */
 }
