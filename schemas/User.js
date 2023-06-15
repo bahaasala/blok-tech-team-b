@@ -23,14 +23,24 @@ const userSchema = new mongoose.Schema({
     default: () => Date.now()
   },
   image_url: String,
-  savedTrips: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Trip"
-  },
-  bookedTrips: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Trip"
-  }
+  savedTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trip"
+    }
+  ],
+  bookedTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trip"
+    }
+  ],
+  seenTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trip"
+    }
+  ]
 })
 
 userSchema

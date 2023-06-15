@@ -32,6 +32,7 @@ app.use(express.static("public"))
 
 // set templating engine
 app.use(expressLayouts)
+app.use(express.json())
 
 app.set("layout", "./layouts/layout")
 app.set("view engine", "ejs").set("views", "views")

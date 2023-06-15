@@ -4,25 +4,53 @@
     <h1 class="slide-in-left">trips</h1>
   </section>
   <div class="trips__container">
-    <ul class="trips-list">
-      <% for (let trip of trips) { %>
-      <li class="trip-item">
-        <a href="/trips/<%= trip.slug %>">
-          <div class="trip-image-container">
-            <% for (let image of trip.images) { %>
-            <img
-              class="trip-image"
-              src="<%= image.url %>"
-              alt="<%= image.alt %>"
-            />
-            <% } %>
-          </div>
-          <div class="trip-title-container">
-            <h3 class="title"><%= trip.destination %></h3>
-          </div>
-        </a>
+    <ul class="trips-group">
+      <% for (let trips of sortedTrips) { %>
+      <li>
+        <ul class="trips-list">
+        <% for (let trip of trips) { %>
+          <li class="trip-item">
+            <a href="/trips/<%= trip.slug %>">
+              <div class="trip-image-container">
+                <% for (let image of trip.images) { %>
+                  <img
+                    class="trip-image"
+                    src="<%= image.url %>"
+                    alt="<%= image.alt %>"
+                  />
+                <% } %>
+              </div>
+            </a>
+            <div class="trip-title-container">
+              <a href="/trips/<%= trip.slug %>">
+                <h3 class="title"><%= trip.destination %></h3>
+              </a>
+              <form method="post">
+                <fieldset>
+                  <input type="hidden" name="action" value="wishlist">
+                  <input type="hidden" name="tripId" value="<%- trip._id %>">
+                  <button type="submit" class="trip-button-wishlist <%- user.savedTrips?.includes(trip._id) ? 'active' : '' %>" data-id="<%= trip._id %>">&#10084;</button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+          <% } %>
+        </ul>
       </li>
       <% } %>
     </ul>
+    <form method="post">
+      <fieldset>
+        <input type="hidden" name="action" value="skip">
+        <input type="hidden" name="sortedIds" value="<%- encodeURIComponent(JSON.stringify(sortedIds)) %>">
+        <button type="submit" class="trips-button-skip" >see other trips</button>
+      </fieldset>
+    </form>
   </div>
 </div>
+<script id="page" type="application/json">
+  <%- JSON.stringify(sortedIds) %>
+</script>
+<script src="/js/matching.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
