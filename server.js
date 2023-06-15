@@ -1,4 +1,5 @@
 const express = require("express")
+const session = require("express-session")
 const expressLayouts = require("express-ejs-layouts")
 const { connect } = require("./connect")
 const app = express()
@@ -8,6 +9,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
+const { configDotenv } = require("dotenv")
 // const loginRouter = require("./routes/loginRoutes")
 
 // connect to MongoDB
@@ -33,6 +35,15 @@ app.use(express.static("public"))
 
 // set templating engine
 app.use(expressLayouts)
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET_KEY, // Replace with your secret key
+    resave: true,
+    saveUninitialized: false,
+    cookie: { secure: true } // Set secure to true if using HTTPS
+  })
+)
 
 app.set("layout", "./layouts/layout")
 app.set("view engine", "ejs").set("views", "views")

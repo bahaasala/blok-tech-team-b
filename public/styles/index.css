@@ -180,6 +180,12 @@ img {
   padding: 10px 50px;
 }
 
+.wrong_login {
+  margin-top: 15px;
+  color: #e80505;
+  text-align: center;
+}
+
 .register {
   position: absolute;
   max-width: 425px;
