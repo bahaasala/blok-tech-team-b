@@ -8,7 +8,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
-const loginRouter = require("./routes/loginRoutes")
+// const loginRouter = require("./routes/loginRoutes")
 
 // connect to MongoDB
 const connectDB = async () => {
@@ -43,7 +43,7 @@ app
   .use("/trips", tripsRouter)
   .use("/bookings", bookingsRouter)
   .use("/wishlist", wishlistRouter)
-  .use("/login", loginRouter)
+// .use("/login", loginRouter)
 
 // 404 page
 app.use((req, res) => {
