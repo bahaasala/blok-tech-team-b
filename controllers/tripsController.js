@@ -5,10 +5,10 @@ const { generateFakeUsers } = require("../utils/commands/generate-fake-users")
 
 const tripsController = async (req, res, next) => {
   try {
-    // await Trip.deleteMany().then(() => {
-    //   console.log("Deleted all trips.")
-    // })
-    // await Trip.create(generateFakeTrips(12))
+    await Trip.deleteMany().then(() => {
+      console.log("Deleted all trips.")
+    })
+    await Trip.create(generateFakeTrips(12))
     const user = await User.findOne({ _id: "64897eacdc14bf160eb8f20b" })
 
     const trips = await Trip.find({ _id: { $nin: user.seenTrips } })
