@@ -8,7 +8,7 @@
     >
       <h1>Register</h1>
       <label for="username">Username</label>
-      <div class="user_exists"><%- registrationFailed %></div>
+
       <input class="input-box" type="text" id="username" name="username" />
 
       <label for="password">Password</label>
@@ -21,7 +21,7 @@
         id="confirm_password"
         name="confirm_password"
       />
-
+      <div class="user_exists"><%- registrationFailed %></div>
       <button class="btn" type="submit">Register</button>
 
       <p>

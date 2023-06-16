@@ -35,14 +35,29 @@ app.use(express.static("public"))
 app.use(expressLayouts)
 app.use(express.json())
 
+//for loggin in
 app.use(
   session({
     secret: process.env.SESSION_SECRET_KEY, // Replace with your secret key
     resave: true,
     saveUninitialized: false,
-    cookie: { secure: true } // Set secure to true if using HTTPS
+    cookie: { secure: false } // Set secure to true if using HTTPS
   })
 )
+
+// Middleware to check if user is logged in
+const authenticateUser = (req, res, next) => {
+  console.log(req.session.isLoggedIn)
+  const allowedRoutes = ["/", "/login", "/register"]
+  if (allowedRoutes.includes(req.path) || req.session.isLoggedIn) {
+    // User is accessing the root, login, or register page, or is logged in
+    next()
+  } else {
+    // User is not logged in and trying to access a restricted page, redirect to login
+    res.redirect("/login")
+  }
+}
+app.use(authenticateUser)
 
 app.set("layout", "./layouts/layout")
 app.set("view engine", "ejs").set("views", "views")
@@ -53,7 +68,6 @@ app
   .use("/trips", tripsRouter)
   .use("/bookings", bookingsRouter)
   .use("/wishlist", wishlistRouter)
-// .use("/login", loginRouter)
 
 // 404 page
 app.use((req, res) => {

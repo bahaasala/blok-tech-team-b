@@ -6,9 +6,7 @@ const addUserController = async (req, res, next) => {
   const { username, password } = req.body // Get the username and password from the request body
 
   try {
-    const collection = db.collection("usertest") // Verwijzing naar de userscollectie in MongoDB
-
-    const existingUser = await collection.findOne({ username }) // Check if the user already exists in the database
+    const existingUser = await User.findOne({ username: username }) // Check if the user already exists in the database
 
     if (existingUser) {
       res.render("register", {
@@ -21,7 +19,7 @@ const addUserController = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10) // Hash the password
 
     const newUser = new User({
-      username,
+      username: username,
       password: hashedPassword
     })
 
