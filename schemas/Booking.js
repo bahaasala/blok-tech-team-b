@@ -47,3 +47,11 @@ bookingSchema
   })
 
 module.exports = mongoose.model("Booking", bookingSchema)
+
+const reviewSchema = new mongoose.Schema({
+  reviewDescriptionData: String,
+  reviewPlaceData: String,
+  reviewRatingData: Number
+})
+
+module.exports = mongoose.model("reviews", reviewSchema)
