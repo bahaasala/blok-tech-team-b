@@ -9,6 +9,10 @@ const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
 const connect = require("./schemas/connect")
 
+// marc - form send logica
+const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // connect to MongoDB
 const connectDB = async () => {
   try {
@@ -46,4 +50,20 @@ app
 // 404 page
 app.use((req, res) => {
   res.status(404).render("not_found.ejs", { title: "404 Not found" })
+})
+
+// Marc - Post code voor nu in server.js
+
+app.post("/", (req, res) => {
+  const reviewDescription = req.body["review-description"]
+  const reviewPlace = req.body["review-place"]
+
+  // Process the form data as needed
+
+  // Example: Log the form data
+  console.log("Review Description:", reviewDescription)
+  console.log("Review Place:", reviewPlace)
+
+  // Send a response to the client
+  res.send("Form submitted successfully")
 })

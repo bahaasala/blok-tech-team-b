@@ -350,4 +350,151 @@ ul.trips-list li.active {
   transform: translateY(0); /* Slide in from the top */
 }
 
+.review fieldset {
+  border-style: none;
+  margin: 0;
+  padding: 0;
+}
+.review legend {
+  font-weight: bold;
+  color: #1B2739;
+  margin-bottom: 20px;
+}
+.review label {
+  font-weight: bold;
+}
+.review section:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+}
+.review section:nth-of-type(3) {
+  display: flex;
+  flex-direction: column;
+}
+.review input {
+  margin-bottom: 20px;
+}
+.review summary {
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #1B2739;
+}
+.review div {
+  display: flex;
+  flex-direction: column;
+}
+.review div input {
+  color: #ffffff;
+  background-color: #1B2739;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.review div input:hover {
+  color: #1B2739;
+  background-color: #ffffff;
+  border: 1px solid #1B2739;
+}
+.review section textarea {
+  margin-bottom: 40px;
+}
+.review section:nth-of-type(2) label:first-of-type {
+  margin-bottom: 20px;
+  color: #1B2739;
+}
+.review section:nth-of-type(2) textarea {
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #1B2739;
+}
+.review section:nth-of-type(3) label:first-of-type {
+  margin-bottom: 20px;
+  color: #1B2739;
+}
+.review section:nth-of-type(3) input {
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #1B2739;
+}
+.review section:nth-of-type(3) button {
+  color: #ffffff;
+  background-color: #1B2739;
+  border: 1px solid #1B2739;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.review section:nth-of-type(3) button:hover {
+  color: #1B2739;
+  background-color: #ffffff;
+  border: 1px solid #1B2739;
+}
+
+.hidden {
+  display: none;
+}
+
+.clickedReview {
+  background-color: #fbc96d;
+}
+
+/* Marc -Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  line-height: 35px;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #1B2739;
+  text-shadow: 0 0 5px #E85C05;
+}
+.rating label:last-child {
+  position: static;
+}
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+.rating label:last-child .icon {
+  color: #1B2739;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #E85C05;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -311,3 +311,158 @@ ul.trips-list{
     opacity: 1;
     transform: translateY(0); /* Slide in from the top */
 }
+
+//Marc - review feature
+.review {
+    fieldset {
+        border-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    legend {
+        font-weight: bold;
+        color: $color-blue;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    section:nth-of-type(2){
+        display: flex;
+        flex-direction: column;
+    }
+    section:nth-of-type(3){
+        display: flex;
+        flex-direction: column;
+    }
+    input {
+        margin-bottom: 20px;
+    }
+    summary {
+        margin-bottom: 40px;
+        font-weight: bold;
+        color: $color-blue;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        input {
+            color: $color-white;
+            background-color: $color-blue;
+            border: 1px solid;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+        input:hover {
+            color: $color-blue;
+            background-color: $color-white;
+            border: 1px solid $color-blue;
+        }
+    }
+    section textarea {
+        margin-bottom: 40px;
+    }
+    section:nth-of-type(2) {
+        label:first-of-type {
+            margin-bottom: 20px;
+            color: $color-blue;
+        }
+        textarea {
+            font-family: 'Montserrat', sans-serif;
+            padding: 10px;
+            border-radius: 10px;
+            border: solid 1px $color-blue;
+        }
+    }
+    section:nth-of-type(3) {
+        label:first-of-type{
+            margin-bottom: 20px;
+            color: $color-blue;
+        }
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: solid 1px  $color-blue;
+        }
+        button {
+            color: $color-white;
+            background-color: $color-blue;
+            border: 1px solid $color-blue;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+        button:hover {
+            color: $color-blue;
+            background-color: $color-white;
+            border: 1px solid $color-blue;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+  
+.clickedReview {
+    background-color: $color-orange--lighter;
+}
+    
+/* Marc -Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    font-size: 35px;
+    margin-bottom: 20px;
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .icon {
+            float: left;
+            color: transparent;
+        }
+        input:focus:not(:checked) ~ .icon:last-child {
+            color: $color-blue;
+            text-shadow: 0 0 5px $color-orange;
+        }
+    }
+    label:last-child {
+        position: static;
+    }
+    label:nth-child(1) {
+        z-index: 5;
+    }
+    label:nth-child(2) {
+        z-index: 4;
+    }
+    label:nth-child(3) {
+        z-index: 3;
+    }
+    label:nth-child(4) {
+        z-index: 2;
+    }
+    label:nth-child(5) {
+        z-index: 1;
+    }
+    label:last-child .icon {
+        color: $color-blue;
+    }
+}
+
+// Marc - Rating css continued
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: $color-orange;
+}
