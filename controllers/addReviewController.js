@@ -4,34 +4,33 @@ const Booking = require("../schemas/Booking")
 const addReviewController = async (req, res, next) => {
   try {
     // Route voor het ontvangen van het formulier en verwerken van de ingediende gegevens
-    const reviewDescriptionData = req.body.reviewDescription
-    const reviewPlaceData = req.body.reviewPlace
-    const reviewRatingData = req.body.reviewStars
+    const reviewDescriptionSelector = req.body.reviewDescription
+    const reviewPlaceSelector = req.body.reviewPlace
+    const reviewRatingSelector = req.body.reviewStars
 
     // Gegevens opslaan in een object
     const bookingId = req.params.bookingId
 
     const reviewFormData = {
-      reviewDescriptionData,
-      reviewPlaceData,
-      reviewRatingData
+      reviewDescriptionSelector,
+      reviewPlaceSelector,
+      reviewRatingSelector
     }
 
     console.log(reviewFormData)
+
+    run()
+    async function run() {
+      const reviewSchema = await Booking.create({
+        reviewDescriptionData: reviewDescriptionSelector,
+        reviewPlaceData: reviewPlaceSelector,
+        reviewRatingData: reviewRatingSelector,
+        bookingIdData: bookingId
+      })
+    }
   } catch (err) {
     next(err)
   }
-}
-
-run()
-async function run() {
-  const reviewSchema = new Booking({
-    reviewDescriptionData: "Test Mongoose",
-    reviewPlaceData: "Test Mongoose",
-    reviewRatingData: 1
-  })
-  await reviewSchema.save()
-  console.log("Test Mongoose saved")
 }
 
 module.exports = addReviewController
