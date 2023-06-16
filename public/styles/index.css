@@ -325,9 +325,14 @@ ul.trips-list li.active {
   transform: scale(1.03) !important;
 }
 
+.trip {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset;
+}
 .trip__image-container {
   position: fixed;
-  max-width: 425px;
   background-size: cover;
   background-position: top;
   min-height: 100vh;

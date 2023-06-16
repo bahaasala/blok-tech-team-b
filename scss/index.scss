@@ -278,9 +278,12 @@ ul.trips-list {
 
 // Single trip
 .trip {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset;
   &__image-container {
     position: fixed;
-    max-width: 425px;
     background-size: cover;
     background-position: top;
     min-height: 100vh;
