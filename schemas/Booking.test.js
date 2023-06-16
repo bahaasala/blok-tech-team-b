@@ -51,12 +51,23 @@ describe("Booking Model", () => {
     // Save the booking to the test database
     const savedBooking = await newBooking.save()
 
+    const editingbooking = await Booking.findById(savedBooking._id)
+    editingbooking.destination = "Other destination"
+    await editingbooking.save()
+
     // Fetch the saved booking from the database
-    const foundBooking = await Booking.findById(savedBooking._id)
+    const foundBooking = await Booking.findById(savedBooking._id).populate(
+      "user"
+    )
 
     // Expectations
-    expect(foundBooking.destination).toBe("Booking destination")
-    expect(foundBooking.user).toStrictEqual(savedUser._id)
+    expect(foundBooking.destination).toBe("Other destination")
+    expect(foundBooking.user).toEqual(
+      expect.objectContaining({
+        username: "user-name",
+        password: "user-password"
+      })
+    )
     expect(foundBooking.room.type).toBe("room-type")
     expect(foundBooking.room.gender).toBe("both")
     expect(foundBooking.room.price).toBe(100)

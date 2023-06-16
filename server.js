@@ -1,7 +1,6 @@
 const express = require("express")
 const session = require("express-session")
 const expressLayouts = require("express-ejs-layouts")
-const { connect } = require("./connect")
 const app = express()
 const port = 3000
 
@@ -9,8 +8,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
-const { configDotenv } = require("dotenv")
-// const loginRouter = require("./routes/loginRoutes")
+const connect = require("./schemas/connect")
 
 // connect to MongoDB
 const connectDB = async () => {
@@ -35,6 +33,7 @@ app.use(express.static("public"))
 
 // set templating engine
 app.use(expressLayouts)
+app.use(express.json())
 
 app.use(
   session({
