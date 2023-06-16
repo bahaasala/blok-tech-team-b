@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     loadingElement.style.display = "none"
-    main.style.display = "block"
+    main.style.display = "flex"
   }, 500)
 })
 
