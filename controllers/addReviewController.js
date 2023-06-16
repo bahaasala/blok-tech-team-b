@@ -23,7 +23,7 @@ const addReviewController = async (req, res, next) => {
           reviewDescriptionData: reviewDescriptionSelector,
           reviewPlaceData: reviewPlaceSelector,
           reviewRatingData: reviewRatingSelector,
-          bookingIdData: bookingId
+          bookingId: bookingId
         })
 
         console.log("Review created:", reviewSchema)

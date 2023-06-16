@@ -52,7 +52,7 @@ const reviewSchema = new mongoose.Schema({
   reviewDescriptionData: String,
   reviewPlaceData: String,
   reviewRatingData: Number,
-  bookingIdData: String
+  bookingId: mongoose.Schema.Types.ObjectId
 })
 
 module.exports = mongoose.model("reviews", reviewSchema)
