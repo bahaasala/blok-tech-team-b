@@ -461,7 +461,7 @@ ul.trips-list {
     div {
         display: flex;
         flex-direction: column;
-        input {
+        button {
             color: $color-white;
             background-color: $color-blue;
             border: 1px solid;
@@ -469,7 +469,7 @@ ul.trips-list {
             padding: 10px;
             margin-bottom: 40px;
         }
-        input:hover {
+        button:hover {
             color: $color-blue;
             background-color: $color-white;
             border: 1px solid $color-blue;

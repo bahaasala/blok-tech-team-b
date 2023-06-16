@@ -1,6 +1,11 @@
 const singelBookingController = async (req, res, next) => {
   try {
-    res.render("booking_details.ejs", { title: "Single Booking" })
+    const bookingId = req.params.bookingId
+    console.log(bookingId)
+    res.render("booking_details.ejs", {
+      title: "Single Booking",
+      bookingId: bookingId
+    })
   } catch (err) {
     next(err)
   }

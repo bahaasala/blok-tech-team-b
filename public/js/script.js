@@ -98,7 +98,7 @@ const onError = (error) => {
 locationReviewButton.addEventListener("click", getLocation)
 
 // Marc - Show submit button when everything is focused once
-const submitButton = document.querySelector(".review div input")
+const submitButton = document.querySelector(".review div button")
 const descriptionInput = document.querySelector(
   ".review section:nth-of-type(2) textarea"
 )

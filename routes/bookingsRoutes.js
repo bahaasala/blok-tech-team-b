@@ -7,6 +7,6 @@ const addReviewController = require("../controllers/addReviewController")
 
 router.get("/", userBookingsController)
 router.get("/:bookingId", singleBookingController)
-router.post("/:bookingId/addReview", addReviewController)
+router.post("/:bookingId/submitReview", addReviewController)
 
 module.exports = router

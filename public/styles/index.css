@@ -493,7 +493,7 @@ ul.trips-list li.active {
   display: flex;
   flex-direction: column;
 }
-.review div input {
+.review div button {
   color: #ffffff;
   background-color: #1B2739;
   border: 1px solid;
@@ -501,7 +501,7 @@ ul.trips-list li.active {
   padding: 10px;
   margin-bottom: 40px;
 }
-.review div input:hover {
+.review div button:hover {
   color: #1B2739;
   background-color: #ffffff;
   border: 1px solid #1B2739;

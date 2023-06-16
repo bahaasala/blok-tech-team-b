@@ -8,35 +8,35 @@
     <div class="review slide-in-top">
       <details>
         <summary>write a review</summary>
-        <form action="/submitReview" method="POST">
+        <form action="<%= bookingId %>/submitReview/" method="POST">
           <fieldset>
             <legend>what did you think of your trip?</legend>
             <section class="rating">
               <label for="rating"></label>
               <label>
-                <input type="radio" name="stars" value="1" />
+                <input type="radio" name="reviewStarsOne" value="1" />
                 <span class="icon">★</span>
               </label>
               <label>
-                <input type="radio" name="stars" value="2" />
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-              </label>
-              <label>
-                <input type="radio" name="stars" value="3" />
-                <span class="icon">★</span>
+                <input type="radio" name="reviewStarsTwo" value="2" />
                 <span class="icon">★</span>
                 <span class="icon">★</span>
               </label>
               <label>
-                <input type="radio" name="stars" value="4" />
-                <span class="icon">★</span>
+                <input type="radio" name="reviewStarsThree" value="3" />
                 <span class="icon">★</span>
                 <span class="icon">★</span>
                 <span class="icon">★</span>
               </label>
               <label>
-                <input type="radio" name="stars" value="5" />
+                <input type="radio" name="reviewStarsFour" value="4" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="reviewStarsFive" value="5" />
                 <span class="icon">★</span>
                 <span class="icon">★</span>
                 <span class="icon">★</span>
@@ -73,13 +73,9 @@
               </p>
             </section>
             <div>
-              <input
-                class=""
-                type="submit"
-                value="Submit"
-                id="showFormSubmitButton"
-                required
-              />
+              <button class="" type="submit" id="showFormSubmitButton" required>
+                Send
+              </button>
             </div>
           </fieldset>
         </form>
