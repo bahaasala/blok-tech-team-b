@@ -9,10 +9,6 @@ const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
 const connect = require("./schemas/connect")
 
-// marc - form send logica
-const bodyParser = require("body-parser")
-app.use(bodyParser.urlencoded({ extended: true }))
-
 // connect to MongoDB
 const connectDB = async () => {
   try {
@@ -53,17 +49,29 @@ app.use((req, res) => {
 })
 
 // Marc - Post code voor nu in server.js
+const ejs = require("ejs")
 
-app.post("/", (req, res) => {
-  const reviewDescription = req.body["review-description"]
-  const reviewPlace = req.body["review-place"]
+app.get("/testHome", async (req, res) => {
+  res.render("testHome.ejs")
+})
 
-  // Process the form data as needed
+app.post("/berichten", async function (req, res) {
+  plaatsData = req.body.plaats
+  hobbyData = req.body.hobbys
+  datumData = req.body["trip-start"]
+  beschrijvingData = req.body.beschrijving
 
-  // Example: Log the form data
-  console.log("Review Description:", reviewDescription)
-  console.log("Review Place:", reviewPlace)
+  // Gegevens opslaan in een object
+  const formulierData = {
+    plaatsData,
+    hobbyData,
+    datumData,
+    beschrijvingData
+  }
+  console.log(formulierData)
 
-  // Send a response to the client
-  res.send("Form submitted successfully")
+  // Voer hier eventuele verdere verwerking van de gegevens uit, zoals opslaan in de database
+
+  // Stuur een antwoord naar de client
+  res.send("Formulier succesvol ontvangen")
 })

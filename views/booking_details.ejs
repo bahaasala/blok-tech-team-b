@@ -8,7 +8,7 @@
     <div class="review slide-in-top">
       <details>
         <summary>write a review</summary>
-        <form method="POST">
+        <form action="/submitReview" method="POST">
           <fieldset>
             <legend>what did you think of your trip?</legend>
             <section class="rating">
@@ -49,7 +49,7 @@
               <textarea
                 class=""
                 id="review-description"
-                name="review-description"
+                name="reviewDescription"
                 placeholder="write about what you liked and what you didn't like"
                 required
               ></textarea>
@@ -60,7 +60,7 @@
                 class=""
                 type="text"
                 id="locationReview"
-                name="review-place"
+                name="reviewPlace"
                 placeholder="your adress"
                 required
               />
