@@ -8,6 +8,7 @@ const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")
 const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
+const accountRouter = require("./routes/accountRoutes")
 const connect = require("./schemas/connect")
 
 // connect to MongoDB
@@ -47,7 +48,6 @@ app.use(
 
 // Middleware to check if user is logged in
 const authenticateUser = (req, res, next) => {
-  console.log(req.session.isLoggedIn)
   const allowedRoutes = ["/", "/login", "/register"]
   if (allowedRoutes.includes(req.path) || req.session.isLoggedIn) {
     // User is accessing the root, login, or register page, or is logged in
@@ -68,6 +68,7 @@ app
   .use("/trips", tripsRouter)
   .use("/bookings", bookingsRouter)
   .use("/wishlist", wishlistRouter)
+  .use("/account", accountRouter)
 
 // 404 page
 app.use((req, res) => {

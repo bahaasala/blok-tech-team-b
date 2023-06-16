@@ -1,0 +1,19 @@
+//Account
+.account {
+  padding: 30px 25px 30px 25px;
+  margin: 0px 20px 0px 20px;
+  border-radius: 50px 0 0 0;
+
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+
+  .input-box {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    position: relative;
+    padding: 10px 5px;
+    border: solid 0.5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}

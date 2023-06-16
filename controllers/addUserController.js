@@ -3,13 +3,19 @@ const bcrypt = require("bcrypt")
 const User = require("../schemas/User")
 
 const addUserController = async (req, res, next) => {
-  const { username, password } = req.body // Get the username and password from the request body
-
+  const { username, password, confirmPassword } = req.body // Get the username, password, and confirmed password from the request body
+  if (password !== confirmPassword) {
+    return res.render("register", {
+      title: "Register",
+      registrationFailed: "Passwords do not match!", // Display error message on the registration page
+      successMessage: "" // Clear success message
+    })
+  }
   try {
     const existingUser = await User.findOne({ username: username }) // Check if the user already exists in the database
 
     if (existingUser) {
-      res.render("register", {
+      return res.render("register", {
         title: "Register",
         registrationFailed: "Username already exists!", // Display error message on the registration page
         successMessage: "" // Clear success message

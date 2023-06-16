@@ -6,7 +6,6 @@ const authController = require("../controllers/authController.js")
 const addUserController = require("../controllers/addUserController.js")
 const loginController = require("../controllers/loginController.js")
 const registerController = require("../controllers/registerController.js")
-const profileController = require("../controllers/profileController.js")
 const tripsController = require("../controllers/tripsController.js")
 
 router.post("/register", addUserController)

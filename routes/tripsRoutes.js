@@ -16,4 +16,5 @@ router.get("/:trip/book", bookingController)
 router.post("/:trip/book", addBookingController)
 router.get("/:trip/book/confirmed/:bookingId", confirmedController)
 router.post("/:trip/book/confirmed/:bookingId/delete", deleteBookingController)
+
 module.exports = router

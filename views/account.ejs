@@ -1,0 +1,88 @@
+<article class="account">
+  <section>
+    <% if (isLoggedIn) { %>
+    <h1>Hello, <%= username %>!</h1>
+    <% } else { %>
+    <h1>Hello, user!</h1>
+    <% } %>
+  </section>
+
+  <section>
+    <% if (isLoggedIn) { %>
+    <h2>Username</h2>
+    <form action="/user/update-username" method="POST">
+      <input
+        class="input-box"
+        type="text"
+        name="newUsername"
+        placeholder="New Username"
+        required
+      />
+      <button class="button_whiteborder2" type="submit">Save</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Password</h2>
+    <form action="/user/update-password" method="POST">
+      <input
+        class="input-box"
+        type="password"
+        name="currentPassword"
+        placeholder="Current Password"
+        required
+      />
+      <input
+        class="input-box"
+        type="password"
+        name="newPassword"
+        placeholder="New Password"
+        required
+      />
+      <button class="button_whiteborder2" type="submit">Save</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Current Location</h2>
+    <p id="currentLocation">Loading...</p>
+
+    <h2>Change Profile Picture</h2>
+    <form
+      action="/user/update-profile-picture"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="profilePicture" accept="image/*" required />
+      <button class="button_whiteborder2" type="submit">Save</button>
+    </form>
+    <% } %>
+  </section>
+
+  <section>
+    <h2>Log out</h2>
+    <p>Click here to log out.</p>
+    <% if (isLoggedIn) { %>
+    <form action="/logout" method="post">
+      <button class="button_whiteborder2" type="submit">Log out</button>
+    </form>
+    <% } %>
+  </section>
+
+  <section>
+    <h2>Delete account</h2>
+    <p>Click here to delete account.</p>
+    <% if (isLoggedIn) { %>
+    <form
+      class="delete_form"
+      action="/user/delete"
+      method="post"
+      onsubmit="return confirm('Are you sure you want to delete your account?');"
+    >
+      <button type="submit">Delete Account</button>
+    </form>
+    <% } %>
+  </section>
+</article>
+
+<script src="../public/js/location.js"></script>
