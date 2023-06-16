@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
   bookedTrips: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Trip"
+      ref: "Booking"
     }
   ],
   seenTrips: [

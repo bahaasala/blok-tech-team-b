@@ -1,1 +1,19 @@
-<p>All user's bookings</p>
+<%- include('partials/header.ejs') %>
+<div class="bookings container">
+  <section class="">
+    <h1 class="slide-in-left">My bookings</h1>
+  </section>
+  <div class="bookings_container">
+    <ul class="bookings-list">
+      <% for (let booking of bookings) { %>
+      <li>
+        <div>
+          <a href="/bookings/<%= booking.id %>">
+            <h3><%= booking.destination %></h3>
+          </a>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>

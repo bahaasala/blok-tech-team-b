@@ -222,8 +222,8 @@ img {
   }
 }
 
-// All trips - List
-ul.trips-list {
+// All trips & Bookings - List
+ul.trips-list, ul.bookings-list {
   left: 0;
   width: 100%;
   display: flex;
