@@ -18,7 +18,7 @@
         placeholder="New Username"
         required
       />
-      <button class="button_whiteborder2" type="submit">Save</button>
+      <button class="btn" type="submit">Save</button>
     </form>
   </section>
 
@@ -39,22 +39,30 @@
         placeholder="New Password"
         required
       />
-      <button class="button_whiteborder2" type="submit">Save</button>
+      <button class="btn" type="submit">Save</button>
     </form>
   </section>
 
   <section>
     <h2>Current Location</h2>
     <p id="currentLocation">Loading...</p>
+  </section>
 
+  <section>
     <h2>Change Profile Picture</h2>
     <form
       action="/user/update-profile-picture"
       method="POST"
       enctype="multipart/form-data"
     >
-      <input type="file" name="profilePicture" accept="image/*" required />
-      <button class="button_whiteborder2" type="submit">Save</button>
+      <input
+        class="file_button"
+        type="file"
+        name="profilePicture"
+        accept="image/*"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
     </form>
     <% } %>
   </section>
@@ -64,7 +72,7 @@
     <p>Click here to log out.</p>
     <% if (isLoggedIn) { %>
     <form action="/logout" method="post">
-      <button class="button_whiteborder2" type="submit">Log out</button>
+      <button class="btn" type="submit">Log out</button>
     </form>
     <% } %>
   </section>
@@ -79,10 +87,10 @@
       method="post"
       onsubmit="return confirm('Are you sure you want to delete your account?');"
     >
-      <button type="submit">Delete Account</button>
+      <button class="btn" type="submit">Delete Account</button>
     </form>
     <% } %>
   </section>
 </article>
 
-<script src="../public/js/location.js"></script>
+<script src="../public/js/script.js"></script>

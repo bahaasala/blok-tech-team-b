@@ -1,19 +1,122 @@
 //Account
 .account {
-  padding: 30px 25px 30px 25px;
-  margin: 0px 20px 0px 20px;
-  border-radius: 50px 0 0 0;
+  padding: 30px 20px 30px 0;
 
-  background-color: $color-white;
+  background-image: url("../images/acc_pic.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  section {
+    background-color: $color-white;
+    border-radius: 0 15px 50px 0;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin: 0 0 30px 0;
+  }
+
+  section:first-child {
+    animation: 0.8s slide-right 0.05s ease-in-out both;
+  }
+
+  section:nth-of-type(2) {
+    animation: 0.8s slide-right 0.2s ease-in-out both;
+  }
+
+  section:nth-of-type(3) {
+    animation: 0.8s slide-right 0.4s ease-in-out both;
+  }
+
+  section:nth-of-type(4) {
+    animation: 0.8s slide-right 0.6s ease-in-out both;
+  }
+
+  section:nth-of-type(5) {
+    input {
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+    input[type="file"]::file-selector-button {
+      display: inline-block;
+      padding: 16px 15px;
+      cursor: pointer;
+      border: 1px solid $color-orange;
+      background-color: $color-white;
+    }
+    animation: 0.8s slide-right 0.8s ease-in-out both;
+  }
+
+  section:nth-of-type(6) {
+    animation: 0.8s slide-right 1s ease-in-out both;
+  }
+
+  section:nth-of-type(7) {
+    animation: 0.8s slide-right 1.2s ease-in-out both;
+  }
 
   .input-box {
     display: inline-block;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     position: relative;
     padding: 10px 5px;
     border: solid 0.5px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    .btn {
+      padding: 10px 5px;
+      border-radius: 0;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+  }
+  .profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .profile-picture label {
+    margin-bottom: 10px;
+  }
+
+  .profile-picture input[type="file"] {
+    display: none;
+  }
+
+  .profile-picture button {
+    margin-top: 10px;
+  }
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-350px);
+    transform: translateX(-350px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-350px);
+    transform: translateX(-350px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
