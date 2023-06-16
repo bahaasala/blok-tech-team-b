@@ -48,31 +48,3 @@ app
 app.use((req, res) => {
   res.status(404).render("not_found.ejs", { title: "404 Not found" })
 })
-
-// Marc - Post code voor nu in server.js
-const ejs = require("ejs")
-
-app.get("/testHome", async (req, res) => {
-  res.render("testHome.ejs")
-})
-
-app.post("/berichten", async function (req, res) {
-  plaatsData = req.body.plaats
-  hobbyData = req.body.hobbys
-  datumData = req.body["trip-start"]
-  beschrijvingData = req.body.beschrijving
-
-  // Gegevens opslaan in een object
-  const formulierData = {
-    plaatsData,
-    hobbyData,
-    datumData,
-    beschrijvingData
-  }
-  console.log(formulierData)
-
-  // Voer hier eventuele verdere verwerking van de gegevens uit, zoals opslaan in de database
-
-  // Stuur een antwoord naar de client
-  res.send("Formulier succesvol ontvangen")
-})
