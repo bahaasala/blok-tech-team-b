@@ -1,4 +1,4 @@
-const singelBookingController = async (req, res, next) => {
+const singleBookingController = async (req, res, next) => {
   try {
     const bookingId = req.params.bookingId
     console.log(bookingId)
@@ -11,4 +11,4 @@ const singelBookingController = async (req, res, next) => {
   }
 }
 
-module.exports = singelBookingController
+module.exports = singleBookingController
