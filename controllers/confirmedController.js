@@ -1,9 +1,13 @@
 const { ObjectId } = require("mongodb")
 const { db } = require("../connect")
+const Trip = require("../schemas/Trip")
+const Booking = require("../schemas/Booking")
+const User = require("../schemas/User")
+const { formatDate } = require("../utils/general/dates")
 
 const confirmedController = async (req, res, next) => {
   const tripSlug = req.params.trip
-  const trip = await db.collection("trips").findOne({ slug: tripSlug })
+  const trip = await Trip.findOne({ slug: tripSlug })
   const bookingId = req.params.bookingId
 
   // Validate bookingId format
@@ -15,9 +19,7 @@ const confirmedController = async (req, res, next) => {
   }
 
   try {
-    const booking = await db
-      .collection("bookings")
-      .findOne({ _id: new ObjectId(bookingId) })
+    const booking = await Booking.findOne({ _id: bookingId })
 
     if (!booking) {
       return res.status(404).render("not_found.ejs", {
@@ -25,12 +27,7 @@ const confirmedController = async (req, res, next) => {
         message: "The booking does not exist."
       })
     }
-
-    const user = await db.collection("users").findOne({
-      first_name: booking.first_name,
-      last_name: booking.last_name,
-      email: booking.email
-    })
+    const user = await User.findOne({ _id: booking.user })
 
     if (!user) {
       return res.status(403).render("not_found.ejs", {
@@ -43,7 +40,10 @@ const confirmedController = async (req, res, next) => {
       title: "Booking Confirmed",
       user: user,
       trip: trip,
-      booking: booking
+      booking: booking,
+      dates: ` ${formatDate(booking.date_range.start_date)} - ${formatDate(
+        booking.date_range.end_date
+      )}`
     })
   } catch (err) {
     next(err)

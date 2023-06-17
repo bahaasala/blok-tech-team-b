@@ -6,7 +6,7 @@ const generateFakeTrips = async (amount) => {
   const trips = []
   for (let i = 0; i < amount; i++) {
     const tripLength = faker.number.int({ min: 5, max: 30 })
-    const tripName = biggest_cities[faker.number.int({ min: 0, max: 46 })]
+    const tripName = biggest_cities[i]
     const fakeDate = faker.date.between({
       from: "2024-01-01T00:00:00.000Z",
       to: "2025-01-01T00:00:00.000Z"

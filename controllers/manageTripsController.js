@@ -5,7 +5,7 @@ const manageTripsController = async (req, res, next) => {
     const contentType = req.headers["content-type"]
     const index = parseInt(req.body.groupIndex)
     const user = await User.findOne({
-      _id: "648c78ed9e24939393449647"
+      _id: "648e1e13e28b0df229c66ae3"
     }).populate("seenTrips")
 
     if (req.body.action === "wishlist") {

@@ -93,6 +93,8 @@ main {
   display: flex;
   top: 0;
   height: 100vh;
+  z-index: 100000;
+  background-color: white;
 }
 
 header {
@@ -440,7 +442,7 @@ ul.trips-list li.active {
 }
 .confirmed .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .slide-in-left {
