@@ -2,12 +2,14 @@ const skipBtn = document.querySelector(".trips-button-skip")
 const tripsContainer = document.querySelector(".trips-group")
 let tripIndex = 1
 
-const dataset = document.getElementById("page").textContent
+const dataset = document.getElementById("page")?.textContent
 let pageData
-try {
-  pageData = JSON.parse(dataset)
-} catch (error) {
-  console.log(error)
+if (dataset) {
+  try {
+    pageData = JSON.parse(dataset)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const skipToNextApplication = () => {
@@ -16,7 +18,7 @@ const skipToNextApplication = () => {
   tripIndex++
 }
 
-skipBtn.addEventListener("click", (e) => {
+skipBtn?.addEventListener("click", (e) => {
   e.preventDefault()
   e.stopPropagation()
   if (tripIndex > pageData.length) {
@@ -31,18 +33,24 @@ skipBtn.addEventListener("click", (e) => {
 
 const wishlistBtn = document.querySelectorAll(".trip-button-wishlist")
 
-wishlistBtn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+wishlistBtn?.forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
     e.preventDefault()
     e.stopPropagation()
     const tripId = btn.getAttribute("data-id")
-    btn.classList.add("active")
-    updateWishlist(tripId)
+    const update = await updateWishlist(tripId)
+    console.log(update)
+    if (!update) return
+    if (update.action === "add") {
+      btn.classList.add("active")
+    } else if (update.action === "remove") {
+      btn.classList.remove("active")
+    }
   })
 })
 
 const updateSeen = async (tripIds, index) => {
-  const res = await axios
+  return await axios
     .post(`/trips`, { action: "skip", sortedIds: tripIds, groupIndex: index })
     .then((response) => {
       console.log(response.data)
@@ -53,12 +61,14 @@ const updateSeen = async (tripIds, index) => {
 }
 
 const updateWishlist = async (id) => {
-  const res = await axios
-    .post(`/trips`, { action: "wishlist", tripId: id })
-    .then((response) => {
-      console.log(response.data)
+  try {
+    const response = await axios.post(`/trips`, {
+      action: "wishlist",
+      tripId: id
     })
-    .catch((error) => {
-      console.log(error)
-    })
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
 }

@@ -7,12 +7,19 @@ const manageTripsController = async (req, res, next) => {
     const user = await User.findOne({
       _id: "648e1e13e28b0df229c66ae3"
     }).populate("seenTrips")
-
+    let action
     if (req.body.action === "wishlist") {
-      user.savedTrips.push(req.body.tripId)
+      if (user.savedTrips.includes(req.body.tripId)) {
+        user.savedTrips.pull(req.body.tripId)
+        action = "remove"
+      } else {
+        user.savedTrips.push(req.body.tripId)
+        action = "add"
+      }
       await user.save()
     } else if (req.body.action === "skip") {
       let seenTripIds
+      action = "skip"
       if (contentType === "application/json") {
         seenTripIds = req.body.sortedIds[index]
       } else {
@@ -23,7 +30,7 @@ const manageTripsController = async (req, res, next) => {
     }
 
     if (contentType === "application/json") {
-      return res.json({ success: true, body: req.body })
+      return res.json({ success: true, action: action })
     }
     return res.redirect("/trips")
   } catch (err) {

@@ -85,6 +85,10 @@ main {
   flex-direction: column;
 }
 
+fieldset {
+  border: none;
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -122,6 +126,29 @@ header .avatar {
 
 img {
   width: 100%;
+}
+
+.trip-button-wishlist {
+  background-color: #e80505;
+  border-radius: 50%;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.2rem;
+  transition: all 0.2s;
+}
+.trip-button-wishlist:hover {
+  color: #1B2739;
+  font-size: 1.4rem;
+}
+.trip-button-wishlist.active {
+  color: #4CA6FE;
+  font-size: 1.3rem;
 }
 
 .home__intro-container {
@@ -256,28 +283,6 @@ img {
   text-align: start;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist {
-  background-color: #e80505;
-  border-radius: 50%;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -0.2rem;
-  transition: all 0.2s;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist:hover {
-  color: #1B2739;
-  font-size: 1.4rem;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist.active {
-  color: #4CA6FE;
-  font-size: 1.3rem;
 }
 .trips .title {
   text-align: center;
@@ -439,7 +444,7 @@ ul.trips-list li.active {
   cursor: pointer;
 }
 
-.book-btn-container {
+.book-btn-container > div {
   display: flex;
   justify-content: space-between;
 }
