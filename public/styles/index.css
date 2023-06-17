@@ -178,14 +178,18 @@ img {
   margin: 15px 25px 0px 25px;
 }
 .trips .trips-group {
-  display: flex;
+  display: grid;
   width: 100%;
   max-height: 75vh;
   transition: 1s all;
+  grid-auto-flow: column;
 }
 .trips .trips-group > li {
-  width: 100%;
+  width: 26.5rem;
   padding: 10px 25px;
+}
+.trips .trips-group > li.trips-end {
+  margin-top: 15rem;
 }
 .trips .trips-button-skip {
   padding: 20px 25px;
@@ -206,6 +210,14 @@ img {
   color: black;
   background-color: #4CA6FE;
 }
+.trips .trips-button-skip.disabled {
+  background-color: lightgrey;
+  cursor: not-allowed;
+}
+.trips .trips-button-skip.disabled:hover {
+  color: lightgrey;
+  background-color: grey;
+}
 .trips .trips-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -216,7 +228,6 @@ img {
   padding-bottom: 4rem;
   height: 100%;
   overflow: visible;
-  width: calc(100vw - 50px);
 }
 .trips .trips-list li {
   width: 100%;
@@ -387,6 +398,7 @@ ul.trips-list li.active {
   width: 100%;
   position: relative;
   padding: 30px 0px;
+  border-radius: 4px;
   border: solid 0.5px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -406,7 +418,6 @@ ul.trips-list li.active {
 .book-trip form.booking-form .select-box input[type=radio]:checked + label {
   background-color: #1B2739;
   color: #ffffff;
-  border-radius: 4px;
 }
 .book-trip form.booking-form .select-box label {
   cursor: pointer;
@@ -424,6 +435,10 @@ ul.trips-list li.active {
   padding: 10px 0px;
   color: #909090;
 }
+.book-trip form.booking-form .book-btn {
+  cursor: pointer;
+}
+
 .book-btn-container {
   display: flex;
   justify-content: space-between;

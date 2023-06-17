@@ -11,7 +11,7 @@ try {
 }
 
 const skipToNextApplication = () => {
-  const translateAmount = tripIndex * -100 + "vw"
+  const translateAmount = tripIndex * -26.5 + "rem"
   tripsContainer.style.transform = `translateX(${translateAmount})`
   tripIndex++
 }
@@ -20,8 +20,10 @@ skipBtn.addEventListener("click", (e) => {
   e.preventDefault()
   e.stopPropagation()
   if (tripIndex > pageData.length) {
-    console.log("end of trips")
-    return
+    return skipBtn.classList.add("disabled")
+  } else if (tripIndex === pageData.length) {
+    skipToNextApplication()
+    return skipBtn.classList.add("disabled")
   }
   updateSeen(pageData, tripIndex - 1)
   skipToNextApplication()
