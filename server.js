@@ -23,18 +23,17 @@ const connectDB = async () => {
   }
 }
 
-// urlencoded for form data
-app.use(express.urlencoded({ extended: true }))
-
-// call the connectDB function
-connectDB()
-
 // serving static files in server
 app.use(express.static("public"))
 
 // set templating engine
 app.use(expressLayouts)
-app.use(express.json())
+
+// urlencoded for form data
+app.use(express.urlencoded({ extended: true }))
+
+// call the connectDB function
+connectDB()
 
 //for loggin in
 app.use(
