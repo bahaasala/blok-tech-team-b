@@ -6,12 +6,15 @@ const changeAccountController = async (req, res, next) => {
   const newUsername = req.body.newUsername
 
   try {
-    console.log(username)
+    const existingUser = await User.findOne({ username: newUsername })
+    if (existingUser) {
+      throw new Error("Username already exists")
+    }
+
     await User.updateOne(
       { username: username },
       { $set: { username: newUsername } }
     )
-    console.log(req.body.newUsername)
     req.session.username = newUsername
 
     res.redirect("/account")
