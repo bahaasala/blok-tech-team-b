@@ -1,7 +1,7 @@
 const { db } = require("../schemas/connect")
 const User = require("../schemas/User")
 
-const changeAccountController = async (req, res, next) => {
+const changeUsernameController = async (req, res, next) => {
   const username = req.session.username
   const newUsername = req.body.newUsername
 
@@ -23,4 +23,4 @@ const changeAccountController = async (req, res, next) => {
   }
 }
 
-module.exports = changeAccountController
+module.exports = changeUsernameController
