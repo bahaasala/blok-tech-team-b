@@ -549,8 +549,12 @@ img {
   margin-left: 120px;
 }
 .home__trips-container {
-  position: relative;
+  position: fixed;
   margin-top: 50px;
+  left: 0;
+}
+.home__trips-container .trips-list {
+  max-width: 425px;
 }
 
 .trips {

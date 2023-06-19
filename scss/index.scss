@@ -114,8 +114,12 @@ img {
     }
   }
   &__trips-container {
-    position: relative;
+    position: fixed;
     margin-top: 50px;
+    left: 0;
+    .trips-list {
+      max-width: 425px;
+    }
   }
 }
 

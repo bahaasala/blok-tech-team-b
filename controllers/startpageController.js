@@ -1,32 +1,20 @@
 const { db } = require("../connect")
+const Trip = require("../schemas/Trip")
+const User = require("../schemas/User")
 const unsplash = require("../unsplash")
 
 const startpageController = async (req, res, next) => {
   try {
-    const user = await db.collection("users").findOne({ first_name: "Bahaa" })
+    const user = await User.findOne({
+      username: req.session.username
+    })
 
-    const trips = await db.collection("trips").find().toArray()
-
-    const updatedTrips = await Promise.all(
-      trips.map(async (trip) => {
-        const photos = await unsplash.searchPhotos(trip.destination)
-        trip.images = photos.map((photo) => {
-          return {
-            url: photo.url,
-            alt: photo.alt
-          }
-        })
-        await db
-          .collection("trips")
-          .updateOne({ _id: trip._id }, { $set: trip })
-        return trip
-      })
-    )
+    const trips = await Trip.find()
 
     res.render("index.ejs", {
       title: "Startpage",
       user: user,
-      trips: updatedTrips
+      trips: trips
     })
   } catch (err) {
     next(err)
