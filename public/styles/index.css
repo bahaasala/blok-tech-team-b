@@ -824,6 +824,10 @@ ul.trips-list li.active {
 .book-btn-container > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.book-btn-container > div fieldset {
+  padding: 0;
 }
 .book-btn-container .spacer {
   width: 100px;

@@ -31,7 +31,7 @@ app.use(expressLayouts)
 
 // urlencoded for form data
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.json())
 // call the connectDB function
 connectDB()
 

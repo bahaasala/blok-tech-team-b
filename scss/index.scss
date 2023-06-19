@@ -411,6 +411,10 @@ ul.trips-list {
   > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    fieldset {
+      padding: 0;
+    }
   }
   .spacer {
     width: 100px;
