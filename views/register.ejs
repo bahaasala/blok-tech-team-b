@@ -1,1 +1,36 @@
-<p>Register here</p>
+<article class="register">
+  <section class="register_form_container">
+    <form
+      action="/register"
+      method="post"
+      id="registrationForm"
+      class="register_form"
+    >
+      <h1>Register</h1>
+      <label for="username">Username</label>
+
+      <input class="input-box" type="text" id="username" name="username" />
+
+      <label for="password">Password</label>
+      <input class="input-box" type="password" id="password" name="password" />
+
+      <label for="confirm_password">Confirm Password</label>
+      <input
+        class="input-box"
+        type="password"
+        id="confirm_password"
+        name="confirmPassword"
+      />
+      <div class="user_exists"><%- registrationFailed %></div>
+      <button class="btn" type="submit">Register</button>
+
+      <p>
+        <i
+          >*By pressing register, I agree that the password could potentially be
+          visible to the developer*</i
+        >
+      </p>
+      <div class="success_message"><%- successMessage %></div>
+    </form>
+  </section>
+</article>

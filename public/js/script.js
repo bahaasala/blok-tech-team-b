@@ -53,6 +53,7 @@ window.addEventListener("load", () => {
   }, 500)
 })
 
+
 // Marc - Code for geolocation API and reverse geocoding from Geoapify
 const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key van Geoapify
 const locationReviewElementt = document.getElementById("locationReview")
@@ -157,3 +158,18 @@ removeBookingButton.addEventListener("click", () => {
 noKeepBookingButton.addEventListener("click", () => {
   removeBookingScreen.classList.add("hidden")
 })
+//Location
+navigator.geolocation.getCurrentPosition(
+  (position) => {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    const locationElement = document.getElementById("currentLocation")
+    locationElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`
+  },
+  (error) => {
+    console.error(error)
+    const locationElement = document.getElementById("currentLocation")
+    locationElement.textContent = "Failed to fetch current location."
+  }
+)
+

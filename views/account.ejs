@@ -1,0 +1,91 @@
+<article class="account">
+  <section>
+    <% if (isLoggedIn) { %>
+    <h1>Hello, <%= username %>!</h1>
+    <% } else { %>
+    <h1>Hello, user!</h1>
+    <% } %>
+  </section>
+
+  <section>
+    <% if (isLoggedIn) { %>
+    <h2>Account</h2>
+    <form action="/account/update-username" method="POST">
+      <h3>Change Username</h3>
+      <input
+        class="input-box"
+        type="text"
+        name="newUsername"
+        placeholder="New Username"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form>
+
+    <form action="/account/update-password" method="POST">
+      <h3>Change Password</h3>
+      <input
+        class="input-box"
+        type="password"
+        name="currentPassword"
+        placeholder="Current Password"
+        required
+      />
+      <input
+        class="input-box"
+        type="password"
+        name="newPassword"
+        placeholder="New Password"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form>
+
+    <!-- <form
+      action="/account/update-profile-picture"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <h3>Change Profile Picture</h3>
+      <input
+        class="file_button"
+        type="file"
+        name="profilePicture"
+        accept="image/*"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form> -->
+    <% } %>
+  </section>
+
+  <section>
+    <h2>Current Location</h2>
+    <p id="currentLocation">Loading...</p>
+  </section>
+
+  <section>
+    <h2>Log out</h2>
+    <p>Click here to log out.</p>
+    <% if (isLoggedIn) { %>
+    <form action="/account/logout" method="POST">
+      <button class="btn" type="submit">Log out</button>
+    </form>
+    <% } %>
+  </section>
+
+  <section>
+    <h2>Delete account</h2>
+    <p>Click here to delete account.</p>
+    <% if (isLoggedIn) { %>
+    <form
+      class="delete_form"
+      action="/account/delete"
+      method="POST"
+      onsubmit="return confirm('Are you sure you want to delete your account?');"
+    >
+      <button class="btn" type="submit">Delete Account</button>
+    </form>
+    <% } %>
+  </section>
+</article>

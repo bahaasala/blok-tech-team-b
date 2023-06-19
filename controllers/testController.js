@@ -2,16 +2,17 @@ const { db } = require("../connect")
 const bcrypt = require("bcrypt")
 const User = require("../schemas/User")
 
-const loginController = async (req, res, next) => {
+const testController = async (req, res, next) => {
   try {
+    // const test = req.body
+    console.log("logged in")
     res.render("login.ejs", {
       title: "Login",
-      loginFailed: req.session.loginFailed || ""
+      loginFailed: "Invalid username and/or password!"
     })
-    req.session.loginFailed = null // Clear the login failed message
   } catch (err) {
     next(err)
   }
 }
 
-module.exports = loginController
+module.exports = testController

@@ -1,3 +1,4 @@
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -6,8 +7,14 @@ p {
   color: #000000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #1B2739;
+
 }
 
 h1 {
@@ -64,7 +71,6 @@ a {
   border-color: #e80505;
   font-size: 12px;
 }
-
 .review fieldset {
   border-style: none;
   margin: 0;
@@ -260,6 +266,208 @@ a {
   border: solid 1px #E85C05;
 }
 
+.login {
+  position: absolute;
+  max-width: 425px;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background-image: url("../images/lisbon.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+.login_form_container form {
+  padding: 30px 25px 30px 25px;
+  margin: 200px 20px 0px 20px;
+  border-radius: 50px 0 0 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.login_form_container .input-box {
+  display: inline-block;
+  margin: 0 0 20px 0;
+  position: relative;
+  padding: 10px 5px;
+  border: solid 0.5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login_form_container a {
+  margin-top: 20px;
+  text-align: center;
+}
+.login_form_container .btn {
+  margin-top: 10px;
+  padding: 10px 50px;
+}
+
+.wrong_login {
+  margin-top: 15px;
+  color: #e80505;
+  text-align: center;
+}
+
+.register {
+  position: absolute;
+  max-width: 425px;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background-image: url("../images/bali.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+.register_form_container form {
+  padding: 30px 25px 30px 25px;
+  margin: 150px 20px 0px 20px;
+  border-radius: 50px 0 0 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.register_form_container .input-box {
+  display: inline-block;
+  margin: 0 0 20px 0;
+  position: relative;
+  padding: 10px 5px;
+  border: solid 0.5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.register_form_container a {
+  margin-top: 20px;
+  text-align: center;
+}
+.register_form_container .btn {
+  margin-top: 10px;
+  padding: 10px 50px;
+}
+.register_form_container p {
+  text-align: center;
+}
+.register_form_container i {
+  font-size: 10px;
+}
+
+.user_exists {
+  color: #e80505;
+  text-align: center;
+}
+
+.account {
+  padding: 30px 20px 30px 0;
+  background-image: url("../images/acc_pic.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.account section {
+  background-color: #ffffff;
+  border-radius: 0 15px 50px 0;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin: 0 0 30px 0;
+}
+.account section h2 {
+  font-weight: bold;
+}
+.account section form h3 {
+  margin-bottom: 5px;
+}
+.account section:first-child {
+  animation: 0.8s slide-right 0.05s ease-in-out both;
+}
+.account section:nth-of-type(2) {
+  animation: 0.8s slide-right 0.2s ease-in-out both;
+}
+.account section:nth-of-type(2) input {
+  display: inline-block;
+  cursor: pointer;
+}
+.account section:nth-of-type(2) input[type=file]::file-selector-button {
+  display: inline-block;
+  padding: 16px 15px;
+  cursor: pointer;
+  border: 1px solid #E85C05;
+  background-color: #ffffff;
+}
+.account section:nth-of-type(3) {
+  animation: 0.8s slide-right 0.4s ease-in-out both;
+}
+.account section:nth-of-type(4) {
+  animation: 0.8s slide-right 0.6s ease-in-out both;
+}
+.account section:nth-of-type(5) {
+  animation: 0.8s slide-right 0.8s ease-in-out both;
+}
+.account .input-box {
+  display: inline-block;
+  margin: 0 0 10px 0;
+  position: relative;
+  padding: 10px 5px;
+  border: solid 0.5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.account section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.account section form .btn {
+  padding: 10px 5px;
+  border-radius: 0;
+}
+.account section form input {
+  margin-bottom: 10px;
+}
+.account .profile-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.account .profile-picture label {
+  margin-bottom: 10px;
+}
+.account .profile-picture input[type=file] {
+  display: none;
+}
+.account .profile-picture button {
+  margin-top: 10px;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-350px);
+    transform: translateX(-350px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-350px);
+    transform: translateX(-350px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -280,6 +488,10 @@ main {
   flex-direction: column;
 }
 
+fieldset {
+  border: none;
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -288,6 +500,8 @@ main {
   display: flex;
   top: 0;
   height: 100vh;
+  z-index: 100000;
+  background-color: white;
 }
 
 header {
@@ -315,6 +529,29 @@ header .avatar {
 
 img {
   width: 100%;
+}
+
+.trip-button-wishlist {
+  background-color: #e80505;
+  border-radius: 50%;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.2rem;
+  transition: all 0.2s;
+}
+.trip-button-wishlist:hover {
+  color: #1B2739;
+  font-size: 1.4rem;
+}
+.trip-button-wishlist.active {
+  color: #4CA6FE;
+  font-size: 1.3rem;
 }
 
 .home__intro-container {
@@ -371,14 +608,18 @@ img {
   margin: 15px 25px 0px 25px;
 }
 .trips .trips-group {
-  display: flex;
+  display: grid;
   width: 100%;
   max-height: 75vh;
   transition: 1s all;
+  grid-auto-flow: column;
 }
 .trips .trips-group > li {
-  width: 100%;
+  width: 26.5rem;
   padding: 10px 25px;
+}
+.trips .trips-group > li.trips-end {
+  margin-top: 15rem;
 }
 .trips .trips-button-skip {
   padding: 20px 25px;
@@ -399,6 +640,14 @@ img {
   color: black;
   background-color: #4CA6FE;
 }
+.trips .trips-button-skip.disabled {
+  background-color: lightgrey;
+  cursor: not-allowed;
+}
+.trips .trips-button-skip.disabled:hover {
+  color: lightgrey;
+  background-color: grey;
+}
 .trips .trips-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -409,7 +658,6 @@ img {
   padding-bottom: 4rem;
   height: 100%;
   overflow: visible;
-  width: calc(100vw - 50px);
 }
 .trips .trips-list li {
   width: 100%;
@@ -438,28 +686,6 @@ img {
   text-align: start;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist {
-  background-color: #e80505;
-  border-radius: 50%;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -0.2rem;
-  transition: all 0.2s;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist:hover {
-  color: #1B2739;
-  font-size: 1.4rem;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist.active {
-  color: #4CA6FE;
-  font-size: 1.3rem;
 }
 .trips .title {
   text-align: center;
@@ -520,9 +746,14 @@ ul.trips-list li.active {
   transform: scale(1.03) !important;
 }
 
+.trip {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset;
+}
 .trip__image-container {
   position: fixed;
-  max-width: 425px;
   background-size: cover;
   background-position: top;
   min-height: 100vh;
@@ -575,6 +806,7 @@ ul.trips-list li.active {
   width: 100%;
   position: relative;
   padding: 30px 0px;
+  border-radius: 4px;
   border: solid 0.5px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -594,7 +826,6 @@ ul.trips-list li.active {
 .book-trip form.booking-form .select-box input[type=radio]:checked + label {
   background-color: #1B2739;
   color: #ffffff;
-  border-radius: 4px;
 }
 .book-trip form.booking-form .select-box label {
   cursor: pointer;
@@ -612,7 +843,11 @@ ul.trips-list li.active {
   padding: 10px 0px;
   color: #909090;
 }
-.book-btn-container {
+.book-trip form.booking-form .book-btn {
+  cursor: pointer;
+}
+
+.book-btn-container > div {
   display: flex;
   justify-content: space-between;
 }
@@ -630,7 +865,7 @@ ul.trips-list li.active {
 }
 .confirmed .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .slide-in-left {

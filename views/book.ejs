@@ -25,56 +25,41 @@
       >
         <section>
           <h4>availability</h4>
-          <% for (let available of trip.availability) { %>
+          <% availabilityOptions.map((available, index) => { %>
           <div class="select-box">
             <input
               type="radio"
+              id="date_range<%= index %>"
               name="date_range"
-              value="<%= available.start_date %>-<%= available.end_date %>"
+              value="<%= available.start_date %> - <%= available.end_date %>"
               required
             />
-            <label>
+            <label for="date_range<%= index %>">
               <span>
                 <%= available.start_date %> - <%= available.end_date %>
               </span>
             </label>
           </div>
-          <% } %>
+          <% }) %>
         </section>
         <section>
           <h4>room type</h4>
-          <% for (let room of trip.rooms) { %>
+          <% trip.rooms.map((room, index) => { %>
           <div class="select-box select-box-room">
             <input
               type="radio"
-              id="room"
+              id="room<%= index %>"
               name="room"
-              value="<%= room.type %> <%= room.gender %> €<%= room.price %>"
+              value="<%= room.type %> <%= room.gender %> <%= room.price %>"
               required
             />
-            <label class="" for="room">
+            <label class="" for="room<%= index %>">
               <span><%= room.type %></span>
               <span><%= room.gender %></span>
               <span>€<%= room.price %></span>
             </label>
           </div>
-          <% } %>
-        </section>
-        <section class="personal-info">
-          <h4>your personal info</h4>
-          <input
-            name="first_name"
-            type="text"
-            value="<%= user.first_name %>"
-            readonly
-          />
-          <input
-            name="last_name"
-            type="text"
-            value="<%= user.last_name %>"
-            readonly
-          />
-          <input name="email" type="text" value="<%= user.email %>" readonly />
+          <% }) %>
         </section>
         <div class="book-btn-container">
           <div class="spacer"></div>
