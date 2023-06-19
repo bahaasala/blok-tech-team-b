@@ -3,7 +3,7 @@ const User = require("../schemas/User")
 
 const singleTripController = async (req, res, next) => {
   try {
-    const user = await User.findOne({ _id: "648e1e13e28b0df229c66ae3" })
+    const user = await User.findOne({ username: req.session.username })
     const tripSlug = req.params.trip
     const trip = await Trip.findOne({ slug: tripSlug })
     if (!trip) {
