@@ -256,14 +256,15 @@ ul.trips-list, ul.bookings-list {
   left: 0;
   width: 100%;
   display: flex;
+  overflow: auto;
   flex-grow: 1;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  color: #ffffff;
+  color: $color-white;
+  overflow-y: hidden;
   min-height: 400px;
-  margin-top: 20px;
   li {
     min-width: 250px;
     flex: 0 0 auto;
@@ -465,11 +466,12 @@ ul.trips-list, ul.bookings-list {
   &__container{
     position: fixed;
     margin-top: 50px;
-    overflow: auto;
     left: 0;
     height: 100%;
+    overflow: auto;
     .bookings-list {
       max-width: 425px;
+      overflow: unset;
       li > a{
         position: relative;
       }
@@ -479,6 +481,12 @@ ul.trips-list, ul.bookings-list {
       .trip-item:last-child {
         margin-right: 100px;
       }
+    }
+  }
+  .booking-title-container{
+    .title {
+      text-align: center;
+      margin-top: 30px;
     }
   }
 }

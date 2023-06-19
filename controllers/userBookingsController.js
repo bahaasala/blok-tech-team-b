@@ -1,12 +1,10 @@
 const User = require("../schemas/User")
 const Booking = require("../schemas/Booking")
-const Trip = require("../schemas/Trip")
 
 const userBookingsController = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.session.username })
     const bookings = await Booking.find({ user: user._id }).populate("trip")
-    console.log(bookings)
 
     res.render("bookings.ejs", {
       title: "My bookings",
