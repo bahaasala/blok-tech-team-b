@@ -1,17 +1,21 @@
-const { db } = require("../connect")
+const Booking = require("../schemas/Booking")
 const Review = require("../schemas/Review")
 
 const addReviewController = async (req, res, next) => {
   try {
     const reviewDescriptionSelector = req.body.reviewDescription
-    const reviewPlaceSelector = req.body.reviewPlace
+    const reviewCountrySelector = req.body.reviewPlace
     const reviewRatingSelector = req.body.reviewStars
 
     const bookingId = req.params.bookingId
 
+    const currentBooking = await Booking.findOne({
+      _id: bookingId
+    })
+
     const reviewFormData = {
       reviewDescriptionSelector,
-      reviewPlaceSelector,
+      reviewCountrySelector,
       reviewRatingSelector
     }
 
@@ -20,10 +24,12 @@ const addReviewController = async (req, res, next) => {
     const run = async () => {
       try {
         const reviewSchema = await Review.create({
-          reviewDescriptionData: reviewDescriptionSelector,
-          reviewPlaceData: reviewPlaceSelector,
-          reviewRatingData: reviewRatingSelector,
-          bookingId: bookingId
+          description: reviewDescriptionSelector,
+          country: reviewCountrySelector,
+          rating: reviewRatingSelector,
+          booking: bookingId,
+          trip: currentBooking.trip,
+          user: currentBooking.user
         })
 
         console.log("Review created:", reviewSchema)
@@ -31,7 +37,11 @@ const addReviewController = async (req, res, next) => {
         console.error("Error creating review:", error)
       }
     }
-    run()
+    await run()
+    res.render("booking_details.ejs", {
+      title: "Single Booking",
+      bookingId: bookingId
+    })
   } catch (err) {
     next(err)
   }

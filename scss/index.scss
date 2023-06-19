@@ -1,5 +1,5 @@
-@import "vars/colors.scss", "layout/typography.scss", "layout/login.scss",
-  "layout/register.scss", "layout/account.scss", "layout/marc.scss";
+@import "vars/colors.scss", "layout/typography.scss",
+  "layout/login-register.scss", "layout/account.scss", "layout/marc.scss";
 
 // General
 html {
@@ -114,8 +114,12 @@ img {
     }
   }
   &__trips-container {
-    position: relative;
+    position: fixed;
     margin-top: 50px;
+    left: 0;
+    .trips-list {
+      max-width: 425px;
+    }
   }
 }
 
@@ -160,7 +164,7 @@ img {
     transition: 1s all;
     grid-auto-flow: column;
     > li {
-      width: 26.5rem;
+      width: 23rem;
       padding: 10px 25px;
       &.trips-end {
         margin-top: 15rem;
@@ -201,8 +205,8 @@ img {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 2rem;
-    grid-row-gap: 4.5rem;
-    padding-top: 1.5rem;
+    grid-row-gap: 4rem;
+    padding-top: 0.5rem;
     padding-bottom: 4rem;
     height: 100%;
     overflow: visible;
@@ -216,6 +220,10 @@ img {
         height: 100%;
         img {
           border-top-right-radius: 8rem;
+          transition: opacity 0.5s;
+          &.active {
+            opacity: 1;
+          }
         }
       }
       .trip-title-container {
@@ -319,6 +327,7 @@ ul.trips-list {
     z-index: 2;
     background: $color-white;
     margin: 200px 20px 0px 20px;
+    width: 100%;
     .title-container {
       display: flex;
       justify-content: space-between;
@@ -411,6 +420,10 @@ ul.trips-list {
   > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    fieldset {
+      padding: 0;
+    }
   }
   .spacer {
     width: 100px;

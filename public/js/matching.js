@@ -13,7 +13,7 @@ if (dataset) {
 }
 
 const skipToNextApplication = () => {
-  const translateAmount = tripIndex * -26.5 + "rem"
+  const translateAmount = tripIndex * -23 + "rem"
   tripsContainer.style.transform = `translateX(${translateAmount})`
   tripIndex++
 }
@@ -39,7 +39,6 @@ wishlistBtn?.forEach((btn) => {
     e.stopPropagation()
     const tripId = btn.getAttribute("data-id")
     const update = await updateWishlist(tripId)
-    console.log(update)
     if (!update) return
     if (update.action === "add") {
       btn.classList.add("active")
