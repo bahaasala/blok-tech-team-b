@@ -53,7 +53,6 @@ window.addEventListener("load", () => {
   }, 500)
 })
 
-
 // Marc - Code for geolocation API and reverse geocoding from Geoapify
 const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key van Geoapify
 const locationReviewElementt = document.getElementById("locationReview")
@@ -73,13 +72,14 @@ const getLocation = () => {
 const onSuccess = (position) => {
   const latitude = position.coords.latitude
   const longitude = position.coords.longitude
-  const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}` // URL for reverse geocoding
+  const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&type=country&format=json&apiKey=${apiKey}` // URL for reverse geocoding
 
   fetch(reverseGeocodingUrl) // Fetch data of reverse geocoding
     .then((response) => response.json()) // Data transfer to json
     .then((data) => {
       // Data of reverse geocoding
-      const address = data.features[0].properties.formatted
+      console.log(data)
+      const address = data.results[0].country
       locationReviewElementt.value = address
     })
     .catch((error) => {
@@ -172,4 +172,3 @@ navigator.geolocation.getCurrentPosition(
     locationElement.textContent = "Failed to fetch current location."
   }
 )
-

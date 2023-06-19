@@ -53,6 +53,7 @@ const authenticateUser = (req, res, next) => {
     next()
   } else {
     // User is not logged in and trying to access a restricted page, redirect to login
+    req.session.redirectUrl = req.originalUrl
     res.redirect("/login")
   }
 }
