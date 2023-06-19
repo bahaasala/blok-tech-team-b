@@ -70,73 +70,39 @@ a {
   font-size: 12px;
 }
 
-.login {
-  position: absolute;
-  max-width: 425px;
-  margin: 0 auto;
+.login,
+.register {
   min-height: 100vh;
   width: 100%;
-  top: 0;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("../images/lisbon.jpg");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
 }
 
-.login_form_container form {
-  padding: 30px 25px 30px 25px;
-  margin: 200px 20px 0px 20px;
-  border-radius: 50px 0 0 0;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-}
-.login_form_container .input-box {
-  display: inline-block;
-  margin: 0 0 20px 0;
-  position: relative;
-  padding: 10px 5px;
-  border: solid 0.5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-.login_form_container a {
-  margin-top: 20px;
-  text-align: center;
-}
-.login_form_container .btn {
-  margin-top: 10px;
-  padding: 10px 50px;
-}
-
-.wrong_login {
-  margin-top: 15px;
-  color: #e80505;
-  text-align: center;
-}
-
 .register {
-  position: absolute;
-  max-width: 425px;
-  margin: 0 auto;
-  min-height: 100vh;
-  width: 100%;
-  top: 0;
-  z-index: 1;
   background-image: url("../images/bali.jpg");
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
 }
 
+.login_form_container,
+.register_form_container {
+  padding: 0 20px 0 20px;
+  width: 100%;
+  max-width: 425px;
+}
+.login_form_container form,
 .register_form_container form {
   padding: 30px 25px 30px 25px;
-  margin: 150px 20px 0px 20px;
   border-radius: 50px 0 0 0;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
 }
+.login_form_container .input-box,
 .register_form_container .input-box {
   display: inline-block;
   margin: 0 0 20px 0;
@@ -145,19 +111,29 @@ a {
   border: solid 0.5px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+.login_form_container a,
 .register_form_container a {
   margin-top: 20px;
   text-align: center;
 }
+.login_form_container .btn,
 .register_form_container .btn {
   margin-top: 10px;
   padding: 10px 50px;
 }
+.login_form_container p,
 .register_form_container p {
   text-align: center;
 }
+.login_form_container i,
 .register_form_container i {
   font-size: 10px;
+}
+
+.wrong_login {
+  margin-top: 15px;
+  color: #e80505;
+  text-align: center;
 }
 
 .user_exists {
@@ -613,7 +589,7 @@ img {
   grid-auto-flow: column;
 }
 .trips .trips-group > li {
-  width: 26.5rem;
+  width: 23rem;
   padding: 10px 25px;
 }
 .trips .trips-group > li.trips-end {
@@ -651,8 +627,8 @@ img {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 2rem;
-  grid-row-gap: 4.5rem;
-  padding-top: 1.5rem;
+  grid-row-gap: 4rem;
+  padding-top: 0.5rem;
   padding-bottom: 4rem;
   height: 100%;
   overflow: visible;

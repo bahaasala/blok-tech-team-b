@@ -13,7 +13,7 @@ if (dataset) {
 }
 
 const skipToNextApplication = () => {
-  const translateAmount = tripIndex * -26.5 + "rem"
+  const translateAmount = tripIndex * -23 + "rem"
   tripsContainer.style.transform = `translateX(${translateAmount})`
   tripIndex++
 }
