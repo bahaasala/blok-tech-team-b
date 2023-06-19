@@ -31,7 +31,7 @@ app.use(expressLayouts)
 
 // urlencoded for form data
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.json())
 // call the connectDB function
 connectDB()
 
@@ -53,6 +53,7 @@ const authenticateUser = (req, res, next) => {
     next()
   } else {
     // User is not logged in and trying to access a restricted page, redirect to login
+    req.session.redirectUrl = req.originalUrl
     res.redirect("/login")
   }
 }
