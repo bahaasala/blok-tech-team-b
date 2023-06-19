@@ -1,15 +1,26 @@
 <%- include('partials/header.ejs') %>
 <div class="bookings container">
-  <section class="">
+  <section class="bookings__heading-container">
     <h1 class="slide-in-left">My bookings</h1>
   </section>
-  <div class="bookings_container">
+  <div class="bookings__container">
     <ul class="bookings-list">
       <% for (let booking of bookings) { %>
-      <li>
-        <div>
+      <li class="trip-item">
+        <a href="/bookings/<%= booking.id %>">
+          <div class="trip-image-container">
+            <% booking.trip.images.forEach((image) => { %>
+            <img
+              class="trip-image"
+              src="<%= image.url %>"
+              alt="<%= image.alt %>"
+            />
+            <% }) %>
+          </div>
+        </a>
+        <div class="booking-title-container">
           <a href="/bookings/<%= booking.id %>">
-            <h3><%= booking.destination %></h3>
+            <h3 class="title"><%= booking.trip.destination %></h3>
           </a>
         </div>
       </li>

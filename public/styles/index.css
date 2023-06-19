@@ -679,15 +679,14 @@ ul.trips-list, ul.bookings-list {
   left: 0;
   width: 100%;
   display: flex;
-  overflow: auto;
   flex-grow: 1;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   color: #ffffff;
-  overflow-y: hidden;
   min-height: 400px;
+  margin-top: 20px;
 }
 ul.trips-list li, ul.bookings-list li {
   min-width: 250px;
@@ -853,6 +852,43 @@ ul.trips-list li.active, ul.bookings-list li.active {
 .confirmed .buttons-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.bookings {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.bookings *,
+.bookings *::before,
+.bookings *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.bookings__heading-container {
+  margin: 15px 25px 0px 25px;
+}
+.bookings__container {
+  position: fixed;
+  margin-top: 50px;
+  overflow: auto;
+  left: 0;
+  height: 100%;
+}
+.bookings__container .bookings-list {
+  max-width: 425px;
+}
+.bookings__container .bookings-list li > a {
+  position: relative;
+}
+.bookings__container .bookings-list .trip-item:first-child {
+  margin-left: 25px;
+}
+.bookings__container .bookings-list .trip-item:last-child {
+  margin-right: 100px;
 }
 
 .slide-in-left {
