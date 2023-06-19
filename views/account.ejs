@@ -1,9 +1,9 @@
 <article class="account">
   <section>
     <% if (isLoggedIn) { %>
-    <h1>Hello, <%= username %>!</h1>
-    <% } else { %>
-    <h1>Hello, user!</h1>
+    <img class="avatar" src="/images/<%= user.image_url %>" alt="avatar" />
+    <h1><%= username %></h1>
+    <h2>Member since: <%= user.created_at.toDateString() %></h2>
     <% } %>
   </section>
 
@@ -41,12 +41,15 @@
       <button class="btn" type="submit">Save</button>
     </form>
 
-    <!-- <form
+    <form
       action="/account/update-profile-picture"
       method="POST"
       enctype="multipart/form-data"
     >
       <h3>Change Profile Picture</h3>
+      <div class="file_info">
+        <p>JPG, JPEG or PNG (Max 10MB)</p>
+      </div>
       <input
         class="file_button"
         type="file"
@@ -55,7 +58,7 @@
         required
       />
       <button class="btn" type="submit">Save</button>
-    </form> -->
+    </form>
     <% } %>
   </section>
 
