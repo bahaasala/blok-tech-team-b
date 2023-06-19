@@ -47,12 +47,3 @@ bookingSchema
   })
 
 module.exports = mongoose.model("Booking", bookingSchema)
-
-const reviewSchema = new mongoose.Schema({
-  reviewDescriptionData: String,
-  reviewPlaceData: String,
-  reviewRatingData: Number,
-  bookingId: mongoose.Schema.Types.ObjectId
-})
-
-module.exports = mongoose.model("reviews", reviewSchema)

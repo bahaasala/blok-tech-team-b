@@ -1,5 +1,5 @@
 const { db } = require("../connect")
-const Booking = require("../schemas/Booking")
+const Review = require("../schemas/Review")
 
 const addReviewController = async (req, res, next) => {
   try {
@@ -19,7 +19,7 @@ const addReviewController = async (req, res, next) => {
 
     const run = async () => {
       try {
-        const reviewSchema = await Booking.create({
+        const reviewSchema = await Review.create({
           reviewDescriptionData: reviewDescriptionSelector,
           reviewPlaceData: reviewPlaceSelector,
           reviewRatingData: reviewRatingSelector,
