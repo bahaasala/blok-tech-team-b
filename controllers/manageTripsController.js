@@ -31,7 +31,6 @@ const manageTripsController = async (req, res, next) => {
     }
 
     if (contentType === "application/json") {
-      console.log(action)
       return res.json({ success: true, action: action })
     }
     return res.redirect("/trips")
