@@ -607,4 +607,8 @@ ul.trips-list li.active {
   color: #E85C05;
 }
 
+.testBookedTrips {
+  color: aqua;
+}
+
 /*# sourceMappingURL=index.css.map */
