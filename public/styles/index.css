@@ -645,6 +645,10 @@ img {
 }
 .trips .trips-list li .trip-image-container img {
   border-top-right-radius: 8rem;
+  transition: opacity 0.5s;
+}
+.trips .trips-list li .trip-image-container img.active {
+  opacity: 1;
 }
 .trips .trips-list li .trip-title-container {
   margin-top: 1rem;

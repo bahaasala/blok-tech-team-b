@@ -216,6 +216,10 @@ img {
         height: 100%;
         img {
           border-top-right-radius: 8rem;
+          transition: opacity 0.5s;
+          &.active {
+            opacity: 1;
+          }
         }
       }
       .trip-title-container {
