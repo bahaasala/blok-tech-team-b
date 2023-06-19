@@ -39,7 +39,6 @@ wishlistBtn?.forEach((btn) => {
     e.stopPropagation()
     const tripId = btn.getAttribute("data-id")
     const update = await updateWishlist(tripId)
-    console.log(update)
     if (!update) return
     if (update.action === "add") {
       btn.classList.add("active")

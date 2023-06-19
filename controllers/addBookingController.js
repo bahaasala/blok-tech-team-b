@@ -11,6 +11,7 @@ const addBookingController = async (req, res, next) => {
 
   const newBooking = {
     user: user._id,
+    trip: trip._id,
     date_range: {
       start_date: formattedDateToValidDate(req.body.date_range.split(" - ")[0]), // "2021-05-01 - 2021-05-08" => ["2021-05-01", "2021-05-08"]
       end_date: formattedDateToValidDate(req.body.date_range.split(" - ")[1])
@@ -19,9 +20,7 @@ const addBookingController = async (req, res, next) => {
       type: req.body.room.split(" ")[0],
       gender: req.body.room.split(" ")[1],
       price: req.body.room.split(" ")[2]
-    },
-    price: trip.price,
-    destination: trip.destination
+    }
   }
 
   const savedBooking = await Booking.create(newBooking)

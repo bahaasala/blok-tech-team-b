@@ -742,6 +742,7 @@ ul.trips-list li.active {
   z-index: 2;
   background: #ffffff;
   margin: 200px 20px 0px 20px;
+  width: 100%;
 }
 .trip__details-container .title-container {
   display: flex;
