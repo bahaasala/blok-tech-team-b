@@ -26,8 +26,13 @@
       </section>
     </div>
     <div class="book-btn-container">
-      <div class="spacer"></div>
       <div>
+        <form method="post">
+          <fieldset>
+            <input type="hidden" name="tripId" value="<%- trip._id %>">
+            <button type="submit" class="trip-button-wishlist <%- user.savedTrips?.includes(trip._id) ? 'active' : '' %>" data-id="<%= trip._id %>">&#10084;</button>
+          </fieldset>
+        </form>
         <a href="/trips/<%= trip.slug %>/book" class="btn book-btn slide-in-top"
           >Book now</a
         >
@@ -36,3 +41,5 @@
   </div>
   <% } %>
 </div>
+<script src="/js/matching.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
