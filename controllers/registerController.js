@@ -4,12 +4,13 @@ const User = require("../schemas/User")
 
 const registerController = async (req, res, next) => {
   try {
+    const registrationFailed = req.session.registrationFailed || ""
+    req.session.registrationFailed = null // Clear session variable
+
     res.render("register.ejs", {
       title: "Register",
-      registrationFailed: req.session.registrationFailed || "",
-      successMessage: req.session.successMessage || ""
+      registrationFailed: registrationFailed
     })
-    req.session.registrationFailed = req.session.successMessage = null
   } catch (err) {
     next(err)
   }

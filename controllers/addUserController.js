@@ -7,8 +7,7 @@ const addUserController = async (req, res, next) => {
   if (password !== confirmPassword) {
     return res.render("register", {
       title: "Register",
-      registrationFailed: "Passwords do not match!", // Display error message on the registration page
-      successMessage: "" // Clear success message
+      registrationFailed: "Passwords do not match!" // Display error message on the registration page
     })
   }
   try {
@@ -17,8 +16,7 @@ const addUserController = async (req, res, next) => {
     if (existingUser) {
       return res.render("register", {
         title: "Register",
-        registrationFailed: "Username already exists!", // Display error message on the registration page
-        successMessage: "" // Clear success message
+        registrationFailed: "Username already exists!" // Display error message on the registration page
       })
     }
 
@@ -29,13 +27,12 @@ const addUserController = async (req, res, next) => {
       password: hashedPassword
     })
 
-    await newUser.save() // Save the new user to the database
+    await newUser.save()
+    // Save the new user to the database
 
-    res.render("login", {
-      title: "Login",
-      loginFailed: "", // Clear login failed message
-      successMessage: "Registration successful!" // Display success message on the login page
-    })
+    req.session.successMessage = "Registration successful! You can now log in."
+    res.redirect("/login")
+    // Redirect to the login page
   } catch (err) {
     console.error(err)
     res.status(500).send("An error occurred while registering the user")

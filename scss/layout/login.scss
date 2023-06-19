@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
   }
-  .input-box {
+  .input_box {
     display: inline-block;
     margin: 0 0 20px 0;
     position: relative;
@@ -42,7 +42,10 @@
 }
 
 .wrong_login {
-  margin-top: 15px;
   color: $color-red;
+  text-align: center;
+}
+.success_message {
+  color: $color-green;
   text-align: center;
 }

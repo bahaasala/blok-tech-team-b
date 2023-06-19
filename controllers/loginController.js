@@ -4,11 +4,14 @@ const User = require("../schemas/User")
 
 const loginController = async (req, res, next) => {
   try {
+    const successMessage = req.session.successMessage || ""
+    req.session.successMessage = null // Clear session variable
+
     res.render("login.ejs", {
       title: "Login",
-      loginFailed: req.session.loginFailed || ""
+      loginFailed: req.session.loginFailed || "",
+      successMessage: successMessage
     })
-    req.session.loginFailed = null // Clear the login failed message
   } catch (err) {
     next(err)
   }

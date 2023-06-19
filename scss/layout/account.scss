@@ -54,7 +54,7 @@
   section:nth-of-type(5) {
     animation: 0.8s slide-right 0.8s ease-in-out both;
   }
-  .input-box {
+  .input_box {
     display: inline-block;
     margin: 0 0 10px 0;
     position: relative;
@@ -76,22 +76,22 @@
       margin-bottom: 10px;
     }
   }
-  .profile-picture {
+  .profile_picture {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
   }
 
-  .profile-picture label {
+  .profile_picture label {
     margin-bottom: 10px;
   }
 
-  .profile-picture input[type="file"] {
+  .profile_picture input[type="file"] {
     display: none;
   }
 
-  .profile-picture button {
+  .profile_picture button {
     margin-top: 10px;
   }
 }

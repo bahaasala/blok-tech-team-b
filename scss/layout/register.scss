@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
   }
-  .input-box {
+  .input_box {
     display: inline-block;
     margin: 0 0 20px 0;
     position: relative;
@@ -45,7 +45,7 @@
     font-size: 10px;
   }
 }
-.user_exists {
+.registration_failed {
   color: $color-red;
   text-align: center;
 }
