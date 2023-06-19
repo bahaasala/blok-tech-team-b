@@ -1,24 +1,12 @@
-const { ObjectId } = require("mongodb")
-const { db } = require("../connect")
+const Booking = require("../schemas/Booking")
 
 const deleteBookingController = async (req, res, next) => {
-  const bookingId = req.params.bookingId
-
   try {
-    const booking = await db
-      .collection("bookings")
-      .findOne({ _id: new ObjectId(bookingId) })
+    const bookingId = req.params.bookingId
 
-    if (!booking) {
-      return res.status(404).render("not_found.ejs", {
-        title: "Booking Not Found",
-        message: "The booking does not exist."
-      })
-    }
+    await Booking.deleteOne({ _id: bookingId })
 
-    await db.collection("bookings").deleteOne({ _id: new ObjectId(bookingId) })
-
-    res.redirect("/trips")
+    res.redirect("/bookings")
   } catch (err) {
     next(err)
   }

@@ -728,13 +728,13 @@ ul.trips-list li.active, ul.bookings-list li.active {
   transform: scale(1.03) !important;
 }
 
-.trip {
+.trip, .booking {
   margin: 0;
   display: flex;
   justify-content: center;
   max-width: unset;
 }
-.trip__image-container {
+.trip__image-container, .booking__image-container {
   position: fixed;
   background-size: cover;
   background-position: top;
@@ -743,7 +743,7 @@ ul.trips-list li.active, ul.bookings-list li.active {
   top: 0;
   z-index: 1;
 }
-.trip__details-container {
+.trip__details-container, .booking__details-container {
   position: sticky;
   padding: 30px 25px 30px 25px;
   border-top-left-radius: 40px;
@@ -752,27 +752,27 @@ ul.trips-list li.active, ul.bookings-list li.active {
   margin: 200px 20px 0px 20px;
   width: 100%;
 }
-.trip__details-container .title-container {
+.trip__details-container .title-container, .booking__details-container .title-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
-.trip__details-container .title-container p {
+.trip__details-container .title-container p, .booking__details-container .title-container p {
   margin: 0;
 }
-.trip__details-container .title-container .title {
+.trip__details-container .title-container .title, .booking__details-container .title-container .title {
   margin: 0;
   font-size: 35px;
 }
-.trip__details-container .title-container .price {
+.trip__details-container .title-container .price, .booking__details-container .title-container .price {
   font-size: 40px;
   font-weight: 600;
   text-align: right;
 }
-.trip__details-container .title-container .per-person {
+.trip__details-container .title-container .per-person, .booking__details-container .title-container .per-person {
   text-align: right;
 }
-.trip__details-container .inner-container section {
+.trip__details-container .inner-container section, .booking__details-container .inner-container section {
   margin-bottom: 50px;
 }
 

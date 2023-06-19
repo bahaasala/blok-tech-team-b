@@ -305,8 +305,8 @@ ul.trips-list, ul.bookings-list {
   }
 }
 
-// Single trip
-.trip {
+// Single trip & Single booking
+.trip, .booking {
   margin: 0;
   display: flex;
   justify-content: center;

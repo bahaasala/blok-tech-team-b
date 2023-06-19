@@ -8,10 +8,7 @@ const addReviewController = async (req, res, next) => {
     const reviewRatingSelector = req.body.reviewStars
 
     const bookingId = req.params.bookingId
-
-    const currentBooking = await Booking.findOne({
-      _id: bookingId
-    })
+    const booking = await Booking.findOne({ _id: bookingId }).populate("trip")
 
     const reviewFormData = {
       reviewDescriptionSelector,
@@ -27,9 +24,9 @@ const addReviewController = async (req, res, next) => {
           description: reviewDescriptionSelector,
           country: reviewCountrySelector,
           rating: reviewRatingSelector,
-          booking: bookingId,
-          trip: currentBooking.trip,
-          user: currentBooking.user
+          booking: booking.id,
+          trip: booking.trip,
+          user: booking.user
         })
 
         console.log("Review created:", reviewSchema)
@@ -38,10 +35,8 @@ const addReviewController = async (req, res, next) => {
       }
     }
     await run()
-    res.render("booking_details.ejs", {
-      title: "Single Booking",
-      bookingId: bookingId
-    })
+    // Redirect back to the single booking page
+    res.redirect(`/bookings/${bookingId}`)
   } catch (err) {
     next(err)
   }
