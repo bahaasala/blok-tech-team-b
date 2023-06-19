@@ -1,10 +1,12 @@
 const { faker } = require("@faker-js/faker")
+const biggest_cities = require("../data/cities")
+const unsplash = require("../../unsplash")
 
-const generateFakeTrips = (amount) => {
+const generateFakeTrips = async (amount) => {
   const trips = []
   for (let i = 0; i < amount; i++) {
     const tripLength = faker.number.int({ min: 5, max: 30 })
-    const tripName = faker.location.city()
+    const tripName = biggest_cities[i]
     const fakeDate = faker.date.between({
       from: "2024-01-01T00:00:00.000Z",
       to: "2025-01-01T00:00:00.000Z"
@@ -35,16 +37,8 @@ const generateFakeTrips = (amount) => {
       return roomsArray
     }
 
-    const generateFakeImages = (amount) => {
-      const imagesArray = []
-      for (let i = 0; i < amount; i++) {
-        const image = {
-          url: faker.image.urlLoremFlickr({ category: "city" }),
-          alt: faker.lorem.sentence(1)
-        }
-        imagesArray.push(image)
-      }
-      return imagesArray
+    const generateFakeImages = async () => {
+      return await unsplash.searchPhotos(tripName)
     }
 
     const trip = {
@@ -58,10 +52,11 @@ const generateFakeTrips = (amount) => {
       rooms: generateFakeRooms(faker.number.int({ min: 1, max: 4 })),
       price: faker.number.int({ min: 300, max: 2000 }),
       destination: tripName,
-      images: generateFakeImages(faker.number.int({ min: 3, max: 10 }))
+      images: await generateFakeImages()
     }
     trips.push(trip)
   }
+  console.log(trips)
   return trips
 }
 

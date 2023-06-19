@@ -1,1 +1,97 @@
-<p>Single booking details</p>
+<div class="container">
+  <div class="slide-in-top"></div>
+  <div class="title-container slide-in-top">
+    <section>
+      <h1 class="title">Single booking details</h1>
+    </section>
+
+    <article class="review slide-in-top">
+      <details>
+        <summary>write a review</summary>
+        <form action="<%= bookingId %>/submitReview/" method="POST">
+          <fieldset>
+            <legend>what did you think of your trip?</legend>
+            <section class="rating">
+              <label for="rating"></label>
+              <label>
+                <input type="radio" name="reviewStars" value="1" />
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="reviewStars" value="2" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="reviewStars" value="3" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="reviewStars" value="4" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="reviewStars" value="5" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+            </section>
+            <section>
+              <label for="review-description">description</label>
+              <textarea
+                class=""
+                id="review-description"
+                name="reviewDescription"
+                placeholder="write about what you liked and what you didn't like"
+                required
+              ></textarea>
+            </section>
+            <section>
+              <label for="place">location</label>
+              <input
+                class=""
+                type="text"
+                id="locationReview"
+                name="reviewPlace"
+                placeholder="your adress"
+                required
+              />
+              <button class="" id="locationReviewButton">
+                Use current location
+              </button>
+              <p class="">
+                *the 'Use current location' button is not working. Please
+                restart the website or enter manually
+              </p>
+            </section>
+            <div>
+              <button class="" type="submit" id="showFormSubmitButton" required>
+                Send
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </details>
+    </article>
+    <article class="spacer">
+      <section>
+        <button class="btn slide-in-top" id="removeBookingButton">Remove booking</button>
+      </section>
+    </div>
+    </article>
+    <article class="hidden removeBookingScreen">
+      <h2>Are you sure you want to cancel this booking?</h2>
+      <section>
+        <button id="noKeepBookingButton">No, keep current booking</button>
+        <button>Yes, cancel booking</button>
+      </section>
+    </article>
+</div>

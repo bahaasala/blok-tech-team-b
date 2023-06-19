@@ -1,27 +1,20 @@
-const { db } = require("../connect")
+const Trip = require("../schemas/Trip")
+const User = require("../schemas/User")
+const { formatDate } = require("../utils/general/dates")
 
 const bookingController = async (req, res, next) => {
   try {
-    const user = await db.collection("users").findOne({ first_name: "Bahaa" })
+    const user = await User.findOne({ username: req.session.username })
     const tripSlug = req.params.trip
-    const trip = await db.collection("trips").findOne({ slug: tripSlug })
+    const trip = await Trip.findOne({ slug: tripSlug })
 
-    // format date
-    const formatDate = (dateString) => {
-      const date = new Date(dateString)
-      const year = date.getFullYear()
-      const month = String(date.getMonth() + 1).padStart(2, "0")
-      const day = String(date.getDate()).padStart(2, "0")
-
-      return `${day}-${month}-${year}`
-    }
+    const availabilityOptions = []
     trip.availability.forEach((available) => {
-      if (available.start_date) {
-        available.start_date = formatDate(available.start_date)
+      const dateRange = {
+        start_date: formatDate(available.start_date),
+        end_date: formatDate(available.end_date)
       }
-      if (available.end_date) {
-        available.end_date = formatDate(available.end_date)
-      }
+      availabilityOptions.push(dateRange)
     })
 
     if (!trip) {
@@ -31,7 +24,8 @@ const bookingController = async (req, res, next) => {
     res.render("book.ejs", {
       title: trip.destination + " - Book",
       user: user,
-      trip: trip
+      trip: trip,
+      availabilityOptions: availabilityOptions
     })
   } catch (err) {
     next(err)
