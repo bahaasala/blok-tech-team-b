@@ -41,7 +41,11 @@
       <button class="btn" type="submit">Save</button>
     </form>
 
-    <!-- <form action="">
+    <!-- <form
+      action="/account/update-profile-picture"
+      method="POST"
+      enctype="multipart/form-data"
+    >
       <h3>Change Profile Picture</h3>
       <input
         class="file_button"
@@ -76,8 +80,8 @@
     <% if (isLoggedIn) { %>
     <form
       class="delete_form"
-      action="/user/delete"
-      method="post"
+      action="/account/delete"
+      method="POST"
       onsubmit="return confirm('Are you sure you want to delete your account?');"
     >
       <button class="btn" type="submit">Delete Account</button>

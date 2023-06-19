@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 8
   },
+  image_url: {
+    type: String,
+    default: "../images/default-user.png"
+  },
   created_at: {
     type: Date,
     immutable: true,
