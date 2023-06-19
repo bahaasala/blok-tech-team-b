@@ -20,6 +20,11 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+fieldset {
+  border: none;
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -28,6 +33,8 @@ main {
   display: flex;
   top: 0;
   height: 100vh;
+  z-index: 100000;
+  background-color: white;
 }
 header {
   display: flex;
@@ -56,6 +63,30 @@ header {
 // Images
 img {
   width: 100%;
+}
+
+.trip-button-wishlist {
+  background-color: $color-red;
+  border-radius: 50%;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $color-blue;
+    font-size: 1.4rem;
+  }
+  &.active {
+    color: $color-blue--lighter;
+    font-size: 1.3rem;
+  }
 }
 
 // Startpage - Home
@@ -121,13 +152,17 @@ img {
     margin: 15px 25px 0px 25px;
   }
   .trips-group {
-    display: flex;
+    display: grid;
     width: 100%;
     max-height: 75vh;
     transition: 1s all;
+    grid-auto-flow: column;
     > li {
-      width: 100%;
+      width: 26.5rem;
       padding: 10px 25px;
+      &.trips-end {
+        margin-top: 15rem;
+      }
     }
   }
   .trips-button-skip {
@@ -149,6 +184,15 @@ img {
       color: black;
       background-color: $color-blue--lighter;
     }
+
+    &.disabled {
+      background-color: lightgrey;
+      cursor: not-allowed;
+      &:hover {
+        color: lightgrey;
+        background-color: grey;
+      }
+    }
   }
   .trips-list {
     display: grid;
@@ -160,7 +204,6 @@ img {
     padding-bottom: 4rem;
     height: 100%;
     overflow: visible;
-    width: calc(100vw - 50px);
     li {
       width: 100%;
       min-width: 0;
@@ -187,30 +230,6 @@ img {
           text-align: start;
           text-overflow: ellipsis;
           overflow: hidden;
-        }
-
-        .trip-button-wishlist {
-          background-color: $color-red;
-          border-radius: 50%;
-          border: none;
-          width: 2rem;
-          height: 2rem;
-          cursor: pointer;
-          color: white;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: -0.2rem;
-          transition: all 0.2s;
-
-          &:hover {
-            color: $color-blue;
-            font-size: 1.4rem;
-          }
-          &.active {
-            color: $color-blue--lighter;
-            font-size: 1.3rem;
-          }
         }
       }
     }
@@ -278,9 +297,12 @@ ul.trips-list {
 
 // Single trip
 .trip {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset;
   &__image-container {
     position: fixed;
-    max-width: 425px;
     background-size: cover;
     background-position: top;
     min-height: 100vh;
@@ -339,6 +361,7 @@ ul.trips-list {
       width: 100%;
       position: relative;
       padding: 30px 0px;
+      border-radius: 4px;
       border: solid 0.5px;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
       label,
@@ -357,7 +380,6 @@ ul.trips-list {
       input[type="radio"]:checked + label {
         background-color: $color-blue;
         color: $color-white;
-        border-radius: 4px;
       }
       label {
         cursor: pointer;
@@ -379,12 +401,15 @@ ul.trips-list {
       }
     }
     .book-btn {
+      cursor: pointer;
     }
   }
 }
 .book-btn-container {
-  display: flex;
-  justify-content: space-between;
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
   .spacer {
     width: 100px;
   }
@@ -400,7 +425,7 @@ ul.trips-list {
   }
   .buttons-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 }
 

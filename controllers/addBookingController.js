@@ -1,25 +1,31 @@
 const { db } = require("../connect")
+const Booking = require("../schemas/Booking")
+const Trip = require("../schemas/Trip")
+const User = require("../schemas/User")
+const { formattedDateToValidDate } = require("../utils/general/dates")
 
 const addBookingController = async (req, res, next) => {
-  const user = await db.collection("users").findOne({ first_name: "Bahaa" })
+  const user = await User.findOne({ _id: "648e1e13e28b0df229c66ae3" })
   const tripSlug = req.params.trip
-  const trip = await db.collection("trips").findOne({ slug: tripSlug })
-  const currentDate = new Date()
-  const offsetInMilliseconds = currentDate.getTimezoneOffset() * 60 * 1000
-  const created_at = new Date(currentDate.getTime() - offsetInMilliseconds)
+  const trip = await Trip.findOne({ slug: tripSlug })
 
-  const data = {
-    destination: trip.destination,
-    first_name: user.first_name,
-    last_name: user.last_name,
-    email: user.email,
-    ...req.body,
-    created_at
+  const newBooking = {
+    user: user._id,
+    date_range: {
+      start_date: formattedDateToValidDate(req.body.date_range.split(" - ")[0]), // "2021-05-01 - 2021-05-08" => ["2021-05-01", "2021-05-08"]
+      end_date: formattedDateToValidDate(req.body.date_range.split(" - ")[1])
+    },
+    room: {
+      type: req.body.room.split(" ")[0],
+      gender: req.body.room.split(" ")[1],
+      price: req.body.room.split(" ")[2]
+    },
+    price: trip.price,
+    destination: trip.destination
   }
 
-  const booking = await db.collection("bookings").insertOne(data)
-  const bookingId = booking.insertedId
-  res.redirect("/trips/" + tripSlug + "/book/confirmed/" + bookingId)
+  const savedBooking = await Booking.create(newBooking)
+  res.redirect("/trips/" + tripSlug + "/book/confirmed/" + savedBooking._id)
 }
 
 module.exports = addBookingController

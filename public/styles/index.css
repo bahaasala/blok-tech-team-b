@@ -85,6 +85,10 @@ main {
   flex-direction: column;
 }
 
+fieldset {
+  border: none;
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -93,6 +97,8 @@ main {
   display: flex;
   top: 0;
   height: 100vh;
+  z-index: 100000;
+  background-color: white;
 }
 
 header {
@@ -120,6 +126,29 @@ header .avatar {
 
 img {
   width: 100%;
+}
+
+.trip-button-wishlist {
+  background-color: #e80505;
+  border-radius: 50%;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.2rem;
+  transition: all 0.2s;
+}
+.trip-button-wishlist:hover {
+  color: #1B2739;
+  font-size: 1.4rem;
+}
+.trip-button-wishlist.active {
+  color: #4CA6FE;
+  font-size: 1.3rem;
 }
 
 .home__intro-container {
@@ -176,14 +205,18 @@ img {
   margin: 15px 25px 0px 25px;
 }
 .trips .trips-group {
-  display: flex;
+  display: grid;
   width: 100%;
   max-height: 75vh;
   transition: 1s all;
+  grid-auto-flow: column;
 }
 .trips .trips-group > li {
-  width: 100%;
+  width: 26.5rem;
   padding: 10px 25px;
+}
+.trips .trips-group > li.trips-end {
+  margin-top: 15rem;
 }
 .trips .trips-button-skip {
   padding: 20px 25px;
@@ -204,6 +237,14 @@ img {
   color: black;
   background-color: #4CA6FE;
 }
+.trips .trips-button-skip.disabled {
+  background-color: lightgrey;
+  cursor: not-allowed;
+}
+.trips .trips-button-skip.disabled:hover {
+  color: lightgrey;
+  background-color: grey;
+}
 .trips .trips-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -214,7 +255,6 @@ img {
   padding-bottom: 4rem;
   height: 100%;
   overflow: visible;
-  width: calc(100vw - 50px);
 }
 .trips .trips-list li {
   width: 100%;
@@ -243,28 +283,6 @@ img {
   text-align: start;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist {
-  background-color: #e80505;
-  border-radius: 50%;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -0.2rem;
-  transition: all 0.2s;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist:hover {
-  color: #1B2739;
-  font-size: 1.4rem;
-}
-.trips .trips-list li .trip-title-container .trip-button-wishlist.active {
-  color: #4CA6FE;
-  font-size: 1.3rem;
 }
 .trips .title {
   text-align: center;
@@ -325,9 +343,14 @@ ul.trips-list li.active {
   transform: scale(1.03) !important;
 }
 
+.trip {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset;
+}
 .trip__image-container {
   position: fixed;
-  max-width: 425px;
   background-size: cover;
   background-position: top;
   min-height: 100vh;
@@ -380,6 +403,7 @@ ul.trips-list li.active {
   width: 100%;
   position: relative;
   padding: 30px 0px;
+  border-radius: 4px;
   border: solid 0.5px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -399,7 +423,6 @@ ul.trips-list li.active {
 .book-trip form.booking-form .select-box input[type=radio]:checked + label {
   background-color: #1B2739;
   color: #ffffff;
-  border-radius: 4px;
 }
 .book-trip form.booking-form .select-box label {
   cursor: pointer;
@@ -417,7 +440,11 @@ ul.trips-list li.active {
   padding: 10px 0px;
   color: #909090;
 }
-.book-btn-container {
+.book-trip form.booking-form .book-btn {
+  cursor: pointer;
+}
+
+.book-btn-container > div {
   display: flex;
   justify-content: space-between;
 }
@@ -435,7 +462,7 @@ ul.trips-list li.active {
 }
 .confirmed .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .slide-in-left {
