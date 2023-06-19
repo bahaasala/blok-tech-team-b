@@ -1,5 +1,9 @@
+
+@import "layout/marc.scss";
+
 @import "vars/colors.scss", "layout/typography.scss", "layout/login.scss",
   "layout/register.scss", "layout/account.scss";
+
 // General
 html {
   height: 100%;
@@ -449,6 +453,6 @@ ul.trips-list {
 }
 
 .slide-in-top.in-view {
-  opacity: 1;
-  transform: translateY(0); /* Slide in from the top */
+    opacity: 1;
+    transform: translateY(0); /* Slide in from the top */
 }

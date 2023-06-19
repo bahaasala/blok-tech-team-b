@@ -8,9 +8,11 @@ const tripsController = async (req, res, next) => {
     await Trip.deleteMany().then(() => {
       console.log("Deleted all trips.")
     })
+
     await Trip.create(await generateFakeTrips(12))
     const user = await User.findOne({ username: req.session.username })
     const currentSession = req.session
+
 
     const trips = await Trip.find({ _id: { $nin: user.seenTrips } })
     const filteredTrips = trips.filter(
