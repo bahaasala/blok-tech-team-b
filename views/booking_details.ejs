@@ -5,7 +5,7 @@
       <h1 class="title">Single booking details</h1>
     </section>
 
-    <div class="review slide-in-top">
+    <article class="review slide-in-top">
       <details>
         <summary>write a review</summary>
         <form action="<%= bookingId %>/submitReview/" method="POST">
@@ -80,6 +80,18 @@
           </fieldset>
         </form>
       </details>
+    </article>
+    <article class="spacer">
+      <section>
+        <button class="btn slide-in-top" id="removeBookingButton">Remove booking</button>
+      </section>
     </div>
-  </div>
+    </article>
+    <article class="hidden removeBookingScreen">
+      <h2>Are you sure you want to cancel this booking?</h2>
+      <section>
+        <button id="noKeepBookingButton">No, keep current booking</button>
+        <button>Yes, cancel booking</button>
+      </section>
+    </article>
 </div>

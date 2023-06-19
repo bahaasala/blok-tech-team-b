@@ -135,7 +135,7 @@ locationInput.addEventListener("focus", () => {
 // Marc - Check the initial state of the submit button
 checkSubmitButton()
 
-// Hide current location warning message when javascript is enabled
+// Marc - Hide current location warning message when javascript is enabled
 const jsCheck = 1
 const currentLocationWaringMessage = document.querySelector(
   ".review section:nth-of-type(3) p"
@@ -144,3 +144,16 @@ const currentLocationWaringMessage = document.querySelector(
 if (jsCheck == 1) {
   currentLocationWaringMessage.classList.add("hidden")
 }
+
+// Marc - Hide cancel booking screen on startup
+const removeBookingButton = document.getElementById("removeBookingButton")
+const removeBookingScreen = document.querySelector(".removeBookingScreen")
+const noKeepBookingButton = document.getElementById("noKeepBookingButton")
+
+removeBookingButton.addEventListener("click", () => {
+  removeBookingScreen.classList.remove("hidden")
+})
+
+noKeepBookingButton.addEventListener("click", () => {
+  removeBookingScreen.classList.add("hidden")
+})
