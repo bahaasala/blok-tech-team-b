@@ -53,7 +53,6 @@ window.addEventListener("load", () => {
   }, 500)
 })
 
-
 // Marc - Code for geolocation API and reverse geocoding from Geoapify
 const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key van Geoapify
 const locationReviewElementt = document.getElementById("locationReview")
@@ -172,4 +171,3 @@ navigator.geolocation.getCurrentPosition(
     locationElement.textContent = "Failed to fetch current location."
   }
 )
-
