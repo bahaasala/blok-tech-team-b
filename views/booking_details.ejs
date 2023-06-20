@@ -1,8 +1,12 @@
 <div class="booking container">
+  <% if (booking) { %>
   <div
     class="booking__image-container"
     style="background-image: url('<%= booking.trip.images[2].url %>')"
   ></div>
+  <a class="back-icon-btn" onclick="history.back()">
+    <img class="back-icon" src="/images/back.svg" alt="back icon" />
+  </a>
   <div class="booking__details-container slide-in-top">
     <div class="title-container slide-in-top">
       <section>
@@ -131,5 +135,6 @@
       </form>
     </div>
   </section>
+  <% } %>
 </div>
 <script src="/js/geolocation.js"></script>
