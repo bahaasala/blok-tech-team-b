@@ -155,15 +155,23 @@
 
 // Marc - Remove booking Styling
 .removeBookingScreen {
-    background-color: $color-red;
-    position:fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(0 0 0 / 85%) 100%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    padding: 150px 40px 40px 40px;
     h2 {
-        color: $color-white;
-        margin: 40px 20px 40px 20px;
+        margin-bottom: 50px;
+    }
+    .btn{
+        &--secondary {
+            background-color: $color-black;
+            border-color: $color-black;
+            margin-bottom: 20px;
+        }
     }
     section {
         display: flex;
@@ -171,33 +179,5 @@
         gap: 20px;
         justify-content: space-around;
         margin: 0px 20px 0px 20px;
-        button:first-of-type {
-            display: block;
-            background-color: $color-white;
-            border-radius: 45px;
-            padding: 18px 20px;
-            color: $color-red;
-            text-align: center;
-            border: solid 1px $color-white;
-            font-size: 16px;
-        }
-        button:first-of-type:hover {
-            background-color: $color-red;
-            color: $color-white;
-        }
-        button:last-of-type {
-            display: block;
-            background-color: $color-red;
-            border-radius: 45px;
-            padding: 18px 20px;
-            color: $color-white;
-            text-align: center;
-            border: solid 1px $color-white;
-            font-size: 16px;
-        }
-        button:last-of-type:hover {
-            background-color: $color-orange;
-            border: solid 1px $color-orange;
-        }
     }
 }

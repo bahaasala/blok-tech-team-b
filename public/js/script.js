@@ -92,3 +92,16 @@ locationElement &&
       locationElement.textContent = "Failed to fetch current location."
     }
   )
+
+// Marc - Hide cancel booking screen on startup
+const removeBookingButton = document.getElementById("removeBookingButton")
+const removeBookingScreen = document.querySelector(".removeBookingScreen")
+const noKeepBookingButton = document.getElementById("noKeepBookingButton")
+
+removeBookingButton.addEventListener("click", () => {
+  removeBookingScreen.classList.remove("hidden")
+})
+
+noKeepBookingButton.addEventListener("click", () => {
+  removeBookingScreen.classList.add("hidden")
+})

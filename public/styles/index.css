@@ -62,12 +62,12 @@ a {
 .btn--secondary {
   background-color: #4CA6FE;
   border-color: #4CA6FE;
-  font-size: 12px;
+  font-size: 14px;
 }
 .btn--danger {
   background-color: #e80505;
   border-color: #e80505;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .login,
@@ -395,16 +395,22 @@ a {
 }
 
 .removeBookingScreen {
-  background-color: #e80505;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0.85) 100%);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 9999;
+  padding: 150px 40px 40px 40px;
 }
 .removeBookingScreen h2 {
-  color: #ffffff;
-  margin: 40px 20px 40px 20px;
+  margin-bottom: 50px;
+}
+.removeBookingScreen .btn--secondary {
+  background-color: #000000;
+  border-color: #000000;
+  margin-bottom: 20px;
 }
 .removeBookingScreen section {
   display: flex;
@@ -412,34 +418,6 @@ a {
   gap: 20px;
   justify-content: space-around;
   margin: 0px 20px 0px 20px;
-}
-.removeBookingScreen section button:first-of-type {
-  display: block;
-  background-color: #ffffff;
-  border-radius: 45px;
-  padding: 18px 20px;
-  color: #e80505;
-  text-align: center;
-  border: solid 1px #ffffff;
-  font-size: 16px;
-}
-.removeBookingScreen section button:first-of-type:hover {
-  background-color: #e80505;
-  color: #ffffff;
-}
-.removeBookingScreen section button:last-of-type {
-  display: block;
-  background-color: #e80505;
-  border-radius: 45px;
-  padding: 18px 20px;
-  color: #ffffff;
-  text-align: center;
-  border: solid 1px #ffffff;
-  font-size: 16px;
-}
-.removeBookingScreen section button:last-of-type:hover {
-  background-color: #E85C05;
-  border: solid 1px #E85C05;
 }
 
 html {

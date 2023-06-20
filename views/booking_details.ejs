@@ -24,6 +24,10 @@
         <h4>duration</h4>
         <p><%= booking.trip.duration %> days</p>
       </section>
+      <section>
+        <h4>date</h4>
+        <p><%= dates %></p>
+      </section>
       <article class="review slide-in-top">
         <details>
           <summary>write a review</summary>
@@ -105,30 +109,27 @@
           </form>
         </details>
       </article>
-      <article class="spacer">
-        <section>
-          <button class="btn btn--danger slide-in-top" id="removeBookingButton">
-            Delete booking
-          </button>
-        </section>
-
-        <article class="hidden removeBookingScreen">
-          <h2>Are you sure you want to cancel this booking?</h2>
-          <section>
-            <button id="noKeepBookingButton">No, keep current booking</button>
-            <form action="<%= booking.id %>/delete/" method="POST">
-              <button
-                type="submit"
-                class="btn btn--danger"
-                id="yesDeleteBookingButton"
-              >
-                Yes, cancel booking
-              </button>
-            </form>
-          </section>
-        </article>
-        <script src="/js/geolocation.js"></script>
-      </article>
+      <button class="btn btn--danger slide-in-top" id="removeBookingButton">
+        Delete booking
+      </button>
     </div>
   </div>
+  <section class="hidden removeBookingScreen">
+    <h2>Are you sure you want to cancel this booking?</h2>
+    <div>
+      <button class="btn btn--secondary" id="noKeepBookingButton">
+        No, keep current booking
+      </button>
+      <form action="<%= booking.id %>/delete/" method="POST">
+        <button
+          type="submit"
+          class="btn btn--danger"
+          id="yesDeleteBookingButton"
+        >
+          Yes, cancel booking
+        </button>
+      </form>
+    </div>
+  </section>
 </div>
+<script src="/js/geolocation.js"></script>
