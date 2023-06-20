@@ -1,7 +1,11 @@
 <article class="account">
   <section>
     <% if (isLoggedIn) { %>
-    <img class="avatar" src="/images/<%= user.image_url %>" alt="avatar" />
+    <img
+      class="avatar"
+      src="/images/<%= user.image_url ? user.image_url : 'default-user.png' %>"
+      alt="avatar"
+    />
     <h1><%= username %></h1>
     <h2>Member since: <%= user.created_at.toDateString() %></h2>
     <% } %>

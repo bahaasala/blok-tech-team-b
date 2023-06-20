@@ -453,3 +453,13 @@ ul.trips-list {
   opacity: 1;
   transform: translateY(0); /* Slide in from the top */
 }
+
+//Page not found
+.NOTFOUND {
+  text-align: center;
+  margin: 10px;
+  img {
+    width: 50%;
+    max-width: 500px;
+  }
+}

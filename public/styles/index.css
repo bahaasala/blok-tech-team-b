@@ -728,4 +728,13 @@ ul.trips-list li.active {
   transform: translateY(0); /* Slide in from the top */
 }
 
+.NOTFOUND {
+  text-align: center;
+  margin: 10px;
+}
+.NOTFOUND img {
+  width: 50%;
+  max-width: 500px;
+}
+
 /*# sourceMappingURL=index.css.map */
