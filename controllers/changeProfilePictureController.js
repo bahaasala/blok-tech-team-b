@@ -32,30 +32,31 @@ const compressProfilePicture = async (source, destination) => {
 
 const changeProfilePictureController = async (req, res, next) => {
   try {
+    const { username } = req.session
+    const user = await User.findOne({ username })
+
+    if (user.image_url !== "default-user.png") {
+      const path = `public/images/${user.image_url}`
+      fs.unlink(path, (err) => {
+        if (err) {
+          console.error("Error deleting previous profile photo:", err)
+        } else {
+          console.log("Previous profile photo successfully deleted.")
+        }
+      })
+    }
+
     upload(req, res, async (err) => {
       if (err) {
         throw new Error("Upload failed.")
       }
 
-      const { username } = req.session
       const imageUrl = req.file.filename
 
       const sourcePath = `public/images/${imageUrl}`
       const destinationPath = `public/compressed/${imageUrl}`
 
       await compressProfilePicture(sourcePath, destinationPath)
-
-      const user = await User.findOne({ username })
-      if (user.image_url !== "default-user.png") {
-        const path = `public/images/${user.image_url}`
-        fs.unlink(path, (err) => {
-          if (err) {
-            console.error("Error deleting previous profile photo:", err)
-          } else {
-            console.log("Previous profile photo successfully deleted.")
-          }
-        })
-      }
 
       await User.findOneAndUpdate({ username }, { image_url: imageUrl })
 
