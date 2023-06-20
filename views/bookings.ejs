@@ -4,6 +4,7 @@
     <h1 class="slide-in-left">My bookings</h1>
   </section>
   <div class="bookings__container">
+    <% if (bookings.length > 0) { %>
     <ul class="bookings-list">
       <% for (let booking of bookings) { %>
       <li class="trip-item">
@@ -26,5 +27,10 @@
       </li>
       <% } %>
     </ul>
+    <% } else { %>
+    <section class="bookings__empty">
+      <h4>No bookings found</h4>
+    </section>
+    <% } %>
   </div>
 </div>

@@ -484,12 +484,21 @@ header {
   align-items: center;
   padding: 20px;
 }
-header .avatar {
-  width: 50px;
-  height: 50px;
+header .spacer {
+  width: 60px;
+}
+header .profile-icon, header .bookings-icon, header .wishlist-icon {
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+header .profile-icon {
+  width: 50px;
+  height: 50px;
+}
+header .bookings-icon, header .wishlist-icon {
+  width: 40px;
+  height: 40px;
 }
 
 ::-webkit-scrollbar {
@@ -891,6 +900,9 @@ ul.trips-list li.active, ul.bookings-list li.active {
 }
 .bookings__container .bookings-list .trip-item:last-child {
   margin-right: 100px;
+}
+.bookings__empty h4 {
+  margin: 0px 0px 0px 25px;
 }
 .bookings .booking-title-container .title {
   text-align: center;
