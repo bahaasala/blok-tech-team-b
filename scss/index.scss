@@ -47,12 +47,11 @@ header {
   }
   .profile-icon, .bookings-icon, .wishlist-icon{
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   }
   .profile-icon{
     width: 50px;
     height: 50px;
+    border-radius: 50%;
   }
   .bookings-icon, .wishlist-icon{
     width: 40px;
@@ -77,26 +76,24 @@ img {
 }
 
 .trip-button-wishlist {
-  background-color: $color-red;
-  border-radius: 50%;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -0.2rem;
-  transition: all 0.2s;
+    border-radius: 50%;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.2rem;
+    transition: all 0.2s;
+    padding: 0;
 
   &:hover {
     color: $color-blue;
     font-size: 1.4rem;
   }
-  &.active {
-    color: $color-blue--lighter;
-    font-size: 1.3rem;
+  &.active svg path {
+    fill: $color-red;
   }
 }
 
@@ -194,6 +191,7 @@ img {
     font-size: 1rem;
     transition: all 0.2s;
     font-weight: 500;
+    border-radius: 20px 100px 20px 20px;
 
     &:hover {
       color: black;
@@ -295,7 +293,7 @@ ul.trips-list, ul.bookings-list {
     &:first-child {
       padding-left: 0px;
     }
-    img {
+    img.trip-image {
       position: absolute;
       height: 100%;
       top: 50%;
@@ -502,6 +500,20 @@ ul.trips-list, ul.bookings-list {
       text-align: center;
       margin-top: 30px;
     }
+  }
+}
+
+// back icon button
+.back-icon-btn{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  left: 20px;
+  top: 120px;
+  img{
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   }
 }
 
