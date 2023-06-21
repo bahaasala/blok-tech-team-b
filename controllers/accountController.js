@@ -7,6 +7,8 @@ const accountController = async (req, res, next) => {
     const username = req.session.username
     const user = await User.findOne({ username: username })
 
+    console.log(user)
+
     res.render("account.ejs", {
       title: "My account",
       isLoggedIn,
