@@ -35,7 +35,7 @@ const changeProfilePictureController = async (req, res, next) => {
       const path = `public/images/${user.image_url}`
       fs.unlink(path, (err) => {
         if (err) {
-          console.error("Error deleting previous profile photo:", err)
+          console.error("Error deleting previous profile photo", err)
         } else {
           console.log("Previous profile photo successfully deleted.")
         }

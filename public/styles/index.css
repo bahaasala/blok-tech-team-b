@@ -131,14 +131,13 @@ a {
   font-size: 10px;
 }
 
-.wrong_login {
-  margin-top: 15px;
+.account_fail {
   color: #e80505;
   text-align: center;
 }
 
-.user_exists {
-  color: #e80505;
+.account_success {
+  color: #0ed600;
   text-align: center;
 }
 

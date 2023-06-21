@@ -52,13 +52,12 @@
   }
 }
 
-.wrong_login {
-  margin-top: 15px;
+.account_fail {
   color: $color-red;
   text-align: center;
 }
 
-.user_exists {
-  color: $color-red;
+.account_success {
+  color: $color-green;
   text-align: center;
 }
