@@ -7,7 +7,6 @@ const manageTripsController = async (req, res, next) => {
     const user = await User.findOne({
       username: req.session.username
     }).populate("seenTrips")
-    console.log(req.body)
     let action
     if (req.body.action === "wishlist") {
       if (user.savedTrips.includes(req.body.tripId)) {

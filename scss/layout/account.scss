@@ -2,7 +2,7 @@
 .account {
   padding: 30px 20px 30px 0;
 
-  background-image: url("../images/acc_pic.jpg");
+  background-image: url("../../images/acc_pic.jpg");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -19,8 +19,8 @@
     .avatar {
       display: flex;
       align-self: center;
-      width: 160px;
-      height: 160px;
+      width: 80px;
+      height: 80px;
       background-color: $color-grey;
       border-radius: 50%;
     }

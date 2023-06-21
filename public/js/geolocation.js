@@ -25,6 +25,8 @@ const onSuccess = (position) => {
       // Data of reverse geocoding
       const address = data.results[0].country
       locationReviewElementt.value = address
+      locationOn = true
+      checkSubmitButton()
     })
     .catch((error) => {
       // Error handling for reverse geocoding

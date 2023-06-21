@@ -78,14 +78,14 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/lisbon.jpg");
+  background-image: url("../../images/lisbon.jpg");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
 }
 
 .register {
-  background-image: url("../images/bali.jpg");
+  background-image: url("../../images/bali.jpg");
 }
 
 .login_form_container,
@@ -143,7 +143,7 @@ a {
 
 .account {
   padding: 30px 20px 30px 0;
-  background-image: url("../images/acc_pic.jpg");
+  background-image: url("../../images/acc_pic.jpg");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -161,8 +161,8 @@ a {
 .account section .avatar {
   display: flex;
   align-self: center;
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
   background-color: #909090;
   border-radius: 50%;
 }
@@ -288,7 +288,9 @@ header {
 header .spacer {
   width: 60px;
 }
-header .profile-icon, header .bookings-icon, header .wishlist-icon {
+header .profile-icon,
+header .bookings-icon,
+header .wishlist-icon {
   object-fit: cover;
 }
 header .profile-icon {
@@ -296,7 +298,8 @@ header .profile-icon {
   height: 50px;
   border-radius: 50%;
 }
-header .bookings-icon, header .wishlist-icon {
+header .bookings-icon,
+header .wishlist-icon {
   width: 40px;
   height: 40px;
 }
@@ -488,7 +491,8 @@ img {
   margin-top: 30px;
 }
 
-ul.trips-list, ul.bookings-list {
+ul.trips-list,
+ul.bookings-list {
   left: 0;
   width: 100%;
   display: flex;
@@ -502,7 +506,8 @@ ul.trips-list, ul.bookings-list {
   overflow-y: hidden;
   min-height: 400px;
 }
-ul.trips-list li, ul.bookings-list li {
+ul.trips-list li,
+ul.bookings-list li {
   min-width: 250px;
   flex: 0 0 auto;
   margin: 0px 20px 0px 0px;
@@ -514,17 +519,20 @@ ul.trips-list li, ul.bookings-list li {
   width: 200px;
   min-height: 400px;
 }
-ul.trips-list li > a, ul.bookings-list li > a {
+ul.trips-list li > a,
+ul.bookings-list li > a {
   position: absolute;
   display: block;
   width: 100%;
   height: 100%;
   top: 0;
 }
-ul.trips-list li:first-child, ul.bookings-list li:first-child {
+ul.trips-list li:first-child,
+ul.bookings-list li:first-child {
   padding-left: 0px;
 }
-ul.trips-list li img.trip-image, ul.bookings-list li img.trip-image {
+ul.trips-list li img.trip-image,
+ul.bookings-list li img.trip-image {
   position: absolute;
   height: 100%;
   top: 50%;
@@ -537,17 +545,20 @@ ul.trips-list li img.trip-image, ul.bookings-list li img.trip-image {
   border-top-right-radius: 190px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
-ul.trips-list li.active, ul.bookings-list li.active {
+ul.trips-list li.active,
+ul.bookings-list li.active {
   transform: scale(1.03) !important;
 }
 
-.trip, .booking {
+.trip,
+.booking {
   margin: 0;
   display: flex;
   justify-content: center;
   max-width: unset;
 }
-.trip__image-container, .booking__image-container {
+.trip__image-container,
+.booking__image-container {
   position: fixed;
   background-size: cover;
   background-position: top;
@@ -556,7 +567,8 @@ ul.trips-list li.active, ul.bookings-list li.active {
   top: 0;
   z-index: 1;
 }
-.trip__details-container, .booking__details-container {
+.trip__details-container,
+.booking__details-container {
   position: sticky;
   padding: 30px 25px 30px 25px;
   border-top-left-radius: 40px;
@@ -565,27 +577,33 @@ ul.trips-list li.active, ul.bookings-list li.active {
   margin: 200px 20px 0px 20px;
   width: 100%;
 }
-.trip__details-container .title-container, .booking__details-container .title-container {
+.trip__details-container .title-container,
+.booking__details-container .title-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
-.trip__details-container .title-container p, .booking__details-container .title-container p {
+.trip__details-container .title-container p,
+.booking__details-container .title-container p {
   margin: 0;
 }
-.trip__details-container .title-container .title, .booking__details-container .title-container .title {
+.trip__details-container .title-container .title,
+.booking__details-container .title-container .title {
   margin: 0;
   font-size: 35px;
 }
-.trip__details-container .title-container .price, .booking__details-container .title-container .price {
+.trip__details-container .title-container .price,
+.booking__details-container .title-container .price {
   font-size: 40px;
   font-weight: 600;
   text-align: right;
 }
-.trip__details-container .title-container .per-person, .booking__details-container .title-container .per-person {
+.trip__details-container .title-container .per-person,
+.booking__details-container .title-container .per-person {
   text-align: right;
 }
-.trip__details-container .inner-container section, .booking__details-container .inner-container section {
+.trip__details-container .inner-container section,
+.booking__details-container .inner-container section {
   margin-bottom: 50px;
 }
 
@@ -595,6 +613,9 @@ ul.trips-list li.active, ul.bookings-list li.active {
 .book-trip__details-container {
   margin-top: 100px;
   margin-bottom: 100px;
+}
+.book-trip .back-icon-btn {
+  top: 30px;
 }
 .book-trip form.booking-form .select-box {
   display: inline-block;
@@ -668,7 +689,8 @@ ul.trips-list li.active, ul.bookings-list li.active {
   justify-content: flex-end;
 }
 
-.bookings, .wishlist {
+.bookings,
+.wishlist {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -676,7 +698,8 @@ ul.trips-list li.active, ul.bookings-list li.active {
 }
 .bookings *,
 .bookings *::before,
-.bookings *::after, .wishlist *,
+.bookings *::after,
+.wishlist *,
 .wishlist *::before,
 .wishlist *::after {
   box-sizing: border-box;
@@ -684,35 +707,60 @@ ul.trips-list li.active, ul.bookings-list li.active {
   margin: 0;
   list-style: none;
 }
-.bookings__heading-container, .wishlist__heading-container {
+.bookings__heading-container,
+.wishlist__heading-container {
   margin: 15px 25px 0px 25px;
 }
-.bookings__container, .wishlist__container {
+.bookings__container,
+.wishlist__container {
   position: fixed;
   margin-top: 50px;
   left: 0;
   height: 100%;
   overflow: auto;
 }
-.bookings__container .bookings-list, .wishlist__container .bookings-list {
+.bookings__container .bookings-list,
+.wishlist__container .bookings-list {
   max-width: 425px;
   padding-bottom: 150px;
 }
-.bookings__container .bookings-list li > a, .wishlist__container .bookings-list li > a {
+.bookings__container .bookings-list li > a,
+.wishlist__container .bookings-list li > a {
   position: relative;
 }
-.bookings__container .bookings-list .trip-item:first-child, .wishlist__container .bookings-list .trip-item:first-child {
+.bookings__container .bookings-list .trip-item:first-child,
+.wishlist__container .bookings-list .trip-item:first-child {
   margin-left: 25px;
 }
-.bookings__container .bookings-list .trip-item:last-child, .wishlist__container .bookings-list .trip-item:last-child {
+.bookings__container .bookings-list .trip-item:last-child,
+.wishlist__container .bookings-list .trip-item:last-child {
   margin-right: 100px;
 }
-.bookings__empty h4, .wishlist__empty h4 {
+.bookings__empty h4,
+.wishlist__empty h4 {
   margin: 0px 0px 0px 25px;
 }
-.bookings .booking-title-container .title, .bookings .wishlist-title-container .title, .wishlist .booking-title-container .title, .wishlist .wishlist-title-container .title {
+.bookings .booking-title-container,
+.bookings .wishlist-title-container,
+.wishlist .booking-title-container,
+.wishlist .wishlist-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookings .booking-title-container .title,
+.bookings .wishlist-title-container .title,
+.wishlist .booking-title-container .title,
+.wishlist .wishlist-title-container .title {
   text-align: center;
   margin-top: 30px;
+}
+.bookings .booking-title-container form,
+.bookings .wishlist-title-container form,
+.wishlist .booking-title-container form,
+.wishlist .wishlist-title-container form {
+  margin-top: 30px;
+  margin-right: 10px;
 }
 
 .reviews {
