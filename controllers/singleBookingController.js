@@ -10,8 +10,6 @@ const singleBookingController = async (req, res, next) => {
       "user"
     )
 
-    console.log(reviews)
-
     res.render("booking_details.ejs", {
       title: "Single Booking",
       booking: booking,
