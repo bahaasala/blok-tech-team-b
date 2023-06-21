@@ -73,18 +73,12 @@ navigator.geolocation.getCurrentPosition(
         locationElement.textContent = `Location: ${city}, ${country}` // Toon plaatsnaam en land
       })
       .catch((error) => {
-        console.log(
-          "Fout bij het ophalen van de reverse geocoding-gegevens:",
-          error
-        )
-        locationElement.textContent =
-          "Kan het adres niet vinden, er is een fout opgetreden"
+        locationElement.textContent = "Error retrieving location"
       })
   },
   (error) => {
     console.error(error)
     const locationElement = document.getElementById("currentLocation")
-    locationElement.textContent =
-      "Het ophalen van de huidige locatie is mislukt."
+    locationElement.textContent = "Error retrieving location."
   }
 )
