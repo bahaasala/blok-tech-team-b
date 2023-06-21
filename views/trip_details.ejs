@@ -34,10 +34,14 @@
           <% reviews.forEach((review) => { %>
           <li class="single-review">
             <div class="single-review__header">
+              <% if (review.user.image_url) { %>
               <img
                 class="single-review__picture"
                 src="/images/<%= review.user.image_url %>"
               />
+              <% } else { %>
+              <img class="single-review__picture" src="/images/bahaa.jpg" />
+              <% } %>
               <h4><%= review.user.username %></h4>
               <div class="stars">
                 <% for (let i = 0; i < review.rating; i++) { %>

@@ -39,10 +39,14 @@
           <% reviews.forEach((review) => { %>
           <li class="single-review">
             <div class="single-review__header">
+              <% if (review.user.image_url) { %>
               <img
                 class="single-review__picture"
                 src="/images/<%= review.user.image_url %>"
               />
+              <% } else { %>
+              <img class="single-review__picture" src="/images/bahaa.jpg" />
+              <% } %>
               <h4><%= review.user.username %></h4>
               <div class="stars">
                 <% for (let i = 0; i < review.rating; i++) { %>
@@ -68,33 +72,33 @@
                 <label for="rating"></label>
                 <label>
                   <input type="radio" name="reviewStars" value="1" />
-                  <span class="icon">★</span>
+                  <span class="icon">&#9733;</span>
                 </label>
                 <label>
                   <input type="radio" name="reviewStars" value="2" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
                 </label>
                 <label>
                   <input type="radio" name="reviewStars" value="3" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
                 </label>
                 <label>
                   <input type="radio" name="reviewStars" value="4" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
                 </label>
                 <label>
                   <input type="radio" name="reviewStars" value="5" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
                 </label>
               </section>
               <section>

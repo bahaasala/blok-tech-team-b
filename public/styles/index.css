@@ -334,7 +334,7 @@ a {
 }
 
 .clickedReview {
-  background-color: #fbc96d;
+  background-color: #FFAC34;
 }
 
 /* Marc -Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
@@ -391,7 +391,7 @@ a {
 
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon {
-  color: #E85C05;
+  color: #FFAC34;
 }
 
 .removeBookingScreen {

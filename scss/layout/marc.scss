@@ -150,7 +150,7 @@
 // Marc - Rating css continued
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon {
-  color: $color-orange;
+  color: $color-orange--lighter;
 }
 
 // Marc - Remove booking Styling
