@@ -23,12 +23,12 @@
   form {
     padding: 30px 25px 30px 25px;
     border-radius: 50px 0 0 0;
-
+    margin: 0;
     background-color: $color-white;
     display: flex;
     flex-direction: column;
   }
-  .input-box {
+  .input_box {
     display: inline-block;
     margin: 0 0 20px 0;
     position: relative;
@@ -52,13 +52,12 @@
   }
 }
 
-.wrong_login {
-  margin-top: 15px;
+.account_fail {
   color: $color-red;
   text-align: center;
 }
 
-.user_exists {
-  color: $color-red;
+.account_success {
+  color: $color-green;
   text-align: center;
 }

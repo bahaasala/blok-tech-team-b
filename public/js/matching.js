@@ -13,7 +13,7 @@ if (dataset) {
 }
 
 const skipToNextApplication = () => {
-  const translateAmount = tripIndex * -23 + "rem"
+  const translateAmount = tripIndex * -25 + "rem"
   tripsContainer.style.transform = `translateX(${translateAmount})`
   tripIndex++
 }
@@ -24,9 +24,9 @@ skipBtn?.addEventListener("click", (e) => {
   if (tripIndex > pageData.length) {
     return skipBtn.classList.add("disabled")
   } else if (tripIndex === pageData.length) {
-    skipToNextApplication()
-    return skipBtn.classList.add("disabled")
+    skipBtn.classList.add("disabled")
   }
+  console.log("kaas")
   updateSeen(pageData, tripIndex - 1)
   skipToNextApplication()
 })

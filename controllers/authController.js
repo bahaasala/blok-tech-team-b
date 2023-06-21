@@ -29,7 +29,9 @@ const authController = async (req, res, next) => {
 
     res.render("login", {
       title: "Login",
-      loginFailed: "Invalid username and/or password!" // Foutbericht weergeven op de loginpagina
+      loginFailed: "Invalid username and/or password!", // Foutbericht weergeven op de loginpagina
+      successMessage: req.session.successMessage,
+      isLoggedIn: req.session.isLoggedIn
     })
   } catch (err) {
     console.error(err)

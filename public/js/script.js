@@ -53,6 +53,35 @@ window.addEventListener("load", () => {
   }, 500)
 })
 
+// Location
+navigator.geolocation.getCurrentPosition(
+  (position) => {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    const locationElement = document.getElementById("currentLocation")
+    const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key
+
+    // Reverse geocoding
+    const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}` // Vervang apiKey met je eigen API-sleutel
+
+    fetch(reverseGeocodingUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const address = data.features[0].properties
+        const city = address.city || address.town || address.village || ""
+        const country = address.country || ""
+        locationElement.textContent = `Location: ${city}, ${country}` // Toon plaatsnaam en land
+      })
+      .catch((error) => {
+        locationElement.textContent = "Error retrieving location"
+      })
+  },
+  (error) => {
+    console.error(error)
+    const locationElement = document.getElementById("currentLocation")
+    locationElement.textContent = "Error retrieving location."
+  }
+)
 const sections = document.querySelectorAll(".trip-item")
 
 function fadeImages() {

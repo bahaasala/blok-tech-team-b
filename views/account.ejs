@@ -1,9 +1,13 @@
 <article class="account">
   <section>
     <% if (isLoggedIn) { %>
-    <h1>Hello, <%= username %>!</h1>
-    <% } else { %>
-    <h1>Hello, user!</h1>
+    <img
+      class="avatar"
+      src="/images/<%= user.image_url ? user.image_url : 'default-user.png' %>"
+      alt="avatar"
+    />
+    <h1><%= username %></h1>
+    <h2>Member since: <%= user.created_at.toDateString() %></h2>
     <% } %>
   </section>
 
@@ -13,7 +17,7 @@
     <form action="/account/update-username" method="POST">
       <h3>Change Username</h3>
       <input
-        class="input-box"
+        class="input_box"
         type="text"
         name="newUsername"
         placeholder="New Username"
@@ -25,14 +29,14 @@
     <form action="/account/update-password" method="POST">
       <h3>Change Password</h3>
       <input
-        class="input-box"
+        class="input_box"
         type="password"
         name="currentPassword"
         placeholder="Current Password"
         required
       />
       <input
-        class="input-box"
+        class="input_box"
         type="password"
         name="newPassword"
         placeholder="New Password"
@@ -41,12 +45,15 @@
       <button class="btn" type="submit">Save</button>
     </form>
 
-    <!-- <form
+    <form
       action="/account/update-profile-picture"
       method="POST"
       enctype="multipart/form-data"
     >
       <h3>Change Profile Picture</h3>
+      <div class="file_info">
+        <p>JPG, JPEG or PNG (Max 10MB)</p>
+      </div>
       <input
         class="file_button"
         type="file"
@@ -55,7 +62,7 @@
         required
       />
       <button class="btn" type="submit">Save</button>
-    </form> -->
+    </form>
     <% } %>
   </section>
 
