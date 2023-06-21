@@ -1,0 +1,92 @@
+<%- include('partials/header.ejs') %>
+<article class="account">
+  <section>
+    <img
+      class="avatar"
+      src="/images/<%= user.image_url ? user.image_url : 'default-user.jpg' %>"
+      alt="avatar"
+      loading="lazy"
+    />
+    <h1><%= username %></h1>
+    <h2>Member since: <%= user.created_at.toDateString() %></h2>
+  </section>
+
+  <section class="slide-in-left">
+    <h2>Account</h2>
+    <form action="/account/update-username" method="POST">
+      <h3>Change Username</h3>
+      <input
+        class="input_box"
+        type="text"
+        name="newUsername"
+        placeholder="New Username"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form>
+
+    <form action="/account/update-password" method="POST">
+      <h3>Change Password</h3>
+      <input
+        class="input_box"
+        type="password"
+        name="currentPassword"
+        placeholder="Current Password"
+        required
+      />
+      <input
+        class="input_box"
+        type="password"
+        name="newPassword"
+        placeholder="New Password"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form>
+
+    <form
+      action="/account/update-profile-picture"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <h3>Change Profile Picture</h3>
+      <div class="file_info">
+        <p>JPG, JPEG or PNG (Max 10MB)</p>
+      </div>
+      <input
+        class="file_button"
+        type="file"
+        name="profilePicture"
+        accept="image/*"
+        required
+      />
+      <button class="btn" type="submit">Save</button>
+    </form>
+  </section>
+
+  <section class="slide-in-left">
+    <h2>Current Location</h2>
+    <p id="currentLocation">Loading...</p>
+  </section>
+
+  <section class="slide-in-left">
+    <h2>Log out</h2>
+    <p>Click here to log out.</p>
+    <form action="/account/logout" method="POST">
+      <button class="btn" type="submit">Log out</button>
+    </form>
+  </section>
+
+  <section class="slide-in-left">
+    <h2>Delete account</h2>
+    <p>Click here to delete account.</p>
+    <form
+      class="delete_form"
+      action="/account/delete"
+      method="POST"
+      onsubmit="return confirm('Are you sure you want to delete your account?');"
+    >
+      <button class="btn btn--danger" type="submit">Delete Account</button>
+    </form>
+  </section>
+</article>

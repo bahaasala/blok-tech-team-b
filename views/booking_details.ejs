@@ -1,0 +1,174 @@
+<div class="booking container">
+  <% if (booking) { %>
+  <div
+    class="booking__image-container"
+    style="background-image: url('<%= booking.trip.images[2].url %>')"
+  ></div>
+  <a class="back-icon-btn" href="<%= prevPage ?? '/bookings' %>">
+    <img class="back-icon" src="/images/back.svg" alt="back icon" loading="lazy"/>
+  </a>
+  <div class="booking__details-container slide-in-top">
+    <div class="title-container slide-in-top">
+      <section>
+        <h1 class="title"><%= booking.trip.destination %></h1>
+        <p class=""><%= booking.trip.duration %> day tour</p>
+      </section>
+      <div>
+        <p class="price"><%= booking.room.price %>,-</p>
+        <p>paid</p>
+      </div>
+    </div>
+
+    <div class="inner-container slide-in-top">
+      <section>
+        <h4>description</h4>
+        <p><%= booking.trip.description %></p>
+      </section>
+      <section>
+        <h4>duration</h4>
+        <p><%= booking.trip.duration %> days</p>
+      </section>
+      <section>
+        <h4>date</h4>
+        <p><%= dates %></p>
+      </section>
+      <% if (reviews.length > 0) { %>
+      <section>
+        <h4>reviews</h4>
+        <ul class="reviews">
+          <% reviews.forEach((review) => { %>
+          <li class="single-review">
+            <div class="single-review__header">
+              <% if (review.user.image_url) { %>
+              <img
+                class="single-review__picture"
+                src="/images/<%= review.user.image_url %>"
+                loading="lazy"
+              />
+              <% } else { %>
+              <img class="single-review__picture" src="/images/bahaa.jpg" loading="lazy"/>
+              <% } %>
+              <div class="name-country">
+                <h4><%= review.user.username %></h4>
+                <em><%= review.country %></em>
+              </div>
+              <div class="stars">
+                <% for (let i = 0; i < review.rating; i++) { %>
+                <span class="star">&#9733;</span>
+                <% } %>
+              </div>
+            </div>
+            <div class="single-review__description">
+              <p><%= review.description %></p>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+      <% } %>
+      <article class="review slide-in-top">
+        <details>
+          <summary>write a review</summary>
+          <form action="<%= booking.id %>/submitReview/" method="POST">
+            <fieldset>
+              <legend>what did you think of your trip?</legend>
+              <section class="rating">
+                <label for="rating"></label>
+                <label>
+                  <input type="radio" name="reviewStars" value="1" />
+                  <span class="icon">&#9733;</span>
+                </label>
+                <label>
+                  <input type="radio" name="reviewStars" value="2" />
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                </label>
+                <label>
+                  <input type="radio" name="reviewStars" value="3" />
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                </label>
+                <label>
+                  <input type="radio" name="reviewStars" value="4" />
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                </label>
+                <label>
+                  <input type="radio" name="reviewStars" value="5" />
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                  <span class="icon">&#9733;</span>
+                </label>
+              </section>
+              <section>
+                <label for="review-description">description</label>
+                <textarea
+                  class=""
+                  id="review-description"
+                  name="reviewDescription"
+                  placeholder="write about what you liked and what you didn't like"
+                  required
+                ></textarea>
+              </section>
+              <section>
+                <label for="place">location</label>
+                <input
+                  class=""
+                  type="text"
+                  id="locationReview"
+                  name="reviewPlace"
+                  placeholder="your adress"
+                  required
+                />
+                <button class="" id="locationReviewButton" type="button">
+                  Use current location
+                </button>
+                <p class="">
+                  *the 'Use current location' button is not working. Please
+                  restart the website or enter manually
+                </p>
+              </section>
+              <div>
+                <button
+                  class=""
+                  type="submit"
+                  id="showFormSubmitButton"
+                  required
+                >
+                  Send
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </details>
+      </article>
+      <button class="btn btn--danger slide-in-top" id="removeBookingButton">
+        Delete booking
+      </button>
+    </div>
+  </div>
+  <section class="hidden removeBookingScreen">
+    <h2>Are you sure you want to cancel this booking?</h2>
+    <div>
+      <button class="btn btn--secondary" id="noKeepBookingButton">
+        No, keep current booking
+      </button>
+      <form action="<%= booking.id %>/delete/" method="POST">
+        <button
+          type="submit"
+          class="btn btn--danger"
+          id="yesDeleteBookingButton"
+        >
+          Yes, cancel booking
+        </button>
+      </form>
+    </div>
+  </section>
+  <% } %>
+</div>
+<script src="/js/geolocation.js"></script>

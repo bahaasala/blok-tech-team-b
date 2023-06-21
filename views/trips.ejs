@@ -4,25 +4,80 @@
     <h1 class="slide-in-left">trips</h1>
   </section>
   <div class="trips__container">
-    <ul class="trips-list">
-      <% for (let trip of trips) { %>
-      <li class="trip-item">
-        <a href="/trips/<%= trip.slug %>">
-          <div class="trip-image-container">
-            <% for (let image of trip.images) { %>
-            <img
-              class="trip-image"
-              src="<%= image.url %>"
-              alt="<%= image.alt %>"
-            />
-            <% } %>
-          </div>
-          <div class="trip-title-container">
-            <h3 class="title"><%= trip.destination %></h3>
-          </div>
-        </a>
+    <ul class="trips-group">
+      <% for (let trips of sortedTrips) { %>
+      <li>
+        <ul class="trips-list">
+          <% for (let trip of trips) { %>
+          <li class="trip-item">
+            <a href="/trips/<%= trip.slug %>">
+              <div class="trip-image-container">
+                <% trip.images.forEach((image) => { %>
+                <img
+                  class="trip-image"
+                  src="<%= image.url %>"
+                  alt="<%= image.alt %>"
+                  loading="lazy"
+                />
+                <% }) %>
+              </div>
+            </a>
+            <div class="trip-title-container">
+              <a href="/trips/<%= trip.slug %>">
+                <h3 class="title"><%= trip.destination %></h3>
+              </a>
+              <form method="post">
+                <fieldset>
+                  <input type="hidden" name="action" value="wishlist" />
+                  <input type="hidden" name="tripId" value="<%- trip._id %>" />
+                  <button
+                    type="submit"
+                    class="trip-button-wishlist <%- user.savedTrips?.includes(trip._id) ? 'active' : '' %>"
+                    data-id="<%= trip._id %>"
+                  >
+                    <svg
+                      width="55"
+                      height="55"
+                      viewBox="0 0 99 97"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="99" height="97" fill="white" />
+                      <circle cx="49.5" cy="48.5" r="46.5" fill="white" />
+                      <path
+                        d="M49.5 75.4419C50.2579 75.4419 51.3656 74.8561 52.2693 74.2704C68.5642 63.7271 79 51.368 79 38.8625C79 28.0556 71.5667 20.5582 62.2678 20.5582C56.4669 20.5582 52.1235 23.7797 49.5 28.5828C46.9348 23.7797 42.5623 20.5582 36.7614 20.5582C27.4333 20.5582 20 28.0556 20 38.8625C20 51.368 30.4649 63.7271 46.7307 74.2704C47.6344 74.8561 48.7421 75.4419 49.5 75.4419Z"
+                        fill="#CBCBCB"
+                      />
+                    </svg>
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+          <% } %>
+        </ul>
       </li>
       <% } %>
+      <li class="trips-end">
+        <h3>This is the end!</h3>
+        <p>Sorry, but there are no trips for you here.</p>
+      </li>
     </ul>
+    <form method="post">
+      <fieldset>
+        <input type="hidden" name="action" value="skip" />
+        <input
+          type="hidden"
+          name="sortedIds"
+          value="<%- encodeURIComponent(JSON.stringify(sortedIds)) %>"
+        />
+        <button type="submit" class="trips-button-skip">see other trips</button>
+      </fieldset>
+    </form>
   </div>
 </div>
+<script id="page" type="application/json">
+  <%- JSON.stringify(sortedIds) %>
+</script>
+<script src="/js/matching.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

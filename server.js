@@ -1,261 +1,78 @@
-const express = require("express");
-const { ObjectId } = require("mongodb");
-const expressLayouts = require("express-ejs-layouts");
-const { db, connect } = require("./connect");
-const unsplash = require("./unsplash");
-const app = express();
-const port = 3000;
+const express = require("express")
+const session = require("express-session")
+const expressLayouts = require("express-ejs-layouts")
+const app = express()
+const port = 3000
+const multer = require("multer")
+
+const userRouter = require("./routes/userRoutes")
+const tripsRouter = require("./routes/tripsRoutes")
+const bookingsRouter = require("./routes/bookingsRoutes")
+const wishlistRouter = require("./routes/wishlistRoutes")
+const accountRouter = require("./routes/accountRoutes")
+const connect = require("./schemas/connect")
+const path = require("path")
 
 // connect to MongoDB
 const connectDB = async () => {
   try {
-    await connect();
+    await connect()
     app.listen(port, () => {
-      console.log(`Explora listening on port ${port}`);
-    });
+      console.log(`Explora listening on port ${port}`)
+    })
   } catch (err) {
-    console.error("Failed to connect to MongoDB:", err);
+    console.error("Failed to connect to MongoDB:", err)
   }
-};
-
-// urlencoded for form data
-app.use(express.urlencoded({ extended: true }));
-
-// call the connectDB function
-connectDB();
+}
 
 // serving static files in server
-app.use(express.static("public"));
+app.use(express.static("public"))
 
 // set templating engine
-app.use(expressLayouts);
-app.set("layout", "./layouts/layout");
-app.set("view engine", "ejs").set("views", "views");
+app.use(expressLayouts)
 
-// routes GET requests
+// urlencoded for form data
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+// call the connectDB function
+connectDB()
+
+//for loggin in
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET_KEY, // Replace with your secret key
+    resave: true,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set secure to true if using HTTPS
+  })
+)
+// Middleware to check if user is logged in
+const authenticateUser = (req, res, next) => {
+  const allowedRoutes = ["/", "/login", "/register"]
+  if (allowedRoutes.includes(req.path) || req.session.isLoggedIn) {
+    // User is accessing the root, login, or register page, or is logged in
+    next()
+  } else {
+    // User is not logged in and trying to access a restricted page, redirect to login
+    if (path.extname(req.originalUrl) === "")
+      req.session.redirectUrl = req.originalUrl
+    res.redirect("/login")
+  }
+}
+app.use(authenticateUser)
+
+app.set("layout", "./layouts/layout")
+app.set("view engine", "ejs").set("views", "views")
+
+// routes
 app
-  .get("/", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
+  .use("/", userRouter)
+  .use("/trips", tripsRouter)
+  .use("/bookings", bookingsRouter)
+  .use("/wishlist", wishlistRouter)
+  .use("/account", accountRouter)
 
-      const trips = await db.collection("trips").find().toArray();
-
-      const updatedTrips = await Promise.all(
-        trips.map(async (trip) => {
-          const photos = await unsplash.searchPhotos(trip.destination);
-          trip.images = photos.map((photo) => {
-            return {
-              url: photo.url,
-              alt: photo.alt,
-            };
-          });
-          await db
-            .collection("trips")
-            .updateOne({ _id: trip._id }, { $set: trip });
-          return trip;
-        })
-      );
-
-      res.render("index.ejs", {
-        title: "Home",
-        user: user,
-        trips: updatedTrips,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips", async (req, res) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-      const trips = await db.collection("trips").find().toArray();
-      res.render("trips.ejs", {
-        title: "Trips",
-        user: user,
-        trips: trips,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips/:trip", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-      const tripSlug = req.params.trip;
-      const trip = await db.collection("trips").findOne({ slug: tripSlug });
-      if (!trip) {
-        res.status(404).render("not_found.ejs");
-        return;
-      }
-      res.render("trip_details.ejs", {
-        title: trip.destination,
-        user: user,
-        trip: trip,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .get("/trips/:trip/book", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-      const tripSlug = req.params.trip;
-      const trip = await db.collection("trips").findOne({ slug: tripSlug });
-
-      // format date
-      const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-
-        return `${day}-${month}-${year}`;
-      };
-      trip.availability.forEach((available) => {
-        if (available.start_date) {
-          available.start_date = formatDate(available.start_date);
-        }
-        if (available.end_date) {
-          available.end_date = formatDate(available.end_date);
-        }
-      });
-
-      if (!trip) {
-        res.status(404).render("not_found.ejs", { title: "404 Not found" });
-        return;
-      }
-      res.render("book.ejs", {
-        title: trip.destination + " - Book",
-        user: user,
-        trip: trip,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .post("/trips/:trip/book", async (req, res, next) => {
-    const user = await db.collection("users").findOne({ first_name: "Bahaa" });
-    const tripSlug = req.params.trip;
-    const trip = await db.collection("trips").findOne({ slug: tripSlug });
-    const currentDate = new Date();
-    const offsetInMilliseconds = currentDate.getTimezoneOffset() * 60 * 1000;
-    const created_at = new Date(currentDate.getTime() - offsetInMilliseconds);
-
-    const data = {
-      destination: trip.destination,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      email: user.email,
-      ...req.body,
-      created_at,
-    };
-
-    const booking = await db.collection("bookings").insertOne(data);
-    const bookingId = booking.insertedId;
-    res.redirect("/trips/" + tripSlug + "/book/confirmed/" + bookingId);
-  })
-  .get("/trips/:trip/book/confirmed/:bookingId", async (req, res, next) => {
-    const tripSlug = req.params.trip;
-    const trip = await db.collection("trips").findOne({ slug: tripSlug });
-    const bookingId = req.params.bookingId;
-
-    // Validate bookingId format
-    if (!ObjectId.isValid(bookingId)) {
-      return res.status(400).render("not_found.ejs", {
-        title: "Invalid Booking ID",
-        message: "The booking ID provided is invalid.",
-      });
-    }
-
-    try {
-      const booking = await db
-        .collection("bookings")
-        .findOne({ _id: new ObjectId(bookingId) });
-
-      if (!booking) {
-        return res.status(404).render("not_found.ejs", {
-          title: "Booking Not Found",
-          message: "The booking does not exist.",
-        });
-      }
-
-      const user = await db.collection("users").findOne({
-        first_name: booking.first_name,
-        last_name: booking.last_name,
-        email: booking.email,
-      });
-
-      if (!user) {
-        return res.status(403).render("not_found.ejs", {
-          title: "Access Denied",
-          message: "You are not authorized to view this booking.",
-        });
-      }
-
-      res.render("confirmed.ejs", {
-        title: "Booking Confirmed",
-        user: user,
-        trip: trip,
-        booking: booking,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-  .post(
-    "/trips/:trip/book/confirmed/:bookingId/delete",
-    async (req, res, next) => {
-      const bookingId = req.params.bookingId;
-
-      try {
-        const booking = await db
-          .collection("bookings")
-          .findOne({ _id: new ObjectId(bookingId) });
-
-        if (!booking) {
-          return res.status(404).render("not_found.ejs", {
-            title: "Booking Not Found",
-            message: "The booking does not exist.",
-          });
-        }
-
-        await db
-          .collection("bookings")
-          .deleteOne({ _id: new ObjectId(bookingId) });
-
-        res.redirect("/trips");
-      } catch (err) {
-        next(err);
-      }
-    }
-  )
-  .get("/profile/edit", async (req, res, next) => {
-    try {
-      const user = await db
-        .collection("users")
-        .findOne({ first_name: "Bahaa" });
-
-      const referer = req.headers.referer;
-
-      res.render("profile.ejs", {
-        title: "Edit Profile",
-        user: user,
-        referer: referer,
-      });
-    } catch (err) {
-      next(err);
-    }
-  })
-
-  // 404 page
-  .use((req, res) => {
-    res.status(404).render("not_found.ejs", { title: "404 Not found" });
-  });
+// 404 page
+app.use((req, res) => {
+  res.status(404).render("not_found.ejs", { title: "404 Not found" })
+})

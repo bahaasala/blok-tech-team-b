@@ -1,0 +1,113 @@
+//Account
+.account {
+  padding: 30px 20px 30px 0;
+
+  background-image: url("../../images/acc_pic.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  section {
+    background-color: $color-white;
+    border-radius: 0 15px 50px 0;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin: 0 0 30px 0;
+    .avatar {
+      display: flex;
+      align-self: center;
+      width: 80px;
+      height: 80px;
+      background-color: $color-grey;
+      border-radius: 50%;
+    }
+
+    h2 {
+      font-weight: bold;
+    }
+    form h3 {
+      margin-bottom: 5px;
+    }
+  }
+  .file_info {
+    font-style: italic;
+    font-size: 15px;
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  section:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1 {
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: lighter;
+      font-size: 20px;
+      text-align: center;
+      color: $color-orange;
+    }
+  }
+
+  section:nth-of-type(2) {
+    input {
+      display: inline-block;
+      cursor: pointer;
+    }
+    input[type="file"]::file-selector-button {
+      display: inline-block;
+      padding: 16px 15px;
+      cursor: pointer;
+      border: 1px solid $color-orange;
+      background-color: $color-white;
+    }
+  }
+  .input_box {
+    display: inline-block;
+    margin: 0 0 10px 0;
+    position: relative;
+    padding: 10px 5px;
+    border: solid 0.5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    .btn {
+      padding: 10px 5px;
+      border-radius: 0;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+  }
+  .profile_picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .profile_picture label {
+    margin-bottom: 10px;
+  }
+
+  .profile_picture input[type="file"] {
+    display: none;
+  }
+
+  .profile_picture button {
+    margin-top: 10px;
+  }
+}

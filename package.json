@@ -7,21 +7,40 @@
     "build": "npx sass scss/index.scss public/styles/index.css",
     "watch": "npx sass --watch scss/index.scss:public/styles/index.css",
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node schemas/test-runner.js",
+    "dev": "concurrently --kill-others \"npm run watch\"  \"npm run start\" "
   },
   "author": "Bahaa Salaymeh",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "concurrently": "^8.1.0",
+    "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
-    "gsap": "^3.11.5",
-    "mongodb": "^5.4.0",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "gsap": "^3.12.1",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.2.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
     "sass": "^1.62.1",
+    "sharp": "^0.32.1",
     "slug": "^8.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.40.0"
+    "@faker-js/faker": "^8.0.2",
+    "eslint": "^8.42.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "jest": "^29.5.0"
   }
 }

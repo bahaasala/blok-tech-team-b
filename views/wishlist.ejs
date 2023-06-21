@@ -1,0 +1,62 @@
+<%- include('partials/header.ejs') %>
+<div class="wishlist container">
+  <section class="wishlist__heading-container">
+    <h1 class="slide-in-left">My wishlist</h1>
+  </section>
+  <div class="wishlist__container">
+    <% if (user.savedTrips.length > 0) { %>
+    <ul class="bookings-list">
+      <% for (let savedTrip of user.savedTrips) { %>
+      <li class="trip-item">
+        <a href="/trips/<%= savedTrip.slug %>">
+          <div class="trip-image-container">
+            <% savedTrip.images.forEach((image) => { %>
+            <img
+              class="trip-image"
+              src="<%= image.url %>"
+              alt="<%= image.alt %>"
+              loading="lazy"
+            />
+            <% }) %>
+          </div>
+        </a>
+        <div class="wishlist-title-container">
+          <a href="/trips/<%= savedTrip.slug %>">
+            <h3 class="title"><%= savedTrip.destination %></h3>
+          </a>
+          <form method="post">
+            <fieldset>
+              <input type="hidden" name="tripId" value="<%- savedTrip._id %>" />
+              <button
+                type="submit"
+                class="trip-button-wishlist active"
+              >
+                <svg
+                  width="55"
+                  height="55"
+                  viewBox="0 0 99 97"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="99" height="97" fill="white" />
+                  <circle cx="49.5" cy="48.5" r="46.5" fill="white" />
+                  <path
+                    d="M49.5 75.4419C50.2579 75.4419 51.3656 74.8561 52.2693 74.2704C68.5642 63.7271 79 51.368 79 38.8625C79 28.0556 71.5667 20.5582 62.2678 20.5582C56.4669 20.5582 52.1235 23.7797 49.5 28.5828C46.9348 23.7797 42.5623 20.5582 36.7614 20.5582C27.4333 20.5582 20 28.0556 20 38.8625C20 51.368 30.4649 63.7271 46.7307 74.2704C47.6344 74.8561 48.7421 75.4419 49.5 75.4419Z"
+                    fill="#CBCBCB"
+                  />
+                </svg>
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </li>
+      <% }%>
+    </ul>
+
+    <% } else { %>
+    <section class="bookings__empty">
+      <h4>Your wishlist is empty</h4>
+    </section>
+    <% } %>
+  </div>
+</div>

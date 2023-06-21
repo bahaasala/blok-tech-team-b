@@ -1,12 +1,24 @@
 <header>
   <div>
-    <a href="/">
-      <img src="/images/logo.svg" alt="logo" />
+    <a href="/trips">
+      <img src="/images/logo.svg" alt="logo" loading="lazy"/>
     </a>
   </div>
+  <div class="spacer"></div>
   <% if (user) { %>
-  <a href="/profile/edit">
-    <img class="avatar" src="/images/<%= user.image %>" />
+  <a href="wishlist">
+    <img class="wishlist-icon" src="/images/wishlist.svg" alt="wishlist icon" loading="lazy"/>
+  </a>
+  <a href="bookings">
+    <img class="bookings-icon" src="/images/bookings.svg" alt="bookings icon" loading="lazy"/>
+  </a>
+  <a href="/account">
+    <img
+      class="profile-icon"
+      src="/images/<%= user.image_url %>"
+      alt="profile picture"
+      loading="lazy"
+    />
   </a>
   <% } %>
 </header>

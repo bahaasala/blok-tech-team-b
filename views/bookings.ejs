@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+<div class="bookings container">
+  <section class="bookings__heading-container">
+    <h1 class="slide-in-left">My bookings</h1>
+  </section>
+  <div class="bookings__container">
+    <% if (bookings.length > 0) { %>
+    <ul class="bookings-list">
+      <% for (let booking of bookings) { %>
+      <li class="trip-item">
+        <a href="/bookings/<%= booking.id %>">
+          <div class="trip-image-container">
+            <% booking.trip.images.forEach((image) => { %>
+            <img
+              class="trip-image"
+              src="<%= image.url %>"
+              alt="<%= image.alt %>"
+              loading="lazy"
+            />
+            <% }) %>
+          </div>
+        </a>
+        <div class="booking-title-container">
+          <a href="/bookings/<%= booking.id %>">
+            <h3 class="title"><%= booking.trip.destination %></h3>
+          </a>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+    <% } else { %>
+    <section class="bookings__empty">
+      <h4>No bookings found</h4>
+    </section>
+    <% } %>
+  </div>
+</div>
