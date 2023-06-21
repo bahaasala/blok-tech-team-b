@@ -180,7 +180,6 @@ a {
   margin: 10px 0;
 }
 .account section:first-child {
-  animation: 0.8s slide-right 0.05s ease-in-out both;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -196,9 +195,6 @@ a {
   text-align: center;
   color: #e85c05;
 }
-.account section:nth-of-type(2) {
-  animation: 0.8s slide-right 0.2s ease-in-out both;
-}
 .account section:nth-of-type(2) input {
   display: inline-block;
   cursor: pointer;
@@ -209,15 +205,6 @@ a {
   cursor: pointer;
   border: 1px solid #e85c05;
   background-color: #ffffff;
-}
-.account section:nth-of-type(3) {
-  animation: 0.8s slide-right 0.4s ease-in-out both;
-}
-.account section:nth-of-type(4) {
-  animation: 0.8s slide-right 0.6s ease-in-out both;
-}
-.account section:nth-of-type(5) {
-  animation: 0.8s slide-right 0.8s ease-in-out both;
 }
 .account .input_box {
   display: inline-block;
@@ -256,26 +243,6 @@ a {
   margin-top: 10px;
 }
 
-@-webkit-keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(-350px);
-    transform: translateX(-350px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-@keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(-350px);
-    transform: translateX(-350px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
 html {
   height: 100%;
   width: 100%;
