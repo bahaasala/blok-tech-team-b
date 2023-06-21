@@ -8,7 +8,7 @@ const changeUsernameController = async (req, res, next) => {
   try {
     const existingUser = await User.findOne({ username: newUsername })
     if (existingUser) {
-      throw new Error("Username already exists")
+      console.log("Username already exists")
     }
 
     await User.updateOne(

@@ -3,7 +3,7 @@
     <% if (isLoggedIn) { %>
     <img
       class="avatar"
-      src="/images/<%= user.image_url ? user.image_url : 'default-user.png' %>"
+      src="/images/<%= user.image_url ? user.image_url : 'default-user.jpg' %>"
       alt="avatar"
     />
     <h1><%= username %></h1>
@@ -11,7 +11,7 @@
     <% } %>
   </section>
 
-  <section>
+  <section class="slide-in-left">
     <% if (isLoggedIn) { %>
     <h2>Account</h2>
     <form action="/account/update-username" method="POST">
@@ -66,12 +66,12 @@
     <% } %>
   </section>
 
-  <section>
+  <section class="slide-in-left">
     <h2>Current Location</h2>
     <p id="currentLocation">Loading...</p>
   </section>
 
-  <section>
+  <section class="slide-in-left">
     <h2>Log out</h2>
     <p>Click here to log out.</p>
     <% if (isLoggedIn) { %>
@@ -81,7 +81,7 @@
     <% } %>
   </section>
 
-  <section>
+  <section class="slide-in-left">
     <h2>Delete account</h2>
     <p>Click here to delete account.</p>
     <% if (isLoggedIn) { %>
@@ -91,7 +91,7 @@
       method="POST"
       onsubmit="return confirm('Are you sure you want to delete your account?');"
     >
-      <button class="btn" type="submit">Delete Account</button>
+      <button class="btn btn--danger" type="submit">Delete Account</button>
     </form>
     <% } %>
   </section>

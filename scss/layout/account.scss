@@ -41,7 +41,6 @@
   }
 
   section:first-child {
-    animation: 0.8s slide-right 0.05s ease-in-out both;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,19 +69,6 @@
       border: 1px solid $color-orange;
       background-color: $color-white;
     }
-    animation: 0.8s slide-right 0.2s ease-in-out both;
-  }
-
-  section:nth-of-type(3) {
-    animation: 0.8s slide-right 0.4s ease-in-out both;
-  }
-
-  section:nth-of-type(4) {
-    animation: 0.8s slide-right 0.6s ease-in-out both;
-  }
-
-  section:nth-of-type(5) {
-    animation: 0.8s slide-right 0.8s ease-in-out both;
   }
   .input_box {
     display: inline-block;
@@ -123,26 +109,5 @@
 
   .profile_picture button {
     margin-top: 10px;
-  }
-}
-
-@-webkit-keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(-350px);
-    transform: translateX(-350px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-@keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(-350px);
-    transform: translateX(-350px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
   }
 }

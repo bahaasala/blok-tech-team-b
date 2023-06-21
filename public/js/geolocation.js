@@ -87,16 +87,3 @@ const currentLocationWaringMessage = document.querySelector(
 if (jsCheck == 1) {
   currentLocationWaringMessage.classList.add("hidden")
 }
-
-// Marc - Hide cancel booking screen on startup
-const removeBookingButton = document.getElementById("removeBookingButton")
-const removeBookingScreen = document.querySelector(".removeBookingScreen")
-const noKeepBookingButton = document.getElementById("noKeepBookingButton")
-
-removeBookingButton.addEventListener("click", () => {
-  removeBookingScreen.classList.remove("hidden")
-})
-
-noKeepBookingButton.addEventListener("click", () => {
-  removeBookingScreen.classList.add("hidden")
-})

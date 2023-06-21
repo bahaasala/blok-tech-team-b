@@ -4,9 +4,20 @@
       <img src="/images/logo.svg" alt="logo" />
     </a>
   </div>
+  <div class="spacer"></div>
   <% if (user) { %>
+  <a href="wishlist">
+    <img class="wishlist-icon" src="/images/wishlist.svg" alt="wishlist icon" />
+  </a>
+  <a href="bookings">
+    <img class="bookings-icon" src="/images/bookings.svg" alt="bookings icon" />
+  </a>
   <a href="/account">
-    <img class="avatar" src="/images/<%= user.image_url %>" alt="avatar" />
+    <img
+      class="profile-icon"
+      src="/images/<%= user.image_url %>"
+      alt="profile picture"
+    />
   </a>
   <% } %>
 </header>

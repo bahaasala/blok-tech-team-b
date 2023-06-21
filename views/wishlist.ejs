@@ -1,1 +1,37 @@
-<p>My wishlist</p>
+<%- include('partials/header.ejs') %>
+<div class="wishlist container">
+  <section class="wishlist__heading-container">
+    <h1 class="slide-in-left">My wishlist</h1>
+  </section>
+  <div class="wishlist__container">
+    <% if (user.savedTrips.length > 0) { %>
+    <ul class="bookings-list">
+      <% for (let savedTrip of user.savedTrips) { %>
+      <li class="trip-item">
+        <a href="/trips/<%= savedTrip.slug %>">
+          <div class="trip-image-container">
+            <% savedTrip.images.forEach((image) => { %>
+            <img
+              class="trip-image"
+              src="<%= image.url %>"
+              alt="<%= image.alt %>"
+            />
+            <% }) %>
+          </div>
+        </a>
+        <div class="wishlist-title-container">
+          <a href="/trips/<%= savedTrip.slug %>">
+            <h3 class="title"><%= savedTrip.destination %></h3>
+          </a>
+        </div>
+      </li>
+      <% }%>
+    </ul>
+
+    <% } else { %>
+    <section class="bookings__empty">
+      <h4>Your wishlist is empty</h4>
+    </section>
+    <% } %>
+  </div>
+</div>
