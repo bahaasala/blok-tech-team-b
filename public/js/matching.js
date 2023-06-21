@@ -13,7 +13,7 @@ if (dataset) {
 }
 
 const skipToNextApplication = () => {
-  const translateAmount = tripIndex * -26.5 + "rem"
+  const translateAmount = tripIndex * -25 + "rem"
   tripsContainer.style.transform = `translateX(${translateAmount})`
   tripIndex++
 }
@@ -24,9 +24,9 @@ skipBtn?.addEventListener("click", (e) => {
   if (tripIndex > pageData.length) {
     return skipBtn.classList.add("disabled")
   } else if (tripIndex === pageData.length) {
-    skipToNextApplication()
-    return skipBtn.classList.add("disabled")
+    skipBtn.classList.add("disabled")
   }
+  console.log("kaas")
   updateSeen(pageData, tripIndex - 1)
   skipToNextApplication()
 })
@@ -39,7 +39,6 @@ wishlistBtn?.forEach((btn) => {
     e.stopPropagation()
     const tripId = btn.getAttribute("data-id")
     const update = await updateWishlist(tripId)
-    console.log(update)
     if (!update) return
     if (update.action === "add") {
       btn.classList.add("active")

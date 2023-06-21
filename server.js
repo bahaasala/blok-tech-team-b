@@ -11,6 +11,7 @@ const bookingsRouter = require("./routes/bookingsRoutes")
 const wishlistRouter = require("./routes/wishlistRoutes")
 const accountRouter = require("./routes/accountRoutes")
 const connect = require("./schemas/connect")
+const path = require("path")
 
 // connect to MongoDB
 const connectDB = async () => {
@@ -32,7 +33,7 @@ app.use(expressLayouts)
 
 // urlencoded for form data
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.json())
 // call the connectDB function
 connectDB()
 
@@ -45,7 +46,6 @@ app.use(
     cookie: { secure: false } // Set secure to true if using HTTPS
   })
 )
-
 // Middleware to check if user is logged in
 const authenticateUser = (req, res, next) => {
   const allowedRoutes = ["/", "/login", "/register"]
@@ -54,6 +54,9 @@ const authenticateUser = (req, res, next) => {
     next()
   } else {
     // User is not logged in and trying to access a restricted page, redirect to login
+    if (path.extname(req.originalUrl) === "")
+      req.session.redirectUrl = req.originalUrl
+    console.log(req.originalUrl)
     res.redirect("/login")
   }
 }

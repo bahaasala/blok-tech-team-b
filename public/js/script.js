@@ -82,3 +82,42 @@ navigator.geolocation.getCurrentPosition(
     locationElement.textContent = "Error retrieving location."
   }
 )
+const sections = document.querySelectorAll(".trip-item")
+
+function fadeImages() {
+  sections.forEach((section) => {
+    const images = Array.from(
+      section.querySelectorAll(".trip-image:not(:first-child)")
+    )
+    gsap.fromTo(
+      images,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        stagger: 5, // Adjust the stagger value to control the delay between each section's images
+        repeat: -1, // Repeat the animation indefinitely
+        repeatDelay: 5, // Add a small delay between each repeat
+        yoyo: true // Reverse the animation for a smooth fade-in and fade-out effect
+      }
+    )
+  })
+}
+
+sections.length !== 0 && fadeImages()
+
+//Location
+const locationElement = document.getElementById("currentLocation")
+
+locationElement &&
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
+      locationElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`
+    },
+    (error) => {
+      console.error(error)
+      locationElement.textContent = "Failed to fetch current location."
+    }
+  )

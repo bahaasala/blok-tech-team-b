@@ -12,13 +12,13 @@
           <li class="trip-item">
             <a href="/trips/<%= trip.slug %>">
               <div class="trip-image-container">
-                <% for (let image of trip.images) { %>
+                <% trip.images.forEach((image) => { %>
                   <img
                     class="trip-image"
                     src="<%= image.url %>"
                     alt="<%= image.alt %>"
                   />
-                <% } %>
+                <% }) %>
               </div>
             </a>
             <div class="trip-title-container">

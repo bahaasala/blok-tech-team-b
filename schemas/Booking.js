@@ -17,6 +17,11 @@ const bookingSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  trip: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Trip",
+    required: true
+  },
   created_at: {
     type: Date,
     immutable: true,
@@ -27,12 +32,7 @@ const bookingSchema = new mongoose.Schema({
     default: () => Date.now()
   },
   date_range: availabilitySchema,
-  room: roomSchema,
-  price: Number,
-  destination: {
-    type: String,
-    required: true
-  }
+  room: roomSchema
 })
 
 bookingSchema

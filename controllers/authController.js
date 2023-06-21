@@ -1,4 +1,3 @@
-const { db } = require("../connect")
 const bcrypt = require("bcrypt")
 const User = require("../schemas/User")
 
@@ -16,7 +15,12 @@ const authController = async (req, res, next) => {
         req.session.username = username // username opslaan in de sessie
 
         req.session.save(() => {
-          res.redirect("/trips") // Doorsturen naar de userspagina
+          // Retrieve the stored redirect URL from the session
+          const redirectUrl = req.session.redirectUrl || "/login"
+
+          // Clear the stored redirect URL from the session
+          delete req.session.redirectUrl
+          res.redirect(redirectUrl === "/login" ? "/trips" : redirectUrl) // Doorsturen naar de userspagina
         })
         return //Stop de functie uitvoering na redirect
       }

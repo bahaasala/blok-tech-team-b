@@ -70,14 +70,14 @@ a {
   font-size: 12px;
 }
 
-.login {
-  position: absolute;
-  max-width: 425px;
-  margin: 0 auto;
+.login,
+.register {
   min-height: 100vh;
   width: 100%;
-  top: 0;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("../images/lisbon.jpg");
   background-size: cover;
   background-position: top;
@@ -120,22 +120,18 @@ a {
 }
 
 .register {
-  position: absolute;
-  max-width: 425px;
-  margin: 0 auto;
-  min-height: 100vh;
-  width: 100%;
-  top: 0;
-  z-index: 1;
   background-image: url("../images/bali.jpg");
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
 }
 
+.login_form_container,
+.register_form_container {
+  padding: 0 20px 0 20px;
+  width: 100%;
+  max-width: 425px;
+}
+.login_form_container form,
 .register_form_container form {
   padding: 30px 25px 30px 25px;
-  margin: 150px 20px 0px 20px;
   border-radius: 50px 0 0 0;
   background-color: #ffffff;
   display: flex;
@@ -149,17 +145,21 @@ a {
   border: solid 0.5px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+.login_form_container a,
 .register_form_container a {
   margin-top: 20px;
   text-align: center;
 }
+.login_form_container .btn,
 .register_form_container .btn {
   margin-top: 10px;
   padding: 10px 50px;
 }
+.login_form_container p,
 .register_form_container p {
   text-align: center;
 }
+.login_form_container i,
 .register_form_container i {
   font-size: 10px;
 }
@@ -231,7 +231,7 @@ a {
   display: inline-block;
   cursor: pointer;
 }
-.account section:nth-of-type(2) input[type=file]::file-selector-button {
+.account section:nth-of-type(2) input[type="file"]::file-selector-button {
   display: inline-block;
   padding: 16px 15px;
   cursor: pointer;
@@ -277,7 +277,7 @@ a {
 .account .profile_picture label {
   margin-bottom: 10px;
 }
-.account .profile_picture input[type=file] {
+.account .profile_picture input[type="file"] {
   display: none;
 }
 .account .profile_picture button {
@@ -304,6 +304,201 @@ a {
     transform: translateX(0);
   }
 }
+.review fieldset {
+  border-style: none;
+  margin: 0;
+  padding: 0;
+}
+.review legend {
+  font-weight: bold;
+  color: #1b2739;
+  margin-bottom: 20px;
+}
+.review label {
+  font-weight: bold;
+}
+.review section:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+}
+.review section:nth-of-type(3) {
+  display: flex;
+  flex-direction: column;
+}
+.review input {
+  margin-bottom: 20px;
+}
+.review summary {
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #1b2739;
+}
+.review div {
+  display: flex;
+  flex-direction: column;
+}
+.review div button {
+  color: #ffffff;
+  background-color: #1b2739;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.review div button:active {
+  color: #1b2739;
+  background-color: #ffffff;
+  border: 1px solid #1b2739;
+}
+.review section textarea {
+  margin-bottom: 40px;
+}
+.review section:nth-of-type(2) label:first-of-type {
+  margin-bottom: 20px;
+  color: #1b2739;
+}
+.review section:nth-of-type(2) textarea {
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #1b2739;
+}
+.review section:nth-of-type(3) label:first-of-type {
+  margin-bottom: 20px;
+  color: #1b2739;
+}
+.review section:nth-of-type(3) input {
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #1b2739;
+}
+.review section:nth-of-type(3) button {
+  color: #ffffff;
+  background-color: #1b2739;
+  border: 1px solid #1b2739;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.review section:nth-of-type(3) button:active {
+  color: #1b2739;
+  background-color: #ffffff;
+  border: 1px solid #1b2739;
+}
+
+.hidden {
+  display: none;
+}
+
+.clickedReview {
+  background-color: #fbc96d;
+}
+
+/* Marc -Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  line-height: 35px;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #1b2739;
+  text-shadow: 0 0 5px #e85c05;
+}
+.rating label:last-child {
+  position: static;
+}
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+.rating label:last-child .icon {
+  color: #1b2739;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #e85c05;
+}
+
+.removeBookingScreen {
+  background-color: #e80505;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.removeBookingScreen h2 {
+  color: #ffffff;
+  margin: 40px 20px 40px 20px;
+}
+.removeBookingScreen section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-around;
+  margin: 0px 20px 0px 20px;
+}
+.removeBookingScreen section button:first-of-type {
+  display: block;
+  background-color: #ffffff;
+  border-radius: 45px;
+  padding: 18px 20px;
+  color: #e80505;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-size: 16px;
+}
+.removeBookingScreen section button:first-of-type:hover {
+  background-color: #e80505;
+  color: #ffffff;
+}
+.removeBookingScreen section button:last-of-type {
+  display: block;
+  background-color: #e80505;
+  border-radius: 45px;
+  padding: 18px 20px;
+  color: #ffffff;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-size: 16px;
+}
+.removeBookingScreen section button:last-of-type:hover {
+  background-color: #e85c05;
+  border: solid 1px #e85c05;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -392,6 +587,10 @@ img {
   font-size: 1.3rem;
 }
 
+.home {
+  overflow: hidden;
+  width: 100%;
+}
 .home__intro-container {
   margin: 35px 25px 0px 25px;
 }
@@ -415,6 +614,10 @@ img {
 .home__trips-container {
   position: relative;
   margin-top: 50px;
+  left: 0;
+}
+.home__trips-container .trips-list {
+  max-width: 425px;
 }
 
 .trips {
@@ -451,9 +654,10 @@ img {
   max-height: 75vh;
   transition: 1s all;
   grid-auto-flow: column;
+  gap: 2rem;
 }
 .trips .trips-group > li {
-  width: 26.5rem;
+  width: 23rem;
   padding: 10px 25px;
 }
 .trips .trips-group > li.trips-end {
@@ -491,8 +695,8 @@ img {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 2rem;
-  grid-row-gap: 4.5rem;
-  padding-top: 1.5rem;
+  grid-row-gap: 4rem;
+  padding-top: 0.5rem;
   padding-bottom: 4rem;
   height: 100%;
   overflow: visible;
@@ -509,6 +713,10 @@ img {
 }
 .trips .trips-list li .trip-image-container img {
   border-top-right-radius: 8rem;
+  transition: opacity 0.5s;
+}
+.trips .trips-list li .trip-image-container img.active {
+  opacity: 1;
 }
 .trips .trips-list li .trip-title-container {
   margin-top: 1rem;
@@ -606,6 +814,7 @@ ul.trips-list li.active {
   z-index: 2;
   background: #ffffff;
   margin: 200px 20px 0px 20px;
+  width: 100%;
 }
 .trip__details-container .title-container {
   display: flex;
@@ -657,11 +866,11 @@ ul.trips-list li.active {
   right: 0;
   bottom: 0;
 }
-.book-trip form.booking-form .select-box input[type=radio] {
+.book-trip form.booking-form .select-box input[type="radio"] {
   opacity: 0.011;
   z-index: 100;
 }
-.book-trip form.booking-form .select-box input[type=radio]:checked + label {
+.book-trip form.booking-form .select-box input[type="radio"]:checked + label {
   background-color: #1b2739;
   color: #ffffff;
 }
@@ -688,6 +897,10 @@ ul.trips-list li.active {
 .book-btn-container > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.book-btn-container > div fieldset {
+  padding: 0;
 }
 .book-btn-container .spacer {
   width: 100px;
