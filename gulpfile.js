@@ -3,9 +3,9 @@ const cleanCSS = require("gulp-clean-css")
 
 function minifyCss() {
   return gulp
-    .src("public/css/index.css")
+    .src("public/styles/index.css")
     .pipe(cleanCSS())
-    .pipe(gulp.dest("public/css/min"))
+    .pipe(gulp.dest("public/styles/min"))
 }
 
 exports.default = gulp.series(minifyCss)
