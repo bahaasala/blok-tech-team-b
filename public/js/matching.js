@@ -26,7 +26,6 @@ skipBtn?.addEventListener("click", (e) => {
   } else if (tripIndex === pageData.length) {
     skipBtn.classList.add("disabled")
   }
-  console.log("kaas")
   updateSeen(pageData, tripIndex - 1)
   skipToNextApplication()
 })
@@ -51,9 +50,7 @@ wishlistBtn?.forEach((btn) => {
 const updateSeen = async (tripIds, index) => {
   return await axios
     .post(`/trips`, { action: "skip", sortedIds: tripIds, groupIndex: index })
-    .then((response) => {
-      console.log(response.data)
-    })
+    .then((response) => {})
     .catch((error) => {
       console.log(error)
     })
@@ -65,7 +62,6 @@ const updateWishlist = async (id) => {
       action: "wishlist",
       tripId: id
     })
-    console.log(response.data)
     return response.data
   } catch (error) {
     console.log(error)

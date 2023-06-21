@@ -1,9 +1,11 @@
+<%- include('partials/header.ejs') %>
 <article class="account">
   <section>
     <img
       class="avatar"
       src="/images/<%= user.image_url ? user.image_url : 'default-user.jpg' %>"
       alt="avatar"
+      loading="lazy"
     />
     <h1><%= username %></h1>
     <h2>Member since: <%= user.created_at.toDateString() %></h2>

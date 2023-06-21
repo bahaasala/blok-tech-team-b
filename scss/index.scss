@@ -42,18 +42,21 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  .spacer{
+  .spacer {
     width: 60px;
   }
-  .profile-icon, .bookings-icon, .wishlist-icon{
+  .profile-icon,
+  .bookings-icon,
+  .wishlist-icon {
     object-fit: cover;
   }
-  .profile-icon{
+  .profile-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
   }
-  .bookings-icon, .wishlist-icon{
+  .bookings-icon,
+  .wishlist-icon {
     width: 40px;
     height: 40px;
   }
@@ -76,17 +79,17 @@ img {
 }
 
 .trip-button-wishlist {
-    border-radius: 50%;
-    border: none;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -0.2rem;
-    transition: all 0.2s;
-    padding: 0;
+  border-radius: 50%;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.2rem;
+  transition: all 0.2s;
+  padding: 0;
 
   &:hover {
     color: $color-blue;
@@ -262,7 +265,8 @@ img {
 }
 
 // All trips & Bookings - List
-ul.trips-list, ul.bookings-list {
+ul.trips-list,
+ul.bookings-list {
   left: 0;
   width: 100%;
   display: flex;
@@ -316,7 +320,8 @@ ul.trips-list, ul.bookings-list {
 }
 
 // Single trip & Single booking
-.trip, .booking {
+.trip,
+.booking {
   margin: 0;
   display: flex;
   justify-content: center;
@@ -374,6 +379,9 @@ ul.trips-list, ul.bookings-list {
   &__details-container {
     margin-top: 100px;
     margin-bottom: 100px;
+  }
+  .back-icon-btn {
+    top: 30px;
   }
   form.booking-form {
     .select-box {
@@ -455,7 +463,8 @@ ul.trips-list, ul.bookings-list {
 }
 
 // Bookings
-.bookings, .wishlist {
+.bookings,
+.wishlist {
   *,
   *::before,
   *::after {
@@ -468,12 +477,12 @@ ul.trips-list, ul.bookings-list {
   height: 100%;
   overflow: hidden;
   position: relative;
-  
+
   &__heading-container {
     margin: 15px 25px 0px 25px;
   }
 
-  &__container{
+  &__container {
     position: fixed;
     margin-top: 50px;
     left: 0;
@@ -482,7 +491,7 @@ ul.trips-list, ul.bookings-list {
     .bookings-list {
       max-width: 425px;
       padding-bottom: 150px;
-      li > a{
+      li > a {
         position: relative;
       }
       .trip-item:first-child {
@@ -493,52 +502,69 @@ ul.trips-list, ul.bookings-list {
       }
     }
   }
-  &__empty{
-    h4{
+  &__empty {
+    h4 {
       margin: 0px 0px 0px 25px;
     }
   }
-  .booking-title-container, .wishlist-title-container{
+  .booking-title-container,
+  .wishlist-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     .title {
       text-align: center;
       margin-top: 30px;
+    }
+    form {
+      margin-top: 30px;
+      margin-right: 10px;
     }
   }
 }
 
 // reviews styling
-.reviews{
+.reviews {
   padding: 0;
-  .single-review{
+  .single-review {
     list-style-type: none;
     padding: 20px 0px;
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
 
-    &__header{
+    &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      h4{
+      h4 {
         flex-grow: 1;
         margin: 0;
         margin-left: 10px;
       }
-      .stars{
-        .star{
+      .stars {
+        .star {
           color: $color-orange--lighter;
         }
         align-self: flex-start;
       }
+      .name-country {
+        margin-right: auto;
+        > * {
+          margin-left: 10px;
+        }
+        em {
+          font-size: 0.8rem;
+        }
+      }
     }
-    &__picture{
+    &__picture {
       width: 50px;
       height: 50px;
       border-radius: 50%;
       object-fit: cover;
     }
-    &__description{
-      p{
+    &__description {
+      p {
         font-size: 13px;
       }
     }
@@ -546,89 +572,89 @@ ul.trips-list, ul.bookings-list {
 }
 .review {
   fieldset {
-      border-style: none;
-      margin: 0;
-      padding: 0;
+    border-style: none;
+    margin: 0;
+    padding: 0;
   }
   legend {
-      font-weight: bold;
-      color: $color-blue;
-      margin-bottom: 20px;
+    font-weight: bold;
+    color: $color-blue;
+    margin-bottom: 20px;
   }
   label {
-      font-weight: bold;
-  }
-  section:nth-of-type(2){
-      display: flex;
-      flex-direction: column;
-  }
-  section:nth-of-type(3){
-      display: flex;
-      flex-direction: column;
-  }
-  input {
-      margin-bottom: 20px;
-  }
-  summary {
-      margin-bottom: 40px;
-      font-weight: bold;
-      color: $color-blue;
-  }
-  div {
-      display: flex;
-      flex-direction: column;
-      button {
-          color: $color-white;
-          background-color: $color-blue;
-          border: 1px solid;
-          border-radius: 20px;
-          padding: 10px;
-          margin-bottom: 40px;
-      }
-      button:active{
-          color: $color-blue;
-          background-color: $color-white;
-          border: 1px solid $color-blue;
-      }
-  }
-  section textarea {
-      margin-bottom: 40px;
+    font-weight: bold;
   }
   section:nth-of-type(2) {
-      label:first-of-type {
-          margin-bottom: 20px;
-          color: $color-blue;
-      }
-      textarea {
-          font-family: 'Montserrat', sans-serif;
-          padding: 10px;
-          border-radius: 10px;
-          border: solid 1px $color-blue;
-      }
+    display: flex;
+    flex-direction: column;
   }
   section:nth-of-type(3) {
-      label:first-of-type{
-          margin-bottom: 20px;
-          color: $color-blue;
-      }
-      input {
-          padding: 10px;
-          border-radius: 10px;
-          border: solid 1px  $color-blue;
-      }
-      button {
-          color: $color-white;
-          background-color: $color-blue;
-          border: 1px solid $color-blue;
-          border-radius: 20px;
-          padding: 10px;
-          margin-bottom: 40px;
-      }
-      button:active {
-          color: $color-blue;
-          background-color: $color-white;
-          border: 1px solid $color-blue;
-      }
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin-bottom: 20px;
+  }
+  summary {
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: $color-blue;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    button {
+      color: $color-white;
+      background-color: $color-blue;
+      border: 1px solid;
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+    button:active {
+      color: $color-blue;
+      background-color: $color-white;
+      border: 1px solid $color-blue;
+    }
+  }
+  section textarea {
+    margin-bottom: 40px;
+  }
+  section:nth-of-type(2) {
+    label:first-of-type {
+      margin-bottom: 20px;
+      color: $color-blue;
+    }
+    textarea {
+      font-family: "Montserrat", sans-serif;
+      padding: 10px;
+      border-radius: 10px;
+      border: solid 1px $color-blue;
+    }
+  }
+  section:nth-of-type(3) {
+    label:first-of-type {
+      margin-bottom: 20px;
+      color: $color-blue;
+    }
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: solid 1px $color-blue;
+    }
+    button {
+      color: $color-white;
+      background-color: $color-blue;
+      border: 1px solid $color-blue;
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+    button:active {
+      color: $color-blue;
+      background-color: $color-white;
+      border: 1px solid $color-blue;
+    }
   }
 }
 /* Marc -Rating css bron: https://codepen.io/neilpomerleau/pen/wzxzQM?editors=1111 */
@@ -640,46 +666,46 @@ ul.trips-list, ul.bookings-list {
   font-size: 35px;
   margin-bottom: 20px;
   label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+    input {
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
-      cursor: pointer;
-      input {
-          position: absolute;
-          top: 0;
-          left: 0;
-          opacity: 0;
-      }
-      .icon {
-          float: left;
-          color: transparent;
-      }
-      input:focus:not(:checked) ~ .icon:last-child {
-          color: $color-blue;
-          text-shadow: 0 0 5px $color-orange;
-      }
+      opacity: 0;
+    }
+    .icon {
+      float: left;
+      color: transparent;
+    }
+    input:focus:not(:checked) ~ .icon:last-child {
+      color: $color-blue;
+      text-shadow: 0 0 5px $color-orange;
+    }
   }
   label:last-child {
-      position: static;
+    position: static;
   }
   label:nth-child(1) {
-      z-index: 5;
+    z-index: 5;
   }
   label:nth-child(2) {
-      z-index: 4;
+    z-index: 4;
   }
   label:nth-child(3) {
-      z-index: 3;
+    z-index: 3;
   }
   label:nth-child(4) {
-      z-index: 2;
+    z-index: 2;
   }
   label:nth-child(5) {
-      z-index: 1;
+    z-index: 1;
   }
   label:last-child .icon {
-      color: $color-blue;
+    color: $color-blue;
   }
 }
 // Marc - Rating css continued
@@ -697,7 +723,11 @@ ul.trips-list, ul.bookings-list {
 }
 // Marc - Remove booking Styling
 .removeBookingScreen {
-  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(0 0 0 / 85%) 100%);
+  background: linear-gradient(
+    180deg,
+    rgb(255, 255, 255) 0%,
+    rgb(0 0 0 / 85%) 100%
+  );
   position: fixed;
   left: 0;
   right: 0;
@@ -706,33 +736,33 @@ ul.trips-list, ul.bookings-list {
   z-index: 9999;
   padding: 150px 40px 40px 40px;
   h2 {
-      margin-bottom: 50px;
+    margin-bottom: 50px;
   }
-  .btn{
-      &--secondary {
-          background-color: $color-black;
-          border-color: $color-black;
-          margin-bottom: 20px;
-      }
+  .btn {
+    &--secondary {
+      background-color: $color-black;
+      border-color: $color-black;
+      margin-bottom: 20px;
+    }
   }
   section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: space-around;
-      margin: 0px 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 0px 20px 0px 20px;
   }
 }
 
 // back icon button
-.back-icon-btn{
+.back-icon-btn {
   position: absolute;
   width: 50px;
   height: 50px;
   z-index: 9999;
   left: 20px;
   top: 120px;
-  img{
+  img {
     border-radius: 50%;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   }
