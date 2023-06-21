@@ -84,41 +84,6 @@ a {
   background-attachment: fixed;
 }
 
-.login_form_container form {
-  padding: 30px 25px 30px 25px;
-  margin: 200px 20px 0px 20px;
-  border-radius: 50px 0 0 0;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-}
-.login_form_container .input_box {
-  display: inline-block;
-  margin: 0 0 20px 0;
-  position: relative;
-  padding: 10px 5px;
-  border: solid 0.5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-.login_form_container a {
-  margin-top: 20px;
-  text-align: center;
-}
-.login_form_container .btn {
-  margin-top: 10px;
-  padding: 10px 50px;
-}
-
-.wrong_login {
-  color: #e80505;
-  text-align: center;
-}
-
-.success_message {
-  color: #0ed600;
-  text-align: center;
-}
-
 .register {
   background-image: url("../images/bali.jpg");
 }
@@ -133,10 +98,12 @@ a {
 .register_form_container form {
   padding: 30px 25px 30px 25px;
   border-radius: 50px 0 0 0;
+  margin: 0;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
 }
+.login_form_container .input_box,
 .register_form_container .input_box {
   display: inline-block;
   margin: 0 0 20px 0;
@@ -164,7 +131,13 @@ a {
   font-size: 10px;
 }
 
-.registration_failed {
+.wrong_login {
+  margin-top: 15px;
+  color: #e80505;
+  text-align: center;
+}
+
+.user_exists {
   color: #e80505;
   text-align: center;
 }
@@ -231,7 +204,7 @@ a {
   display: inline-block;
   cursor: pointer;
 }
-.account section:nth-of-type(2) input[type="file"]::file-selector-button {
+.account section:nth-of-type(2) input[type=file]::file-selector-button {
   display: inline-block;
   padding: 16px 15px;
   cursor: pointer;
@@ -277,7 +250,7 @@ a {
 .account .profile_picture label {
   margin-bottom: 10px;
 }
-.account .profile_picture input[type="file"] {
+.account .profile_picture input[type=file] {
   display: none;
 }
 .account .profile_picture button {
@@ -866,11 +839,11 @@ ul.trips-list li.active {
   right: 0;
   bottom: 0;
 }
-.book-trip form.booking-form .select-box input[type="radio"] {
+.book-trip form.booking-form .select-box input[type=radio] {
   opacity: 0.011;
   z-index: 100;
 }
-.book-trip form.booking-form .select-box input[type="radio"]:checked + label {
+.book-trip form.booking-form .select-box input[type=radio]:checked + label {
   background-color: #1b2739;
   color: #ffffff;
 }

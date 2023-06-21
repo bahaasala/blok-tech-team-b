@@ -20,11 +20,7 @@ const upload = multer({
 }).single("profilePicture")
 
 const compressImage = async (source, destination, quality) => {
-  await sharp(source)
-    .jpg({ quality: quality })
-    .png({ quality: quality })
-    .jpeg({ quality: quality })
-    .toFile(destination)
+  await sharp(source).jpeg({ quality: quality }).toFile(destination)
 }
 const compressProfilePicture = async (source, destination) => {
   await compressImage(source, destination, 80)
