@@ -62,6 +62,7 @@ const updateWishlist = async (id) => {
       action: "wishlist",
       tripId: id
     })
+    return response.data
   } catch (error) {
     console.log(error)
   }
