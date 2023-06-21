@@ -740,12 +740,27 @@ ul.bookings-list li.active {
 .wishlist__empty h4 {
   margin: 0px 0px 0px 25px;
 }
+.bookings .booking-title-container,
+.bookings .wishlist-title-container,
+.wishlist .booking-title-container,
+.wishlist .wishlist-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .bookings .booking-title-container .title,
 .bookings .wishlist-title-container .title,
 .wishlist .booking-title-container .title,
 .wishlist .wishlist-title-container .title {
   text-align: center;
   margin-top: 30px;
+}
+.bookings .booking-title-container form,
+.bookings .wishlist-title-container form,
+.wishlist .booking-title-container form,
+.wishlist .wishlist-title-container form {
+  margin-top: 30px;
+  margin-right: 10px;
 }
 
 .reviews {
