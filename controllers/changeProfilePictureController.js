@@ -31,7 +31,7 @@ const changeProfilePictureController = async (req, res, next) => {
     const { username } = req.session
     const user = await User.findOne({ username })
 
-    if (user.image_url !== "default-user.png") {
+    if (user.image_url !== "default-user.jpg") {
       const path = `public/images/${user.image_url}`
       fs.unlink(path, (err) => {
         if (err) {
