@@ -1,6 +1,15 @@
+const User = require("../schemas/User")
+
 const wishlistController = async (req, res, next) => {
   try {
-    res.render("wishlist.ejs", { title: "My wishlist" })
+    const user = await User.findOne({
+      username: req.session.username
+    }).populate("savedTrips")
+
+    res.render("wishlist.ejs", {
+      title: "My wishlist",
+      user: user
+    })
   } catch (err) {
     next(err)
   }

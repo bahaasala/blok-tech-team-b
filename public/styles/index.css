@@ -840,7 +840,7 @@ ul.trips-list li.active, ul.bookings-list li.active {
   justify-content: flex-end;
 }
 
-.bookings {
+.bookings, .wishlist {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -848,39 +848,41 @@ ul.trips-list li.active, ul.bookings-list li.active {
 }
 .bookings *,
 .bookings *::before,
-.bookings *::after {
+.bookings *::after, .wishlist *,
+.wishlist *::before,
+.wishlist *::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.bookings__heading-container {
+.bookings__heading-container, .wishlist__heading-container {
   margin: 15px 25px 0px 25px;
 }
-.bookings__container {
+.bookings__container, .wishlist__container {
   position: fixed;
   margin-top: 50px;
   left: 0;
   height: 100%;
   overflow: auto;
 }
-.bookings__container .bookings-list {
+.bookings__container .bookings-list, .wishlist__container .bookings-list {
   max-width: 425px;
   overflow: unset;
 }
-.bookings__container .bookings-list li > a {
+.bookings__container .bookings-list li > a, .wishlist__container .bookings-list li > a {
   position: relative;
 }
-.bookings__container .bookings-list .trip-item:first-child {
+.bookings__container .bookings-list .trip-item:first-child, .wishlist__container .bookings-list .trip-item:first-child {
   margin-left: 25px;
 }
-.bookings__container .bookings-list .trip-item:last-child {
+.bookings__container .bookings-list .trip-item:last-child, .wishlist__container .bookings-list .trip-item:last-child {
   margin-right: 100px;
 }
-.bookings__empty h4 {
+.bookings__empty h4, .wishlist__empty h4 {
   margin: 0px 0px 0px 25px;
 }
-.bookings .booking-title-container .title {
+.bookings .booking-title-container .title, .bookings .wishlist-title-container .title, .wishlist .booking-title-container .title, .wishlist .wishlist-title-container .title {
   text-align: center;
   margin-top: 30px;
 }

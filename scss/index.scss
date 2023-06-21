@@ -452,7 +452,7 @@ ul.trips-list, ul.bookings-list {
 }
 
 // Bookings
-.bookings {
+.bookings, .wishlist {
   *,
   *::before,
   *::after {
@@ -495,7 +495,7 @@ ul.trips-list, ul.bookings-list {
       margin: 0px 0px 0px 25px;
     }
   }
-  .booking-title-container{
+  .booking-title-container, .wishlist-title-container{
     .title {
       text-align: center;
       margin-top: 30px;
@@ -541,6 +541,8 @@ ul.trips-list, ul.bookings-list {
     }
   }
 }
+
+
 
 
 // back icon button
