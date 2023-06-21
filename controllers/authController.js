@@ -13,6 +13,7 @@ const authController = async (req, res, next) => {
       if (match) {
         req.session.isLoggedIn = true // Sessie markeren als ingelogdc
         req.session.username = username // username opslaan in de sessie
+        req.session.userId = user._id // userId opslaan in de sessie
 
         req.session.save(() => {
           // Retrieve the stored redirect URL from the session
