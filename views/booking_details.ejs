@@ -48,7 +48,10 @@
               <% } else { %>
               <img class="single-review__picture" src="/images/bahaa.jpg" loading="lazy"/>
               <% } %>
-              <h4><%= review.user.username %></h4>
+              <div class="name-country">
+                <h4><%= review.user.username %></h4>
+                <em><%= review.country %></em>
+              </div>
               <div class="stars">
                 <% for (let i = 0; i < review.rating; i++) { %>
                 <span class="star">&#9733;</span>

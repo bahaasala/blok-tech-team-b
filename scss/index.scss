@@ -547,6 +547,15 @@ ul.bookings-list {
         }
         align-self: flex-start;
       }
+      .name-country {
+        margin-right: auto;
+        > * {
+          margin-left: 10px;
+        }
+        em {
+          font-size: 0.8rem;
+        }
+      }
     }
     &__picture {
       width: 50px;
