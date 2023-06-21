@@ -16,7 +16,8 @@ const singleTripController = async (req, res, next) => {
       title: trip.destination,
       user: user,
       trip: trip,
-      reviews: reviews
+      reviews: reviews,
+      duplicate: false
     })
   } catch (err) {
     next(err)

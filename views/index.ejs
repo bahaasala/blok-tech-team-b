@@ -1,6 +1,6 @@
 <div class="home container">
   <div class="home__intro-container">
-    <img class="logo slide-in-left" src="/images/logo.svg" alt="logo" />
+    <img class="logo slide-in-left" src="/images/logo.svg" alt="logo" loading="lazy"/>
     <p class="tagline slide-in-left">making group travel cool!</p>
     <h2 class="title slide-in-left">Adventure Awaits, Student Style!</h2>
     <a class="btn slide-in-top" href="/trips">explore now</a>
@@ -10,7 +10,7 @@
       <% for (let trip of trips) { %>
       <li class="trip-item">
         <% for (let image of trip.images) { %>
-        <img class="trip-image" src="<%= image.url %>" alt="<%= image.alt %>" />
+        <img class="trip-image" src="<%= image.url %>" alt="<%= image.alt %>" loading="lazy"/>
         <% } %>
       </li>
       <% } %>

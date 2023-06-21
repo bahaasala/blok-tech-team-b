@@ -16,8 +16,6 @@ const addReviewController = async (req, res, next) => {
       reviewRatingSelector
     }
 
-    console.log(reviewFormData)
-
     const run = async () => {
       try {
         const reviewSchema = await Review.create({

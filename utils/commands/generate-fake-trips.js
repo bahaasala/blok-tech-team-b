@@ -59,7 +59,6 @@ const generateFakeTrips = async (amount) => {
     }
     trips.push(trip)
   }
-  console.log(trips)
   return trips
 }
 

@@ -5,7 +5,7 @@
     style="background-image: url('<%= trip.images[2].url %>')"
   ></div>
   <a class="back-icon-btn" onclick="history.back()">
-    <img class="back-icon" src="/images/back.svg" alt="back icon" />
+    <img class="back-icon" src="/images/back.svg" alt="back icon" loading="lazy"/>
   </a>
   <div class="trip__details-container slide-in-top">
     <div class="title-container slide-in-top">
@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="inner-container slide-in-top">
+      <%- duplicate && '<p class="account_fail">You have already booked this trip</p>'%>
       <section>
         <h4>description</h4>
         <p><%= trip.description %></p>
@@ -38,9 +39,10 @@
               <img
                 class="single-review__picture"
                 src="/images/<%= review.user.image_url %>"
+                loading="lazy"
               />
               <% } else { %>
-              <img class="single-review__picture" src="/images/bahaa.jpg" />
+              <img class="single-review__picture" src="/images/bahaa.jpg" loading="lazy"/>
               <% } %>
               <h4><%= review.user.username %></h4>
               <div class="stars">

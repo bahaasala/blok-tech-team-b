@@ -54,34 +54,37 @@ window.addEventListener("load", () => {
 })
 
 // Location
-navigator.geolocation.getCurrentPosition(
-  (position) => {
-    const latitude = position.coords.latitude
-    const longitude = position.coords.longitude
-    const locationElement = document.getElementById("currentLocation")
-    const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key
+const locationElement = document.getElementById("currentLocation")
+locationElement &&
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
+      const apiKey = "15a0ff507ba54cdeaa2699add37a5999" // API key
 
-    // Reverse geocoding
-    const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}` // Vervang apiKey met je eigen API-sleutel
+      // Reverse geocoding
+      const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}` // Vervang apiKey met je eigen API-sleutel
 
-    fetch(reverseGeocodingUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const address = data.features[0].properties
-        const city = address.city || address.town || address.village || ""
-        const country = address.country || ""
-        locationElement.textContent = `Location: ${city}, ${country}` // Toon plaatsnaam en land
-      })
-      .catch((error) => {
-        locationElement.textContent = "Error retrieving location"
-      })
-  },
-  (error) => {
-    console.error(error)
-    const locationElement = document.getElementById("currentLocation")
-    locationElement.textContent = "Error retrieving location."
-  }
-)
+      fetch(reverseGeocodingUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const address = data.features[0].properties
+          const city = address.city || address.town || address.village || ""
+          const country = address.country || ""
+          locationElement.textContent = `Location: ${city}, ${country}` // Toon plaatsnaam en land
+        })
+        .catch((error) => {
+          locationElement.textContent = "Error retrieving location"
+        })
+    },
+    (error) => {
+      console.error(error)
+      const locationElement = document.getElementById("currentLocation")
+      locationElement.textContent = "Error retrieving location."
+    }
+  )
+
+// trip image fading
 const sections = document.querySelectorAll(".trip-item")
 
 function fadeImages() {
@@ -106,31 +109,15 @@ function fadeImages() {
 
 sections.length !== 0 && fadeImages()
 
-//Location
-const locationElement = document.getElementById("currentLocation")
-
-locationElement &&
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const latitude = position.coords.latitude
-      const longitude = position.coords.longitude
-      locationElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`
-    },
-    (error) => {
-      console.error(error)
-      locationElement.textContent = "Failed to fetch current location."
-    }
-  )
-
 // Marc - Hide cancel booking screen on startup
 const removeBookingButton = document.getElementById("removeBookingButton")
 const removeBookingScreen = document.querySelector(".removeBookingScreen")
 const noKeepBookingButton = document.getElementById("noKeepBookingButton")
 
-removeBookingButton.addEventListener("click", () => {
+removeBookingButton?.addEventListener("click", () => {
   removeBookingScreen.classList.remove("hidden")
 })
 
-noKeepBookingButton.addEventListener("click", () => {
+noKeepBookingButton?.addEventListener("click", () => {
   removeBookingScreen.classList.add("hidden")
 })
