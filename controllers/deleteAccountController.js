@@ -8,7 +8,7 @@ const deleteAccountController = async (req, res, next) => {
     const userId = req.session.userId
 
     // Verwijder de gebruiker uit de database
-    await User.deleteOne({ username: username })
+    await User.deleteOne({ _id: userId })
 
     // Delete all reviews from user
     await Review.deleteMany({ user: userId })
