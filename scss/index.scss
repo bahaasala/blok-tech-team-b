@@ -478,7 +478,7 @@ ul.trips-list, ul.bookings-list {
     overflow: auto;
     .bookings-list {
       max-width: 425px;
-      overflow: unset;
+      padding-bottom: 150px;
       li > a{
         position: relative;
       }

@@ -868,7 +868,7 @@ ul.trips-list li.active, ul.bookings-list li.active {
 }
 .bookings__container .bookings-list, .wishlist__container .bookings-list {
   max-width: 425px;
-  overflow: unset;
+  padding-bottom: 150px;
 }
 .bookings__container .bookings-list li > a, .wishlist__container .bookings-list li > a {
   position: relative;
