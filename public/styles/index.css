@@ -885,6 +885,41 @@ ul.trips-list li.active, ul.bookings-list li.active {
   margin-top: 30px;
 }
 
+.reviews {
+  padding: 0;
+}
+.reviews .single-review {
+  list-style-type: none;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.reviews .single-review__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reviews .single-review__header h4 {
+  flex-grow: 1;
+  margin: 0;
+  margin-left: 10px;
+}
+.reviews .single-review__header .stars {
+  align-self: flex-start;
+}
+.reviews .single-review__header .stars .star {
+  color: #FFAC34;
+}
+.reviews .single-review__picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.reviews .single-review__description p {
+  font-size: 13px;
+}
+
 .back-icon-btn {
   position: absolute;
   width: 50px;
