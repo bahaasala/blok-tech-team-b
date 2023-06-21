@@ -3,6 +3,7 @@ const session = require("express-session")
 const expressLayouts = require("express-ejs-layouts")
 const app = express()
 const port = 3000
+const multer = require("multer")
 
 const userRouter = require("./routes/userRoutes")
 const tripsRouter = require("./routes/tripsRoutes")

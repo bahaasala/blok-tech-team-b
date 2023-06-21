@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   },
   image_url: {
     type: String,
-    default: "../images/default-user.png"
+    default: "default-user.png"
   },
   created_at: {
     type: Date,
@@ -26,7 +26,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: () => Date.now()
   },
-  image_url: String,
   savedTrips: [
     {
       type: mongoose.Schema.Types.ObjectId,
