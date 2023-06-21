@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx sass scss/index.scss public/styles/index.css",
     "watch": "npx sass --watch scss/index.scss:public/styles/index.css",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "node schemas/test-runner.js",
     "dev": "concurrently --kill-others \"npm run watch\"  \"npm run start\" "
   },
