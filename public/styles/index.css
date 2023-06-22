@@ -165,6 +165,7 @@ a {
   height: 80px;
   background-color: #909090;
   border-radius: 50%;
+  object-fit: cover;
 }
 .account section h2 {
   font-weight: bold;

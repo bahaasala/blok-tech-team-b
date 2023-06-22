@@ -18,7 +18,9 @@ const changePasswordController = async (req, res, next) => {
 
     if (!passwordMatch) {
       res.render("account.ejs", {
-        passwordFailed: "Incorrect current password"
+        title: "My account",
+        passwordFailed: "Incorrect current password",
+        user: user
       })
       return
     }
