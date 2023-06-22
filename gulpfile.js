@@ -1,5 +1,6 @@
 const gulp = require("gulp")
 const cleanCSS = require("gulp-clean-css")
+const uglify = require("gulp-uglify")
 
 function minifyCss() {
   return gulp
@@ -8,4 +9,11 @@ function minifyCss() {
     .pipe(gulp.dest("public/styles/min"))
 }
 
-exports.default = gulp.series(minifyCss)
+function minifyJs() {
+  return gulp
+    .src("public/js/*.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("public/js/min"))
+}
+
+exports.default = gulp.series(minifyCss, minifyJs)
