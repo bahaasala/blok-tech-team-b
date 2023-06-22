@@ -1,5 +1,6 @@
 const gulp = require("gulp")
 const cleanCSS = require("gulp-clean-css")
+const minify = require("gulp-minify")
 
 function minifyCss() {
   return gulp
@@ -8,4 +9,15 @@ function minifyCss() {
     .pipe(gulp.dest("public/styles/min"))
 }
 
-exports.default = gulp.series(minifyCss)
+function minifyJs() {
+  return gulp
+    .src(
+      "public/js/geolocation.js",
+      "public/js/matching.js",
+      "public/js/script.js"
+    )
+    .pipe(minify())
+    .pipe(gulp.dest("public/js/min-js"))
+}
+
+exports.default = gulp.series(minifyCss, minifyJs)
